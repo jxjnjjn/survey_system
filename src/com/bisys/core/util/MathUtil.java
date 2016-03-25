@@ -1,0 +1,74 @@
+package com.bisys.core.util;
+import org.apache.log4j.Logger;
+
+public class MathUtil {
+
+	/**
+	 * double类型的除法
+	 * @param dividend  被除数
+	 * @param divisor  除数，为0返回0
+     * @return double
+	 */
+	private static Logger logger = Logger.getLogger(MathUtil.class);
+	public static double dividedByDouble(double dividend, double divisor){
+		return isZero(divisor) ? 0 : (dividend/divisor);
+	}
+	
+	public static long dividedByLong(long dividend, long divisor){
+		return divisor == 0 ? 0 : (dividend/divisor);
+	}
+	
+	public static long modByLong(long dividend, long divisor){
+		return divisor == 0 ? 0 : (dividend%divisor);
+	}
+	
+	public static double dividedByDoubleSpec(double dividend, double divisor){
+		boolean dividedFlag = isZero(dividend);
+		boolean divisorFlag = isZero(divisor);
+		
+		if(dividedFlag)
+		{
+			return 0;
+		}
+		else if(divisorFlag && dividend > 0)
+		{
+			return 1;
+		}
+		else if(divisorFlag && dividend < 0)
+		{
+			return -1;
+		}
+		else
+		{
+			return dividend/divisor;
+		}
+	}
+	
+	public static boolean isZero(double value){
+		return Math.abs(value)<0.00000001 ? true : false;
+	}
+	
+	public static boolean isZero(int value){
+		return value==0;
+	}
+	
+	public static double round (double value , int precisiou){
+		if(precisiou <= 0 || precisiou >= 10)
+		{
+			logger.error("The decimal precision do not support ! "+"The precisiou = "+ precisiou);
+		}
+		
+		double tmp = Math.pow(10, precisiou);
+		return Math.round(value*tmp)/tmp;
+	}
+	
+	public static String round (double value){
+		return String.format("%.2f", value).toString();
+		//return Math.round(value*100)/100.0;
+	}
+	
+	public static String diffRate (double src , double compare)
+	{
+		return MathUtil.round(MathUtil.dividedByDoubleSpec(src - compare, Math.abs(compare))*100);
+	}
+}

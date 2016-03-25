@@ -1,0 +1,151 @@
+package com.bisys.core.action.system;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.bisys.core.entity.JsonResult;
+import com.bisys.core.entity.vo.SysUserVo;
+import com.bisys.core.exception.ServiceException;
+import com.bisys.core.service.UserService;
+import com.google.gson.Gson;
+
+/**
+ * 登录页面
+ * @author noviachan
+ *
+ */
+@Controller
+@RequestMapping("/system")
+public class SysLoginController{
+	
+	private Logger logger = Logger.getLogger(this.getClass());
+	
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login(HttpServletRequest request){
+		logger.info("管理员/会员登录");
+		return "system/login";
+	}
+	
+	@RequestMapping(value = "register", method = RequestMethod.GET)
+	public String register(HttpServletRequest request){
+		logger.info("会员注册");
+		return "system/register";
+	}
+	
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request){
+		logger.info("系统管理员退出登录");
+		Subject currentUser = SecurityUtils.getSubject();
+		try {
+			currentUser.logout();
+		} catch (AuthenticationException e) {
+			e.printStackTrace();
+		}
+		return "system/login";
+	}
+	
+	/**
+	 * 系统管理员登录接口
+	 */
+	@RequestMapping(value = "loginCheck", method = RequestMethod.POST)
+	@ResponseBody 
+	public String loginCheck( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.info("用户登录信息:" + user.toString());
+		
+		boolean flag = false;
+		String errorMessage = "用户登录失败";
+		JsonResult jsonResult = new JsonResult();
+		
+		try {
+			user = userService.sysAdminLogin(user, request, response);
+			flag = true;
+		}catch (ServiceException serviceE){
+			logger.error("sys admin login failed!"+serviceE.getMessage());
+			errorMessage = serviceE.getMessage();
+		}catch (Exception e) {
+			logger.error("sys admin login failed!", e);
+		}
+		
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "用户登录成功" : errorMessage);
+		jsonResult.setData(user);
+		return new Gson().toJson(jsonResult);
+	}
+	
+	/**
+	 * 添加用户
+	 */
+	@RequestMapping(value = "addUser", method = RequestMethod.GET)
+	@ResponseBody 
+	public String addUser( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.info("添加用户:" + user.toString());
+		return null;
+	}
+	
+	/**
+	 * 获取验证码
+	 */
+	@RequestMapping(value = "getvaildcode", method = RequestMethod.GET)
+	@ResponseBody 
+	public String getVaildcode( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.info("获取验证码:" + user.toString());
+		return null;
+	}
+	
+	/**
+	 * 找回密码
+	 */
+	@RequestMapping(value = "getbackpassword", method = RequestMethod.GET)
+	@ResponseBody 
+	public String getBackPassword( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.info("找回密码:" + user.toString());
+		return null;
+	}
+	
+	/**
+	 * 系统管理员修改密码接口
+	 */
+	@RequestMapping(value = "changepass", method = RequestMethod.POST)
+	@ResponseBody 
+	public String changePass( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.info("修改密码用户信息:" + user.toString());
+		
+		boolean flag = false;
+		String errorMessage = "修改密码失败";
+		JsonResult jsonResult = new JsonResult();
+		
+		try {
+			user = userService.sysAdminChangePass(user, request, response);
+			flag = true;
+		}catch (ServiceException serviceE){
+			logger.error("change user failed!"+serviceE.getMessage());
+			errorMessage = serviceE.getMessage();
+		}catch (Exception e) {
+			logger.error("change user failed!", e);
+		}
+		
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "修改密码成功" : errorMessage);
+		jsonResult.setData(user);
+		return new Gson().toJson(jsonResult);
+	}
+}
