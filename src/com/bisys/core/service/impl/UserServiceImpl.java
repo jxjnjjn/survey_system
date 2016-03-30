@@ -90,6 +90,7 @@ public class UserServiceImpl implements UserService {
 		List<UserManage> list = null;
 		try {
 			list = userDao.findUserByUsername(username);
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
