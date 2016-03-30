@@ -14,7 +14,6 @@ $(document).ready(function(){
 });
 
 function register(){
-// 			var datasent = {"userName":"王test","userPass":"admin","userEmail":"wangyong@qq.com"};
 	var btn = $("#registerBtn");
     btn.button('loading');
 	var datasent = $("#registerForm").serializeObject();
@@ -41,6 +40,7 @@ function register(){
 
 function validcode() {
 	var random = new Date().getTime();
+	$("#randomString").val(random);
 	//$("#authCodeImg").attr("src", "/valid/getValidCode?randomString="+random);
 	$.ajax({
 		type : "GET",

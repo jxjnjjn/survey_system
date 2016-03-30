@@ -59,6 +59,27 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.bisys.core.service.UserService#sysAdminRegister(com.bisys.core.entity.vo.SysUserVo, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+	 */
+	@Override
+	public SysUserVo sysAdminRegister(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		if(!validCodeService.checkValidCode(user.getRandomString(), user.getAuthcode())){
+			throw new ServiceException("验证码错误！");
+		}
+		if(!user.getPassword().equals(user.getRepassword())){
+			throw new ServiceException("两次密码不同");
+		}
+		user.setRegister_date("注册时间");
+		user.setRegister_ip("注册IP");
+		user.setRegister_source("注册来源");
+		user.setCellphone_zone("手机所属区域");
+		user.setIp_zone("IP所属区域");
+		userDao.saveUser(user);
+		return user;
+
+	}
+	
 	@Override
 	public SysUserVo sysAdminChangePass(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		

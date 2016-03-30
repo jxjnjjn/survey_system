@@ -15,6 +15,8 @@ public interface UserService {
 	 */
 	public SysUserVo sysAdminLogin(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	public SysUserVo sysAdminRegister(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
 	public SysUserVo sysAdminChangePass(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 	public List<UserManage> findUserByUsername(String username); 

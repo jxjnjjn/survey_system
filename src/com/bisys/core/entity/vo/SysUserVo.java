@@ -4,18 +4,16 @@ import com.bisys.core.entity.bo.SysUserBo;
 
 public class SysUserVo extends SysUserBo {
 
-	private String authCode = "";
+	private String authcode = "";
 	
 	private String randomString = "";
-	
-	private String type = "";
 
-	public String getAuthCode() {
-		return authCode;
+	public String getAuthcode() {
+		return authcode;
 	}
 
-	public void setAuthCode(String authCode) {
-		this.authCode = authCode;
+	public void setAuthcode(String authcode) {
+		this.authcode = authcode;
 	}
 
 	public String getRandomString() {
@@ -24,14 +22,6 @@ public class SysUserVo extends SysUserBo {
 
 	public void setRandomString(String randomString) {
 		this.randomString = randomString;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 	
 }
