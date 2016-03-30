@@ -23,7 +23,7 @@ public class ValidCodeDaoImpl implements ValidCodeDao {
 		try {
 			return generalDao.getEntity(
 					ValidCode.class, 
-					" select * from verify_code_table where code = ? ", new Object[]{codeKey});
+					" select * from verify_code_table where codeKey = ? ", new Object[]{codeKey});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -34,8 +34,8 @@ public class ValidCodeDaoImpl implements ValidCodeDao {
 	public void saveValidCode(ValidCode code) {
 		try {
 			generalDao.saveEntity(
-					" insert into verify_code_table (code) values(?)", 
-					new Object[]{code.getCodeKey()});
+					" insert into verify_code_table (codeKey, code, createTime) values(?, ?, ?)", 
+					new Object[]{code.getCodeKey(), code.getCode(), code.getCreateTime()});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

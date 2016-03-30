@@ -12,6 +12,8 @@ public interface UserDao {
 	
 	public boolean updateSysUser(SysUserBo user, String... fileds) throws Exception;
 	
+	public void saveUser(SysUserBo user) throws Exception;
+	
 	public List<UserManage> findUserByUsername(String username) throws Exception;
 
 }

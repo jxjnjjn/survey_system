@@ -90,12 +90,29 @@ public class SysLoginController{
 	/**
 	 * 添加用户
 	 */
-	@RequestMapping(value = "addUser", method = RequestMethod.GET)
+	@RequestMapping(value = "addUser", method = RequestMethod.POST)
 	@ResponseBody 
 	public String addUser( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
 		
 		logger.info("添加用户:" + user.toString());
-		return null;
+		boolean flag = false;
+		String errorMessage = "用户注册失败";
+		JsonResult jsonResult = new JsonResult();
+		
+		try {
+			user = userService.sysAdminRegister(user, request, response);
+			flag = true;
+		}catch (ServiceException serviceE){
+			logger.error("sys admin login failed!"+serviceE.getMessage());
+			errorMessage = serviceE.getMessage();
+		}catch (Exception e) {
+			logger.error("sys admin login failed!", e);
+		}
+		
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "用户注册成功" : errorMessage);
+		jsonResult.setData(user);
+		return new Gson().toJson(jsonResult);
 	}
 	
 	/**

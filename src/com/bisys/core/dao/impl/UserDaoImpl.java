@@ -34,6 +34,17 @@ public class UserDaoImpl implements UserDao {
 		}
 		return false;
 	}
+	
+	@Override
+	public void saveUser(SysUserBo user) throws Exception {
+		try {
+			generalDao.saveEntity(
+					" insert into verify_code_table (username, password, register_ip, register_source, cellphone_zone, ip_zone) values(?, ?, ?, ?, ?, ?)", 
+					new Object[]{user.getUsername(), user.getPassword(),user.getRegister_ip(),user.getRegister_source(),user.getCellphone_zone(),user.getIp_zone()});
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public SysUserVo getSysUserByUserName(String userName) throws Exception {

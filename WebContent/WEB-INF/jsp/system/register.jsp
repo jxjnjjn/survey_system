@@ -23,6 +23,7 @@
 			<section id="content">
 				<form id="registerForm">
 					<h1>会员注册</h1>
+					<input type="hidden" name="randomString" id="randomString" value="" />
 					<div>
 						<input type="text" placeholder="手机号"  name="username" id="username" />
 					</div>
@@ -40,7 +41,7 @@
 					</div>
 					<div>
 						<input type="button" value="注册" id="registerBtn"/>
-						<a href="/system/register">会员注册</a>
+						<a href="/system/login">会员登录</a>
 					</div>
 				</form><!-- form -->
 			</section><!-- content -->

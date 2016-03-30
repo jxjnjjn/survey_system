@@ -33,6 +33,8 @@ public class ValidCodeServiceImpl implements ValidCodeService {
 		//create new code
 		ValidCode validCode = new ValidCode(codeKey, code);
 		validCodeDao.saveValidCode(validCode);
+		//发送到手机端
+		this.send2phone(codeKey);
 	}
 	
 	@Override
@@ -43,5 +45,9 @@ public class ValidCodeServiceImpl implements ValidCodeService {
 	private String genCodeKey(String random) {
 		return random;
 	}
-
+	
+	public void send2phone(String code) {
+		//发送到手机端
+		
+	}
 }

@@ -27,6 +27,12 @@
 		<property name="url" value="${mysql.demo.jdbcurl}" />
 		<property name="username" value="${mysql.demo.user}" />
 		<property name="password" value="${mysql.demo.password}" />
+		<property name="validationQuery">  
+        	<value>SELECT 1</value>  
+    	</property>  
+    	<property name="testOnBorrow">  
+        	<value>true</value>  
+    	</property>
 	</bean>
 
 	
