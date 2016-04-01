@@ -26,6 +26,7 @@ public class SurveyDaoImpl implements SurveyDao {
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
 	
+	@Override
 	public boolean replaceIntoVipDynamicTable(String username,int login_num , int test_num , String friend_1 , String friend_2 , String friend_3 , String friend_4 , String friend_5) throws Exception
 	{
 		String sql = "call replace_vip_dynamic_table ('"
@@ -34,5 +35,14 @@ public class SurveyDaoImpl implements SurveyDao {
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
-
+	
+	@Override
+	public boolean insertIntoSurveyTable(String survey_name,String survey_desc , String survey_text , String survey_anwser , String start_time , String end_time , int status) throws Exception
+	{
+		String sql = "call insert_survey_table ('"
+				+survey_name+"','"+survey_desc+"','"+survey_text+"','"+survey_anwser+"','"
+				+start_time+"','"+end_time+"',"+status+");";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 }
