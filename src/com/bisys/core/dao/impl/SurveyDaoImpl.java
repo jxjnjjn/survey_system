@@ -45,4 +45,14 @@ public class SurveyDaoImpl implements SurveyDao {
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
+	
+	@Override
+	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , int transfer_flag) throws Exception
+	{
+		String sql = "call insert_survey_user_table ('"
+				+user_name+"','"+survey_name+"',"+answer_time+",'"+answer+"',"
+				+transfer_flag+");";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 }
