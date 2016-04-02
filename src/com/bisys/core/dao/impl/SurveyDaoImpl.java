@@ -40,11 +40,10 @@ public class SurveyDaoImpl implements SurveyDao {
 	 *
 	 * */
 	@Override
-	public boolean replaceIntoVipDynamicTable(String user_name,int login_num , int test_num , String friend_1 , String friend_2 , String friend_3 , String friend_4 , String friend_5) throws Exception
+	public boolean replaceIntoVipDynamicTable(String user_name,int login_num , int test_num , String friends) throws Exception
 	{
 		String sql = "call replace_vip_dynamic_table ('"
-				+user_name+"',"+login_num+","+test_num+",'"+friend_1+"','"
-				+friend_2+"','"+friend_3+"','"+friend_4+"','"+friend_5+"');";
+				+user_name+"',"+login_num+","+test_num+",'"+friends+"');";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
