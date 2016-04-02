@@ -1,5 +1,7 @@
 package com.bisys.core.entity.bo;
 
+import java.util.Date;
+
 public class SysUserBo {
 	
 	private String user_name = "";
@@ -8,7 +10,7 @@ public class SysUserBo {
 	
 	private String repassword = "";
 	
-	private String register_date = "";
+	private Date register_date = new Date();
 	
 	private String register_ip = "";
 	
@@ -95,13 +97,14 @@ public class SysUserBo {
 
 
 
-	public String getRegister_date() {
+
+	public Date getRegister_date() {
 		return register_date;
 	}
 
 
 
-	public void setRegister_date(String register_date) {
+	public void setRegister_date(Date register_date) {
 		this.register_date = register_date;
 	}
 

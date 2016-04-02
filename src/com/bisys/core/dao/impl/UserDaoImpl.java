@@ -40,8 +40,8 @@ public class UserDaoImpl implements UserDao {
 	public void saveUser(SysUserBo user) throws Exception {
 		try {
 			generalDao.saveEntity(
-					" insert into vip_base_info_table (user_name, password, register_ip, register_source, cellphone_zone, ip_zone,role_name,permission_name) values(?, ?, ?, ?, ?, ?, ?, ?)", 
-					new Object[]{user.getUser_name(), MD5Util.GetMD5Code(user.getPassword()),user.getRegister_ip(),user.getRegister_source(),user.getCellphone_zone(),user.getIp_zone(),"vip","vip"});
+					" insert into vip_base_info_table (user_name, password, register_date, register_ip, register_source, cellphone_zone, ip_zone,role_name,permission_name) values(?, ?, ?, ?, ?, ?, ?, ?, ?)", 
+					new Object[]{user.getUser_name(), MD5Util.GetMD5Code(user.getPassword()),user.getRegister_date(),user.getRegister_ip(),user.getRegister_source(),user.getCellphone_zone(),user.getIp_zone(),"vip","vip"});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

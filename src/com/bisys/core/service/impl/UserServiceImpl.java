@@ -1,5 +1,8 @@
 package com.bisys.core.service.impl;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -59,9 +62,6 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 	
-	/* (non-Javadoc)
-	 * @see com.bisys.core.service.UserService#sysAdminRegister(com.bisys.core.entity.vo.SysUserVo, javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
 	@Override
 	public SysUserVo sysAdminRegister(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if(!user.getPassword().equals(user.getRepassword())){
@@ -74,8 +74,12 @@ public class UserServiceImpl implements UserService {
 		if(existUser != null){
 			throw new ServiceException("用户已存在！");
 		}
-		user.setRegister_date("注册时间");
-		user.setRegister_ip("注册IP");
+		
+		Date now = new Date(); 
+		//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+		user.setRegister_date(now);
+		user.setRegister_ip(getIpAddr(request));
 		user.setRegister_source("注册来源");
 		user.setCellphone_zone("手机所属区域");
 		user.setIp_zone("IP所属区域");
@@ -142,4 +146,42 @@ public class UserServiceImpl implements UserService {
 		}
 		return list;
 	}
+	
+	private String getIpAddr(HttpServletRequest request) {   
+		String ipAddress = null;   
+		//ipAddress = this.getRequest().getRemoteAddr();   
+		ipAddress = request.getHeader("x-forwarded-for");   
+		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
+			logger.error("Proxy-Client-IP");
+			ipAddress = request.getHeader("Proxy-Client-IP");   
+		}   
+		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
+			logger.error("WL-Proxy-Client-IP");
+			ipAddress = request.getHeader("WL-Proxy-Client-IP");   
+		}   
+		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
+			logger.error("getRemoteAddr");
+			ipAddress = request.getRemoteAddr();   
+			if(ipAddress.equals("127.0.0.1")){   
+				logger.error("127.0.0.1");
+				//根据网卡取本机配置的IP   
+				InetAddress inet=null;   
+				try {   
+					inet = InetAddress.getLocalHost();   
+				} catch (UnknownHostException e) {   
+					e.printStackTrace();   
+				}   
+				ipAddress= inet.getHostAddress();   
+			}         
+		}   
+		logger.error(ipAddress);
+		//对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割   
+		if(ipAddress!=null && ipAddress.length()>15){ //"***.***.***.***".length() = 15   
+			if(ipAddress.indexOf(",")>0){   
+				ipAddress = ipAddress.substring(0,ipAddress.indexOf(","));   
+			}   
+		}   
+		logger.error(ipAddress);
+		return ipAddress;    
+	}   
 }
