@@ -1,11 +1,15 @@
 package com.bisys.core.dao.impl;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
+import com.bisys.core.entity.shiro.UserManage;
+import com.bisys.core.entity.survey.VipListEntity;
 
 @Repository
 public class SurveyDaoImpl implements SurveyDao {
@@ -79,5 +83,12 @@ public class SurveyDaoImpl implements SurveyDao {
 				+transfer_flag+");";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
+	}
+	
+	@Override
+	public List<VipListEntity> getVipList() throws Exception
+	{
+		String sql = "CALL select_vip_list()";
+		return generalDao.getEntityList(VipListEntity.class, sql, new Object[]{});
 	}
 }
