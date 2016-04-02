@@ -103,27 +103,16 @@ public class SysLoginController{
 			user = userService.sysAdminRegister(user, request, response);
 			flag = true;
 		}catch (ServiceException serviceE){
-			logger.error("sys admin login failed!"+serviceE.getMessage());
+			logger.error("sys admin adduser failed!"+serviceE.getMessage());
 			errorMessage = serviceE.getMessage();
 		}catch (Exception e) {
-			logger.error("sys admin login failed!", e);
+			logger.error("sys admin adduser failed!", e);
 		}
 		
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "用户注册成功" : errorMessage);
 		jsonResult.setData(user);
 		return new Gson().toJson(jsonResult);
-	}
-	
-	/**
-	 * 获取验证码
-	 */
-	@RequestMapping(value = "getvaildcode", method = RequestMethod.GET)
-	@ResponseBody 
-	public String getVaildcode( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
-		
-		logger.info("获取验证码:" + user.toString());
-		return null;
 	}
 	
 	/**
@@ -140,7 +129,7 @@ public class SysLoginController{
 	/**
 	 * 系统管理员修改密码接口
 	 */
-	@RequestMapping(value = "changepass", method = RequestMethod.POST)
+	@RequestMapping(value = "changepass", method = RequestMethod.GET)
 	@ResponseBody 
 	public String changePass( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
 		

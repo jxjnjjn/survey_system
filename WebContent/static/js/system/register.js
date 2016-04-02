@@ -27,10 +27,10 @@ function register(){
 		data : params,
 		async : false,
 		success : function(data) {
-			if(data.resultCode == 0){   //登录成功
-				window.location.href="/system";
+			if(data.resultCode == 0){   //注册成功
+				alert(data.resultMessage);
+				window.location.href="/system/login";
 			}else{
-				randomImg();   //加载页面时生成验证码
 				alert(data.resultMessage);
 			}
 			btn.button('reset');
@@ -50,13 +50,11 @@ function validcode() {
 		data : {randomString:random},
 		async : false,
 		success : function(data) {
-			if(data.resultCode == 0){   //登录成功
-				window.location.href="/system";
+			if(data.resultCode == 0){   //获取验证码
+				alert(data.resultMessage);
 			}else{
-				randomImg();   //加载页面时生成验证码
 				alert(data.resultMessage);
 			}
-			btn.button('reset');
 		}
 	});
 }

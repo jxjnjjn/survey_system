@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 		
 		//shiro认证
 		Subject currentUser = SecurityUtils.getSubject();
-		UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), MD5Util.GetMD5Code(user.getPassword()));
+		UsernamePasswordToken token = new UsernamePasswordToken(user.getUser_name(), MD5Util.GetMD5Code(user.getPassword()));
 		//token.setRememberMe(true);
 		try {
 			currentUser.login(token);
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
 		
 		if(currentUser.isAuthenticated()){
 			SysUserVo existUser = null;
-			existUser = userDao.getSysUserByUserName(user.getUsername());
+			existUser = userDao.getSysUserByUserName(user.getUser_name());
 			if(existUser == null){
 				throw new ServiceException("用户不存在！");
 			}
@@ -64,11 +64,15 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public SysUserVo sysAdminRegister(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		if(!user.getPassword().equals(user.getRepassword())){
+			throw new ServiceException("两次密码不同");
+		}
 		if(!validCodeService.checkValidCode(user.getRandomString(), user.getAuthcode())){
 			throw new ServiceException("验证码错误！");
 		}
-		if(!user.getPassword().equals(user.getRepassword())){
-			throw new ServiceException("两次密码不同");
+		SysUserVo existUser = userDao.getSysUserByUserName(user.getUser_name());
+		if(existUser != null){
+			throw new ServiceException("用户已存在！");
 		}
 		user.setRegister_date("注册时间");
 		user.setRegister_ip("注册IP");
@@ -83,25 +87,25 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public SysUserVo sysAdminChangePass(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-//		if(!user.getNewPass().equalsIgnoreCase(user.getConfirmPass())){
-//			throw new ServiceException("新密码不一致！请确认输入");
-//		}
-//		SysUserVo existUser = null;
-//		existUser = userDao.getSysUserByUserName(user.getUserName());
-//		
-//		if(existUser == null){
-//			throw new ServiceException("用户不存在！");
-//		}
-//		
-//		if(!existUser.getUserPass().equalsIgnoreCase(MD5Util.GetMD5Code(user.getOldPass()))){
-//			throw new ServiceException("旧密码错误！请确认输入");
-//		}
-//		
-//		user.setUserPass(MD5Util.GetMD5Code(user.getNewPass()));
-//		
-//		if(!userDao.updateSysUser(user, "userPass")){
-//			throw new ServiceException("数据库更新失败");
-//		}
+		if(!user.getNewPass().equalsIgnoreCase(user.getConfirmPass())){
+			throw new ServiceException("新密码不一致！请确认输入");
+		}
+		SysUserVo existUser = null;
+		existUser = userDao.getSysUserByUserName(user.getUser_name());
+		
+		if(existUser == null){
+			throw new ServiceException("用户不存在！");
+		}
+		
+		if(!existUser.getPassword().equalsIgnoreCase(MD5Util.GetMD5Code(user.getOldPass()))){
+			throw new ServiceException("旧密码错误！请确认输入");
+		}
+		
+		user.setPassword(MD5Util.GetMD5Code(user.getNewPass()));
+		
+		if(!userDao.updateSysUser(user, "userPass")){
+			throw new ServiceException("数据库更新失败");
+		}
 		return null;
 	}
 

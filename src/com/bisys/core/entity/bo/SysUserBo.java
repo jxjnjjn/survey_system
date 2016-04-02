@@ -2,7 +2,7 @@ package com.bisys.core.entity.bo;
 
 public class SysUserBo {
 	
-	private String username = "";
+	private String user_name = "";
 	
 	private String password = "";
 	
@@ -18,16 +18,55 @@ public class SysUserBo {
 	
 	private String ip_zone = "";
 	
-
-
-	public String getUsername() {
-		return username;
+	private String oldPass = "";
+	
+	private String newPass = "";
+	
+	private String confirmPass = "";
+	
+	public String getOldPass() {
+		return oldPass;
 	}
 
 
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setOldPass(String oldPass) {
+		this.oldPass = oldPass;
+	}
+
+
+
+	public String getNewPass() {
+		return newPass;
+	}
+
+
+
+	public void setNewPass(String newPass) {
+		this.newPass = newPass;
+	}
+
+
+
+	public String getConfirmPass() {
+		return confirmPass;
+	}
+
+
+
+	public void setConfirmPass(String confirmPass) {
+		this.confirmPass = confirmPass;
+	}
+
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
 
@@ -118,7 +157,7 @@ public class SysUserBo {
 
 	@Override
 	public String toString() {
-		return "SysUserBo [ userName=" + username 
+		return "SysUserBo [ userName=" + user_name 
 				+ " password=" + password
 				+ " repassword=" + repassword
 				+ " register_date=" + register_date

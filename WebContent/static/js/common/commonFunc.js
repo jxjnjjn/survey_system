@@ -212,6 +212,22 @@ Date.prototype.Format = function(fmt)
 	return fmt;
 } 
 
+$.fn.serializeObject = function() {     
+    var o = {};     
+    var a = this.serializeArray();     
+    $.each(a, function() {     
+      if (o[this.name]) {     
+        if (!o[this.name].push) {     
+          o[this.name] = [ o[this.name] ];     
+        }     
+        o[this.name].push(this.value || '');     
+      } else {     
+        o[this.name] = this.value || '';
+      }     
+    });     
+    return o;     
+}; 
+
 //文件下载
 jQuery.download = function(url, data, method){    // 获得url和data
 	if( url && data ){ 

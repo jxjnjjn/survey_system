@@ -5,7 +5,7 @@ import com.bisys.core.entity.ValidCode;
 
 public interface ValidCodeService {
 	
-	public void recordValidCode(String random, String code);
+	public void recordValidCode(String random, String code) throws Exception;
 	
 	/**
 	 * 检查验证输入是否正确

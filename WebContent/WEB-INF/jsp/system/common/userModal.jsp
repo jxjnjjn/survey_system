@@ -13,13 +13,13 @@
 			</div>
 			<div class="modal-body">
 				<div id="userinfo" class="form-group">
-					<label>账户：${sysUser.username}</label> <label
+					<label>账户：${sysUser.user_name}</label> <label
 						style="margin-left: 300px; color: #949494;">管理员</label><br> <a
 						class="navbar-link" id="managepass">修改密码</a>
 				</div>
 				<form id="changepass" class="form-vertical" style="display: none;">
 					<input type="hidden" name="userName" id="userName"
-						value="${sysUser.username}">
+						value="${sysUser.user_name}">
 					<div class="form-group">
 						<div class="input-group" style="margin-left: 80px;">
 							<label for="oldPass">旧密码：</label> <input type="password"

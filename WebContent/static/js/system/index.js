@@ -68,7 +68,7 @@ function changePassword(){
 	params = JSON.stringify(datasent); 
 	$.ajax({
 	type : "POST",
-	url : "/system/changepass",
+	url : "/system/getbackpassword",
 	dataType : "json",
 	contentType : "application/json;charset=utf-8",
 	data : params,

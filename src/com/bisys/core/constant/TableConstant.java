@@ -21,7 +21,6 @@ public class TableConstant {
 	public static final Map<String, String> TABLE_BEAN = new HashMap<String, String>();
 	static{
 		//TABLE_BEAN.put("com.bisys.core.entity.bo.SysUserBo", "sys_user");
-		TABLE_BEAN.put("com.bisys.core.entity.vo.SysUserVo", "sys_bi_user");
 	}
 	
 	/**
@@ -32,6 +31,5 @@ public class TableConstant {
 	public static final Map<String, String> TABLE_PRIMARY_KEY = new HashMap<String, String>();
 	static{
 		//TABLE_PRIMARY_KEY.put("sys_user", "id");
-		TABLE_PRIMARY_KEY.put("sys_bi_user", "userName");
 	}
 }

@@ -4,7 +4,7 @@ import com.bisys.core.entity.ValidCode;
 
 public interface ValidCodeDao {
 	
-	public void saveValidCode(ValidCode validCode);
+	public void saveValidCode(ValidCode validCode) throws Exception;
 	
 	/**
 	 * 检查验证输入是否正确

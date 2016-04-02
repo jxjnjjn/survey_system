@@ -31,13 +31,14 @@ public class ValidCodeDaoImpl implements ValidCodeDao {
 	}
 
 	@Override
-	public void saveValidCode(ValidCode code) {
+	public void saveValidCode(ValidCode code) throws Exception{
 		try {
 			generalDao.saveEntity(
 					" insert into verify_code_table (codeKey, code, createTime) values(?, ?, ?)", 
 					new Object[]{code.getCodeKey(), code.getCode(), code.getCreateTime()});
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw e;
 		}
 	}
 }

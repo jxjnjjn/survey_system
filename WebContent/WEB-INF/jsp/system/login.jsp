@@ -24,7 +24,7 @@
 				<form id="loginForm">
 					<h1>会员登陆</h1>
 					<div>
-						<input type="text" placeholder="手机号/用户名" name="username" id="username" />
+						<input type="text" placeholder="手机号/用户名" name="user_name" id="user_name" />
 					</div>
 					<div>
 						<input type="password" placeholder="密码" name="password" id="password" />

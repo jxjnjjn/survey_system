@@ -19,7 +19,7 @@
 			<div class="pull-right">
 				<shiro:authenticated>
 					<p style="padding-top: 10px; color: #777;">
-						<span class="glyphicon glyphicon-user"></span> 欢迎您， <a class="navbar-link">${sysUser.username}</a>&nbsp;&nbsp;
+						<span class="glyphicon glyphicon-user"></span> 欢迎您， <a class="navbar-link">${sysUser.user_name}</a>&nbsp;&nbsp;
 						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userModal">账户</button>
 						<button id="sysAdminLogout" type="button" class="btn btn-danger btn-sm logout" onfocus="this.blur()">退出</button>
 					</p>

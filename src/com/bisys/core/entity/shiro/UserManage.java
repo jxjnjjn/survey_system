@@ -3,38 +3,38 @@ package com.bisys.core.entity.shiro;
 
 public class UserManage {
 	
-	private String username;
+	private String user_name;
 	
 	private String password;
 	
-	private String rolename;
+	private String role_name;
 	
-	private String permissionname;
+	private String permission_name;
+
 	
-	public String getUsername() {
-		return username;
+	public String getUser_name() {
+		return user_name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
-	
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRolename() {
-		return rolename;
+	public String getRole_name() {
+		return role_name;
 	}
-	public void setRolename(String rolename) {
-		this.rolename = rolename;
+	public void setRole_name(String role_name) {
+		this.role_name = role_name;
 	}
-	public String getPermissionname() {
-		return permissionname;
+	public String getPermission_name() {
+		return permission_name;
 	}
-	public void setPermissionname(String permissionname) {
-		this.permissionname = permissionname;
+	public void setPermission_name(String permission_name) {
+		this.permission_name = permission_name;
 	}
 	
 }

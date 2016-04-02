@@ -41,8 +41,8 @@ public class UserRealm extends AuthorizingRealm{
 		Set<String> permissions = new HashSet<String>();
 		
 		for(UserManage bean:roleSet){
-			roles.add(bean.getRolename());
-			permissions.add(bean.getPermissionname());
+			roles.add(bean.getRole_name());
+			permissions.add(bean.getPermission_name());
 		}
 		
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
@@ -69,7 +69,7 @@ public class UserRealm extends AuthorizingRealm{
 			throw new AuthenticationException("用户不存在！");
 		}
 		UserManage user = roleList.get(0);
-		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getUsername(), user.getPassword(),getName());
+		SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getUser_name(), user.getPassword(),getName());
 		return info;
 	}
 }

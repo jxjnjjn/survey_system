@@ -25,7 +25,7 @@
 					<h1>会员注册</h1>
 					<input type="hidden" name="randomString" id="randomString" value="" />
 					<div>
-						<input type="text" placeholder="手机号"  name="username" id="username" />
+						<input type="text" placeholder="手机号"  name="user_name" id="user_name" />
 					</div>
 					<div>
 						<input type="password" placeholder="密码"  name="password" id="password" />

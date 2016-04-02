@@ -11,6 +11,7 @@ import com.bisys.core.dao.UserDao;
 import com.bisys.core.entity.bo.SysUserBo;
 import com.bisys.core.entity.shiro.UserManage;
 import com.bisys.core.entity.vo.SysUserVo;
+import com.bisys.core.util.MD5Util;
 import com.bisys.core.util.StringUtil;
 
 @Repository
@@ -39,8 +40,8 @@ public class UserDaoImpl implements UserDao {
 	public void saveUser(SysUserBo user) throws Exception {
 		try {
 			generalDao.saveEntity(
-					" insert into verify_code_table (username, password, register_ip, register_source, cellphone_zone, ip_zone) values(?, ?, ?, ?, ?, ?)", 
-					new Object[]{user.getUsername(), user.getPassword(),user.getRegister_ip(),user.getRegister_source(),user.getCellphone_zone(),user.getIp_zone()});
+					" insert into vip_base_info_table (user_name, password, register_ip, register_source, cellphone_zone, ip_zone,role_name,permission_name) values(?, ?, ?, ?, ?, ?, ?, ?)", 
+					new Object[]{user.getUser_name(), MD5Util.GetMD5Code(user.getPassword()),user.getRegister_ip(),user.getRegister_source(),user.getCellphone_zone(),user.getIp_zone(),"vip","vip"});
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -51,7 +52,7 @@ public class UserDaoImpl implements UserDao {
 		if(StringUtil.isEmpty(userName)){
 			return null;
 		}
-		return generalDao.getEntity(SysUserVo.class, " select username,password from vip_base_info_table where username = ? ", new Object[]{userName});
+		return generalDao.getEntity(SysUserVo.class, " select user_name,password from vip_base_info_table where user_name = ? ", new Object[]{userName});
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class UserDaoImpl implements UserDao {
 		if(StringUtil.isEmpty(username)){
 			return null;
 		}
-		String sql = " select username,password from vip_base_info_table where username = ?";
+		String sql = " select user_name,password,role_name,permission_name from vip_base_info_table where user_name = ?";
 		return generalDao.getEntityList(UserManage.class, sql, new Object[]{username});
 	}
 

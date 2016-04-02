@@ -21,9 +21,7 @@
 		<div class="row">
 			<jsp:include page="common/leftSideBar.jsp" />
 			<div class="col-xs-12 col-sm-10 col-sm-offset-2 col-md-10 col-md-offset-2 main">
-				<div id="mainDiv">
-					<iframe id="mainframe" frameborder="0" src="/system/composite/datacompositeindicator" name="mainframe"></iframe>
-				</div>
+				<iframe id="mainframe" frameborder="0" src="" name="mainframe"></iframe>
 			</div>
 		</div>
 	</div>
