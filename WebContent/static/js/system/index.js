@@ -66,9 +66,10 @@ function logout(){
 function changePassword(){
 	var datasent = $("#changepass").serializeObject();
 	params = JSON.stringify(datasent); 
+	console.log(params);
 	$.ajax({
 	type : "POST",
-	url : "/system/getbackpassword",
+	url : "/system/changepass",
 	dataType : "json",
 	contentType : "application/json;charset=utf-8",
 	data : params,

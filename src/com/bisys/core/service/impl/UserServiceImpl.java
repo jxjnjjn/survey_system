@@ -85,6 +85,27 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public SysUserVo sysAdminforgetpassword(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		if(!user.getPassword().equals(user.getRepassword())){
+			throw new ServiceException("两次密码不同");
+		}
+		if(!validCodeService.checkValidCode(user.getRandomString(), user.getAuthcode())){
+			throw new ServiceException("验证码错误！");
+		}
+		
+		SysUserVo existUser = userDao.getSysUserByUserName(user.getUser_name());
+		if(existUser == null){
+			throw new ServiceException("用户不存在！");
+		}
+		user.setPassword(MD5Util.GetMD5Code(user.getPassword()));
+		if(!userDao.updateSysUser(user, "password")){
+			throw new ServiceException("数据库更新失败");
+		}
+		return user;
+
+	}
+	
+	@Override
 	public SysUserVo sysAdminChangePass(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		if(!user.getNewPass().equalsIgnoreCase(user.getConfirmPass())){
@@ -103,10 +124,10 @@ public class UserServiceImpl implements UserService {
 		
 		user.setPassword(MD5Util.GetMD5Code(user.getNewPass()));
 		
-		if(!userDao.updateSysUser(user, "userPass")){
+		if(!userDao.updateSysUser(user, "password")){
 			throw new ServiceException("数据库更新失败");
 		}
-		return null;
+		return existUser;
 	}
 
 	@Override

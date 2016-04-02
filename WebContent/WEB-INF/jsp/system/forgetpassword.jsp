@@ -5,11 +5,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="会员登陆">
+	<meta name="description" content="找回密码">
 	<meta name="author" content="noviachan">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="shortcut icon" href="/static/img/survey-icon.jpg">
-	<title>会员登录</title>
+	<title>找回密码</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
@@ -19,23 +19,29 @@
 <body>
 	<jsp:include page="common/topSideBar.jsp" />
 	<div class="row">
-		<div class="container-fluid col-md-6" style="padding-top: 150px;">
+		<div class="container" style="padding-top: 150px;">
 			<section id="content">
-				<form id="loginForm">
-					<h1>会员登陆</h1>
+				<form id="forgetpasswordForm">
+					<h1>修改密码</h1>
+					<input type="hidden" name="randomString" id="randomString" value="" />
 					<div>
-						<input type="text" placeholder="手机号/用户名" name="user_name" id="user_name" />
+						<input type="text" placeholder="手机号"  name="user_name" id="user_name" />
 					</div>
 					<div>
-						<input type="password" placeholder="密码" name="password" id="password" />
+						<input type="password" placeholder="新密码"  name="password" id="password" />
 					</div>
 					<div>
-						<input type="button" value="登录" id="loginBtn"/>
-						<input type="button" value="预览题目" id="questionBtn"/>
+						<input type="password" placeholder="确认新密码"  name="repassword" id="repassword" />
+					</div>
+					<div style="margin-bottom: 10px;">
+						<button class="btn btn-default" type="button" id="validcodeBtn">发送到手机获取验证码</button>
 					</div>
 					<div>
-						<a href="/system/forgetpassword">忘记密码</a>
-						<a href="/system/register">会员注册</a>
+						<input type="text" placeholder="请输入验证码"  name="authcode" id="authcode" />
+					</div>
+					<div>
+						<input type="button" value="确认" id="forgetpasswordBtn"/>
+						<a href="/system/login">返回登录</a>
 					</div>
 				</form><!-- form -->
 			</section><!-- content -->
@@ -47,7 +53,7 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script type="text/javascript" src="/static/js/common/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/static/js/system/login.js"></script>
+	<script type="text/javascript" src="/static/js/system/register.js"></script>
 </body>
 </html>
 

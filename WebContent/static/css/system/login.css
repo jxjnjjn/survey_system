@@ -175,7 +175,7 @@ form:after {
 	border: 1px solid #ed1c24;
 	outline: none;
 }
-#username { background-position: 10px 10px !important }
+#user_name { background-position: 10px 10px !important }
 #password { background-position: 10px -53px !important }
 #repassword { background-position: 10px -53px !important }
 #authcode { background-position: 10px -53px !important }
@@ -219,9 +219,9 @@ form:after {
 }
 #content form div a {
 	color: #004a80;
-    float: right;
+    float: center;
     font-size: 12px;
-    margin: 30px 15px 0 0;
+    margin: 20px 0 35px 15px;
     text-decoration: underline;
 }
 .button {

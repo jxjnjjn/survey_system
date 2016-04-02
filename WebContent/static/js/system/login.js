@@ -45,7 +45,6 @@ function login(){
 			if(data.resultCode == 0){   //登录成功
 				window.location.href="/system";
 			}else{
-				randomImg();   //加载页面时生成验证码
 				alert(data.resultMessage);
 			}
 			btn.button('reset');

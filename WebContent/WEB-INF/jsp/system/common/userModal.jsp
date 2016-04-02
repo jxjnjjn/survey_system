@@ -18,7 +18,7 @@
 						class="navbar-link" id="managepass">修改密码</a>
 				</div>
 				<form id="changepass" class="form-vertical" style="display: none;">
-					<input type="hidden" name="userName" id="userName"
+					<input type="hidden" name="user_name" id="user_name"
 						value="${sysUser.user_name}">
 					<div class="form-group">
 						<div class="input-group" style="margin-left: 80px;">

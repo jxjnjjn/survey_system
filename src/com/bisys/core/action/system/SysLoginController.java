@@ -46,6 +46,12 @@ public class SysLoginController{
 		return "system/register";
 	}
 	
+	@RequestMapping(value = "forgetpassword", method = RequestMethod.GET)
+	public String forgetpassword(HttpServletRequest request){
+		logger.info("忘记密码");
+		return "system/forgetpassword";
+	}
+	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request){
 		logger.info("系统管理员退出登录");
@@ -118,18 +124,36 @@ public class SysLoginController{
 	/**
 	 * 找回密码
 	 */
-	@RequestMapping(value = "getbackpassword", method = RequestMethod.GET)
+	@RequestMapping(value = "getbackpassword", method = RequestMethod.POST)
 	@ResponseBody 
 	public String getBackPassword( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
 		
 		logger.info("找回密码:" + user.toString());
-		return null;
+		
+		boolean flag = false;
+		String errorMessage = "修改密码失败";
+		JsonResult jsonResult = new JsonResult();
+		
+		try {
+			user = userService.sysAdminforgetpassword(user, request, response);
+			flag = true;
+		}catch (ServiceException serviceE){
+			logger.error("sys admin getBackPassword failed!"+serviceE.getMessage());
+			errorMessage = serviceE.getMessage();
+		}catch (Exception e) {
+			logger.error("sys admin getBackPassword failed!", e);
+		}
+		
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "修改密码成功" : errorMessage);
+		jsonResult.setData(user);
+		return new Gson().toJson(jsonResult);
 	}
 	
 	/**
 	 * 系统管理员修改密码接口
 	 */
-	@RequestMapping(value = "changepass", method = RequestMethod.GET)
+	@RequestMapping(value = "changepass", method = RequestMethod.POST)
 	@ResponseBody 
 	public String changePass( @RequestBody SysUserVo user, HttpServletRequest request, HttpServletResponse response){
 		

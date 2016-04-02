@@ -11,6 +11,10 @@ $(document).ready(function(){
 	$("#validcodeBtn").on('click',function(){
 		validcode();
     });
+	
+	$("#forgetpasswordBtn").on('click',function(){
+		forgetpassword();
+    });
 });
 
 function register(){
@@ -28,6 +32,31 @@ function register(){
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){   //注册成功
+				alert(data.resultMessage);
+				window.location.href="/system/login";
+			}else{
+				alert(data.resultMessage);
+			}
+			btn.button('reset');
+		}
+	});
+}
+
+function forgetpassword(){
+	var btn = $("#forgetpasswordBtn");
+    btn.button('loading');
+	var datasent = $("#forgetpasswordForm").serializeObject();
+	params = JSON.stringify(datasent); 
+	console.log(params);
+	$.ajax({
+		type : "POST",
+		url : "/system/getbackpassword",
+		dataType : "json",
+		contentType : "application/json;charset=utf-8",
+		data : params,
+		async : false,
+		success : function(data) {
+			if(data.resultCode == 0){   //修改成功
 				alert(data.resultMessage);
 				window.location.href="/system/login";
 			}else{
