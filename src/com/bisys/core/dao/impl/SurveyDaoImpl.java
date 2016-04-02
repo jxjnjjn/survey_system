@@ -16,12 +16,19 @@ public class SurveyDaoImpl implements SurveyDao {
 	private GeneralDao generalDao;
 
 	@Override
-	public boolean insertIntoVipBaseTable(String username,String password , String register_date , String register_ip , String register_source , String cellphone_zone , String ip_zone)
+	/*
+	 * 直接调用insert方法，不会做唯一性验证
+	 * 
+	 *
+	 * */
+	public boolean insertIntoVipBaseTable(String username,String password , String register_date , String register_ip , String register_source , 
+			String cellphone_zone , String ip_zone , String role_name , String permission_name)
 			throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "insert into vip_base_info_table(username,password,register_date,register_ip,register_source,cellphone_zone,ip_zone) VALUES('"
-				+username+"','"+password+"','"+register_date+"','"+register_ip+"','"
-				+register_source+"','"+cellphone_zone+"','"+ip_zone+"');";
+		String sql = "call insert_vip_base_table('" 
+				+username+"',"+password+","+register_date+",'"+register_ip+"','"
+				+register_source+"',"+cellphone_zone+","+ip_zone+",'"+role_name+"','"+permission_name+"','"
+				+"');";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
