@@ -3,10 +3,10 @@ package com.bisys.core.entity.survey;
 import java.util.Date;
 
 /*
- * 功能：会员列表 
+ * 功能：会员查询 （暂时返回字段和 会员列表一样）
  * */
 
-public class VipListEntity {
+public class VipInfoEntity {
 	
 	private String user_name;
 	

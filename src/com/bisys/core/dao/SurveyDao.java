@@ -2,6 +2,7 @@ package com.bisys.core.dao;
 
 import java.util.List;
 
+import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 
 public interface SurveyDao {
@@ -10,4 +11,5 @@ public interface SurveyDao {
 	public boolean insertIntoSurveyTable(String survey_name,String survey_desc , String survey_text , String survey_anwser , String start_time , String end_time , int status) throws Exception;
 	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , int transfer_flag) throws Exception; 
 	public List<VipListEntity> getVipList() throws Exception; 
+	public List<VipInfoEntity> getVipInfo(String user_name) throws Exception; 
 }
