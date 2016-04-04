@@ -17,12 +17,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.UserDao;
+import com.bisys.core.entity.gson.IPgson;
+import com.bisys.core.entity.gson.Phonegson;
 import com.bisys.core.entity.shiro.UserManage;
 import com.bisys.core.entity.vo.SysUserVo;
 import com.bisys.core.exception.ServiceException;
 import com.bisys.core.service.UserService;
 import com.bisys.core.service.ValidCodeService;
+import com.bisys.core.util.HttpUtil;
 import com.bisys.core.util.MD5Util;
+import com.google.gson.Gson;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -77,12 +81,25 @@ public class UserServiceImpl implements UserService {
 		
 		Date now = new Date(); 
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-
 		user.setRegister_date(now);
 		user.setRegister_ip(getIpAddr(request));
-		user.setRegister_source("注册来源");
-		user.setCellphone_zone("手机所属区域");
-		user.setIp_zone("IP所属区域");
+		
+		user.setRegister_source("未知来源");
+		//获取手机区域
+		String phoneresult = HttpUtil.sendGet("https://tcc.taobao.com/cc/json/mobile_tel_segment.htm", "tel=15850781443");
+		phoneresult = phoneresult.replace(" ", ""); 
+		phoneresult = phoneresult.substring(phoneresult.indexOf("=") + 1);
+		logger.error(phoneresult);
+		Phonegson pg = new Phonegson();
+		pg = new Gson().fromJson(phoneresult, Phonegson.class);
+		user.setCellphone_zone(pg.getProvince());
+		//获取ip区域
+		String ipresult = HttpUtil.sendGet("http://ip.taobao.com/service/getIpInfo.php", "ip=27.19.3.65");
+		ipresult = ipresult.replace(" ", ""); 
+		logger.error(ipresult);
+		IPgson ig = new IPgson();
+		ig = new Gson().fromJson(ipresult, IPgson.class);
+		user.setIp_zone(ig.getData().getCity());
 		userDao.saveUser(user);
 		return user;
 
