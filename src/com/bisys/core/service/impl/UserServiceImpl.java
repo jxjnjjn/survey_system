@@ -85,24 +85,38 @@ public class UserServiceImpl implements UserService {
 		user.setRegister_ip(getIpAddr(request));
 		
 		user.setRegister_source("未知来源");
-		//获取手机区域
-		String phoneresult = HttpUtil.sendGet("https://tcc.taobao.com/cc/json/mobile_tel_segment.htm", "tel=15850781443");
-		phoneresult = phoneresult.replace(" ", ""); 
-		phoneresult = phoneresult.substring(phoneresult.indexOf("=") + 1);
-		logger.error(phoneresult);
-		Phonegson pg = new Phonegson();
-		pg = new Gson().fromJson(phoneresult, Phonegson.class);
-		user.setCellphone_zone(pg.getProvince());
-		//获取ip区域
-		String ipresult = HttpUtil.sendGet("http://ip.taobao.com/service/getIpInfo.php", "ip=27.19.3.65");
-		ipresult = ipresult.replace(" ", ""); 
-		logger.error(ipresult);
-		IPgson ig = new IPgson();
-		ig = new Gson().fromJson(ipresult, IPgson.class);
-		user.setIp_zone(ig.getData().getCity());
+		
+		try {
+			//获取手机区域
+			String phoneresult = HttpUtil.sendGet("https://tcc.taobao.com/cc/json/mobile_tel_segment.htm", "tel=" + user.getUser_name());
+			phoneresult = phoneresult.replace(" ", ""); 
+			phoneresult = phoneresult.substring(phoneresult.indexOf("=") + 1);
+			logger.error("https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=" + user.getUser_name() + " ,result= " + phoneresult);
+			Phonegson pg = new Phonegson();
+			pg = new Gson().fromJson(phoneresult, Phonegson.class);
+			user.setCellphone_zone(pg.getProvince());
+		} catch (Exception e) {
+			// TODO: handle exception
+			logger.error("获取手机区域异常");
+			user.setCellphone_zone("未知");
+		}
+		
+		try {
+			//获取ip区域
+			String ipresult = HttpUtil.sendGet("http://ip.taobao.com/service/getIpInfo.php", "ip=" + getIpAddr(request));
+			ipresult = ipresult.replace(" ", ""); 
+			logger.error("http://ip.taobao.com/service/getIpInfo.php?ip=" + getIpAddr(request) + " ,result= " + ipresult);
+			IPgson ig = new IPgson();
+			ig = new Gson().fromJson(ipresult, IPgson.class);
+			user.setIp_zone(ig.getData().getCity());
+		} catch (Exception e) {
+			// TODO: handle exception
+			logger.error("获取IP区域异常");
+			user.setIp_zone("未知");
+		}
+		
 		userDao.saveUser(user);
 		return user;
-
 	}
 	
 	@Override
@@ -169,18 +183,18 @@ public class UserServiceImpl implements UserService {
 		//ipAddress = this.getRequest().getRemoteAddr();   
 		ipAddress = request.getHeader("x-forwarded-for");   
 		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
-			logger.error("Proxy-Client-IP");
+			//logger.error("Proxy-Client-IP");
 			ipAddress = request.getHeader("Proxy-Client-IP");   
 		}   
 		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
-			logger.error("WL-Proxy-Client-IP");
+			//logger.error("WL-Proxy-Client-IP");
 			ipAddress = request.getHeader("WL-Proxy-Client-IP");   
 		}   
 		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
-			logger.error("getRemoteAddr");
+			//logger.error("getRemoteAddr");
 			ipAddress = request.getRemoteAddr();   
 			if(ipAddress.equals("127.0.0.1")){   
-				logger.error("127.0.0.1");
+				//logger.error("127.0.0.1");
 				//根据网卡取本机配置的IP   
 				InetAddress inet=null;   
 				try {   
@@ -191,14 +205,14 @@ public class UserServiceImpl implements UserService {
 				ipAddress= inet.getHostAddress();   
 			}         
 		}   
-		logger.error(ipAddress);
+		//logger.error(ipAddress);
 		//对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割   
 		if(ipAddress!=null && ipAddress.length()>15){ //"***.***.***.***".length() = 15   
 			if(ipAddress.indexOf(",")>0){   
 				ipAddress = ipAddress.substring(0,ipAddress.indexOf(","));   
 			}   
 		}   
-		logger.error(ipAddress);
+		//logger.error(ipAddress);
 		return ipAddress;    
 	}   
 }
