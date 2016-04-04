@@ -1,5 +1,7 @@
 package com.bisys.core.entity.survey;
 
+import java.util.Date;
+
 /*
  * 功能：会员中心-我的问卷
  * */
@@ -16,9 +18,13 @@ public class VipUserSurveyInfoEntity {
 	 * */
 	private String survey_name;
 	
+	/*
+	 * 答题日期
+	 * */
+	private Date answer_date;
 	
 	/*
-	 * 答题时间
+	 * 答题时长
 	 * */
 	private int answer_time;
 	
@@ -43,6 +49,14 @@ public class VipUserSurveyInfoEntity {
 
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
+	}
+
+	public Date getAnswer_date() {
+		return answer_date;
+	}
+
+	public void setAnswer_date(Date answer_date) {
+		this.answer_date = answer_date;
 	}
 
 	public String getSurvey_name() {
