@@ -10,6 +10,7 @@ import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
+import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.entity.survey.VipSurveyInfoEntity;
 
 @Repository
@@ -120,4 +121,18 @@ public class SurveyDaoImpl implements SurveyDao {
 				+ user_name +"')";
 		return generalDao.getEntityList(VipSurveyInfoEntity.class, sql, new Object[]{});
 	}
+	
+	/*
+	 * 功能：会员中心-我的问卷-我的好友
+	 * 说明：用户最近三期参加的问卷
+	 * */
+	@Override
+	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception
+	{
+		String sql = "CALL p_select_vip_friend_survey_info('"
+				+ user_name +"')";
+		return generalDao.getEntityList(VipSurveyFriendInfoEntity.class, sql, new Object[]{});
+	}
+	
+	
 }
