@@ -5,7 +5,8 @@ import java.util.List;
 import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
-import com.bisys.core.entity.survey.VipSurveyInfoEntity;
+import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 
 public interface SurveyDao {
 	public boolean insertIntoVipBaseTable(String user_name,String password , String register_date , String register_ip , String register_source , String cellphone_zone , String ip_zone , String role_name , String permission_name) throws Exception;
@@ -14,6 +15,7 @@ public interface SurveyDao {
 	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , int transfer_flag) throws Exception; 
 	public List<VipListEntity> getVipList() throws Exception; 
 	public List<VipInfoEntity> getVipInfo(String user_name) throws Exception;
-	public List<VipSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;
+	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;
 	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception; 
+	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception;
 }
