@@ -5,6 +5,12 @@ package com.bisys.core.entity.survey;
  * */
 
 public class VipSurveyInfoEntity {
+
+	/*
+	 * 用户名字
+	 * */
+	private String user_name;
+	
 	/*
 	 * 问卷名字
 	 * */
@@ -30,6 +36,14 @@ public class VipSurveyInfoEntity {
 	 * 正确率
 	 * */
 	private double correct_rate;
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 
 	public String getSurvey_name() {
 		return survey_name;
