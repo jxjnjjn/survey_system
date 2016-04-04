@@ -4,7 +4,7 @@ package com.bisys.core.entity.survey;
  * 功能：会员中心-我的问卷
  * */
 
-public class VipSurveyInfoEntity {
+public class VipUserSurveyInfoEntity {
 
 	/*
 	 * 用户名字

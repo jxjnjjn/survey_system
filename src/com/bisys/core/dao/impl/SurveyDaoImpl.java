@@ -8,10 +8,11 @@ import org.springframework.stereotype.Repository;
 
 import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
+import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
-import com.bisys.core.entity.survey.VipSurveyInfoEntity;
+import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 
 @Repository
 public class SurveyDaoImpl implements SurveyDao {
@@ -95,6 +96,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	public List<VipListEntity> getVipList() throws Exception
 	{
 		String sql = "CALL p_select_vip_list()";
+		logger.info(sql);
 		return generalDao.getEntityList(VipListEntity.class, sql, new Object[]{});
 	}
 	
@@ -107,6 +109,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	{
 		String sql = "CALL p_select_vip_info('"
 				+ user_name +"')";
+		logger.info(sql);
 		return generalDao.getEntityList(VipInfoEntity.class, sql, new Object[]{});
 	}
 	
@@ -115,11 +118,12 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 
 	 * */
 	@Override
-	public List<VipSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception
+	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception
 	{
 		String sql = "CALL p_select_vip_survey_info('"
 				+ user_name +"')";
-		return generalDao.getEntityList(VipSurveyInfoEntity.class, sql, new Object[]{});
+		logger.info(sql);
+		return generalDao.getEntityList(VipUserSurveyInfoEntity.class, sql, new Object[]{});
 	}
 	
 	/*
@@ -131,8 +135,22 @@ public class SurveyDaoImpl implements SurveyDao {
 	{
 		String sql = "CALL p_select_vip_friend_survey_info('"
 				+ user_name +"')";
+		logger.info(sql);
 		return generalDao.getEntityList(VipSurveyFriendInfoEntity.class, sql, new Object[]{});
 	}
 	
+	/*
+	 * 功能：查询问卷信息
+	 * 说明：status 为问卷状态 。。。。。
+	 * 
+	 * */
+	@Override
+	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception
+	{
+		String sql = "CALL p_select_survey_list("
+				+ status +")";
+		logger.info(sql);
+		return generalDao.getEntityList(SurveyInfoEntity.class, sql, new Object[]{});
+	}
 	
 }
