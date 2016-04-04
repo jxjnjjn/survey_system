@@ -8,8 +8,10 @@ import org.springframework.stereotype.Repository;
 
 import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
-import com.bisys.core.entity.shiro.UserManage;
+import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
+import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
+import com.bisys.core.entity.survey.VipSurveyInfoEntity;
 
 @Repository
 public class SurveyDaoImpl implements SurveyDao {
@@ -30,7 +32,7 @@ public class SurveyDaoImpl implements SurveyDao {
 			String cellphone_zone , String ip_zone , String role_name , String permission_name)
 			throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "call insert_vip_base_table('" 
+		String sql = "call p_insert_vip_base_table('" 
 				+user_name+"','"+password+"','"+register_date+"','"+register_ip+"','"
 				+register_source+"','"+cellphone_zone+"','"+ip_zone+"','"+role_name+"','"+permission_name+"');";
 		logger.info(sql);
@@ -46,7 +48,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	@Override
 	public boolean replaceIntoVipDynamicTable(String user_name,int login_num , int test_num , String friends) throws Exception
 	{
-		String sql = "call replace_vip_dynamic_table ('"
+		String sql = "call p_replace_vip_dynamic_table ('"
 				+user_name+"',"+login_num+","+test_num+",'"+friends+"');";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
@@ -61,7 +63,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	@Override
 	public boolean insertIntoSurveyTable(String survey_name,String survey_desc , String survey_text , String survey_anwser , String start_time , String end_time , int status) throws Exception
 	{
-		String sql = "call insert_survey_table ('"
+		String sql = "call p_insert_survey_table ('"
 				+survey_name+"','"+survey_desc+"','"+survey_text+"','"+survey_anwser+"','"
 				+start_time+"','"+end_time+"',"+status+");";
 		logger.info(sql);
@@ -78,17 +80,59 @@ public class SurveyDaoImpl implements SurveyDao {
 	@Override
 	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , int transfer_flag) throws Exception
 	{
-		String sql = "call insert_survey_user_table ('"
+		String sql = "call p_insert_survey_user_table ('"
 				+user_name+"','"+survey_name+"',"+answer_time+",'"+answer+"',"
 				+transfer_flag+");";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
 	
+	/*
+	 * 功能：会员列表
+	 * 
+	 * */
 	@Override
 	public List<VipListEntity> getVipList() throws Exception
 	{
-		String sql = "CALL select_vip_list()";
+		String sql = "CALL p_select_vip_list()";
 		return generalDao.getEntityList(VipListEntity.class, sql, new Object[]{});
 	}
+	
+	/*
+	 * 功能：会员查询
+	 * 
+	 * */
+	@Override
+	public List<VipInfoEntity> getVipInfo(String user_name) throws Exception
+	{
+		String sql = "CALL p_select_vip_info('"
+				+ user_name +"')";
+		return generalDao.getEntityList(VipInfoEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：会员中心-我的问卷
+	 * 
+	 * */
+	@Override
+	public List<VipSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception
+	{
+		String sql = "CALL p_select_vip_survey_info('"
+				+ user_name +"')";
+		return generalDao.getEntityList(VipSurveyInfoEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：会员中心-我的问卷-我的好友
+	 * 说明：用户最近三期参加的问卷
+	 * */
+	@Override
+	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception
+	{
+		String sql = "CALL p_select_vip_friend_survey_info('"
+				+ user_name +"')";
+		return generalDao.getEntityList(VipSurveyFriendInfoEntity.class, sql, new Object[]{});
+	}
+	
+	
 }
