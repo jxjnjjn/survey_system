@@ -1,5 +1,6 @@
 package com.bisys.core.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.VipAnalysisEntity;
 import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
@@ -151,6 +153,20 @@ public class SurveyDaoImpl implements SurveyDao {
 				+ status +")";
 		logger.info(sql);
 		return generalDao.getEntityList(SurveyInfoEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：会员分析
+	 * 说明：today 查询当日日期
+	 * 
+	 * */
+	@Override
+	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception
+	{
+		String sql = "CALL p_select_vip_analysis("
+				+ today +")";
+		logger.info(sql);
+		return generalDao.getEntityList(VipAnalysisEntity.class, sql, new Object[]{});
 	}
 	
 }
