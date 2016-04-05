@@ -7,23 +7,49 @@ import java.util.Date;
  * */
 
 public class VipListEntity {
-	
+	/*
+	 * 会员名称
+	 * */
 	private String user_name;
 	
+	/*
+	 * 注册日期
+	 * */
 	private Date register_date;
 	
+	/*
+	 * 注册IP
+	 * */
 	private String register_ip;
 	
+	/*
+	 * 登陆次数
+	 * */
 	private int login_num;
 	
+	/*
+	 * 测试次数
+	 * */
 	private int test_num;
 	
+	/*
+	 * 注册来源
+	 * */
 	private String register_source;
 	
+	/*
+	 * 手机区域
+	 * */
 	private String cellphone_zone;
 	
+	/*
+	 * IP区域
+	 * */
 	private String ip_zone;
 	
+	/*
+	 * 好友
+	 * */
 	private String friends;
 
 	public String getUser_name() {
