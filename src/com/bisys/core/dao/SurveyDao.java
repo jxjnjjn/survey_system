@@ -1,11 +1,14 @@
 package com.bisys.core.dao;
 
+import java.util.Date;
 import java.util.List;
 
+import com.bisys.core.entity.survey.SurveyAnalysisEntity;
+import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.VipAnalysisEntity;
 import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
-import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 
 public interface SurveyDao {
@@ -18,4 +21,6 @@ public interface SurveyDao {
 	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;
 	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception; 
 	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception;
+	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception;
+	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name , Date today) throws Exception;
 }
