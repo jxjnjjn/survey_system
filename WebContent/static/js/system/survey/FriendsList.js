@@ -1,5 +1,5 @@
 /*=======================================*/
-/*	开始答题js                            */
+/*	综合指标js                            */
 /*	@author noviachan                    */
 /*=======================================*/
 getData();
@@ -23,7 +23,7 @@ function creatListgroupHtml(tableInfo){
 	var html = "";
 	for(var i in tableInfo){
 		html += "<a href=\"#\" class=\"list-group-item list-group-item-warning\">";
-		html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
+		html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong></h2>";
 		html += "<div class=\"row\">";
 		html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
 		html += "<p class=\"list-group-item-text col-md-4\"><strong>结束时间：</strong>"+formatdate(tableInfo[i].end_time,"yyyy-MM-dd hh:mm:ss")+"</p>";

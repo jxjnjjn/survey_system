@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.dao.UserDao;
-import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.VipListEntity;
 
-@Service("SurveyServiceImpl")
-public class SurveyServiceImpl{
+@Service("VIPServiceImpl")
+public class VIPServiceImpl{
 	
-	private static Logger logger = Logger.getLogger(SurveyServiceImpl.class);
+	private static Logger logger = Logger.getLogger(VIPServiceImpl.class);
 	
 	@Autowired
 	private UserDao userDao;
@@ -21,8 +21,8 @@ public class SurveyServiceImpl{
 	@Autowired
 	private SurveyDao surveyDao;
 
-	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception
+	public List<VipListEntity> getSurveyInfo() throws Exception
 	{
-		return surveyDao.getSurveyInfo(status);
+		return surveyDao.getVipList();
 	}
 }

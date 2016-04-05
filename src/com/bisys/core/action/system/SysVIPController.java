@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bisys.core.entity.survey.SurveyInfoEntity;
-import com.bisys.core.service.impl.SurveyServiceImpl;
+import com.bisys.core.entity.survey.VipListEntity;
+import com.bisys.core.service.impl.VIPServiceImpl;
 import com.google.gson.Gson;
 /**
  * 主页
@@ -22,24 +22,24 @@ import com.google.gson.Gson;
  *
  */
 @Controller
-@RequestMapping("/system/survey")
-public class SysSurveyController{
+@RequestMapping("/system/vip")
+public class SysVIPController{
 	
 	private Logger logger = Logger.getLogger(this.getClass());
 	
 	@Autowired
-	private SurveyServiceImpl surveyService;
+	private VIPServiceImpl surveyService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String survey(HttpServletRequest request){
+	public String vip(HttpServletRequest request){
 		logger.info("开始答题");
-		return "system/survey/surveyList";
+		return "system/survey/VIPList";
 	}
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlist(@RequestParam int status, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		List<SurveyInfoEntity> surveyinfoList= surveyService.getSurveyInfo(status);
+	public String getlist(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		List<VipListEntity> surveyinfoList= surveyService.getSurveyInfo();
 		logger.info(new Gson().toJson(surveyinfoList));
 		return new Gson().toJson(surveyinfoList);
 	}
