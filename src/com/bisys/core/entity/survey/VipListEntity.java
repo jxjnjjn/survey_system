@@ -28,7 +28,7 @@ public class VipListEntity {
 	private int login_num;
 	
 	/*
-	 * 测试次数
+	 * 答题次数
 	 * */
 	private int test_num;
 	
