@@ -16,6 +16,7 @@ import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
+import com.bisys.core.entity.survey.VipVipFriendInfoEntity;
 
 @Repository
 public class SurveyDaoImpl implements SurveyDao {
@@ -184,6 +185,20 @@ public class SurveyDaoImpl implements SurveyDao {
 				+ today +")";
 		logger.info(sql);
 		return generalDao.getEntityList(SurveyAnalysisEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：好友信息
+	 * 说明：user_name 查询用户名称
+	 * 
+	 * */
+	@Override
+	public List<VipVipFriendInfoEntity> getVipFriendInfo(String user_name) throws Exception
+	{
+		String sql = "CALL p_select_vip_friend('"
+				+ user_name +"')";
+		logger.info(sql);
+		return generalDao.getEntityList(VipVipFriendInfoEntity.class, sql, new Object[]{});
 	}
 	
 }

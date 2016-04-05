@@ -10,6 +10,7 @@ import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
+import com.bisys.core.entity.survey.VipVipFriendInfoEntity;
 
 public interface SurveyDao {
 	public boolean insertIntoVipBaseTable(String user_name,String password , String register_date , String register_ip , String register_source , String cellphone_zone , String ip_zone , String role_name , String permission_name) throws Exception;
@@ -23,4 +24,5 @@ public interface SurveyDao {
 	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception;
 	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception;
 	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name , Date today) throws Exception;
+	public List<VipVipFriendInfoEntity> getVipFriendInfo(String user_name) throws Exception;
 }
