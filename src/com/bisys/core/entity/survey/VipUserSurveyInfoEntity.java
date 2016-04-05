@@ -2,6 +2,8 @@ package com.bisys.core.entity.survey;
 
 import java.util.Date;
 
+import sun.security.util.Length;
+
 /*
  * 功能：会员中心-我的问卷
  * */
@@ -97,5 +99,13 @@ public class VipUserSurveyInfoEntity {
 
 	public void setCorrect_rate(double correct_rate) {
 		this.correct_rate = correct_rate;
+	}
+	
+	public void calculat_correct_rate()
+	{
+		int len = this.survey_anwser.length();
+		int correct_num = 0;
+		
+		//this.correct_rate =  correct_num/len;
 	}
 }

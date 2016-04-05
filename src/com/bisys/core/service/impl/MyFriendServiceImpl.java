@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
+import com.bisys.core.entity.survey.VipFriendInfoEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
-import com.bisys.core.entity.survey.VipVipFriendInfoEntity;
 
 @Service("MyFriendServiceImpl")
 public class MyFriendServiceImpl{
@@ -22,9 +22,9 @@ public class MyFriendServiceImpl{
 	public List<VipSurveyFriendInfoEntity> getSurveyInfo(String user_name) throws Exception
 	{
 		List<VipSurveyFriendInfoEntity> result = new ArrayList<VipSurveyFriendInfoEntity>();
-		List<VipVipFriendInfoEntity> vip_friends_list= surveyDao.getVipFriendInfo(user_name);
+		List<VipFriendInfoEntity> vip_friends_list= surveyDao.getVipFriendInfo(user_name);
 		
-		for(VipVipFriendInfoEntity bean : vip_friends_list)
+		for(VipFriendInfoEntity bean : vip_friends_list)
 		{
 			if(bean != null)
 			{

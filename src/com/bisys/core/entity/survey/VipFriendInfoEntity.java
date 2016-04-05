@@ -4,7 +4,7 @@ package com.bisys.core.entity.survey;
  * 功能：VIP 用户的好友信息
  * */
 
-public class VipVipFriendInfoEntity {
+public class VipFriendInfoEntity {
 
 	/*
 	 * 用户名字
