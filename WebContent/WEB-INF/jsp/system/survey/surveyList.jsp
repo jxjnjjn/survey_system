@@ -6,33 +6,47 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="BI后台管理系统">
+	<meta name="description" content="开始答题">
+	<meta name="keywords" content="开始答题" />
 	<meta name="author" content="noviachan">
-	<link rel="shortcut icon" href="/static/img/bisys-icon.png">
-	<title>会员管理后台</title>
+	<link rel="shortcut icon" href="/static/img/survey-icon.jpg">
+	<title>开始答题首页</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
+	<link href="/static/css/common/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
-<body style="padding-top: 50px;">
-	<div class="container" style="width: 1200px;text-align: center;">
-			<jsp:include page="common/topSideBar.jsp" />
-			<div class="container-fluid">
-				<div class="main">
-					<iframe id="mainframe" frameborder="0" src="/system/survey" name="mainframe"></iframe>
+<body>
+	<div id="contentDiv" class="container-fluid">
+		<div id="listDiv" class="listDiv">
+			<div id="tablepanel" class="panel panel-default">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-10 col-md-5">
+							<h4 style="margin-top: 0px; margin-bottom: 0px;">
+								<strong>在线题目</strong>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<div id="detailstable">
+						<div id="datatable" class="list-group"></div>
+					</div>
 				</div>
 			</div>
-			<jsp:include page="common/footerSideBar.jsp" />
-			
-			<jsp:include page="common/userModal.jsp" />
+		</div>
 	</div>
+
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script type="text/javascript" src="/static/js/common/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/static/js/common/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
-	<script type="text/javascript" src="/static/js/system/index.js"></script>
+	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
+	<script type="text/javascript" src="/static/js/system/survey/surveyList.js"></script>
 </body>
 </html>
