@@ -14,7 +14,17 @@
 		<property name="unauthorizedUrl" value="/page403.html" />
 		<property name="filterChainDefinitions">
 			<value> 
-	            /** = anon
+	            /static/**=anon
+				/system/login**=anon
+				/system/register**=anon
+				/system/forgetpassword**=anon
+				/system/logout**=anon
+				/system/loginCheck**=anon
+				/system/addUser**=anon
+				/system/getbackpassword**=anon
+				/system/changepass**=anon
+				/valid/getvaildcode**=anon
+	            /** = authc
 			</value>
 		</property>
 	</bean>

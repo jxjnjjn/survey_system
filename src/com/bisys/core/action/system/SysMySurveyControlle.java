@@ -33,7 +33,7 @@ public class SysMySurveyControlle{
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login(HttpServletRequest request){
 		logger.info("我的问卷");
-		return "system/survey/mysurvey";
+		return "system/survey/MySurveyList";
 	}
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)

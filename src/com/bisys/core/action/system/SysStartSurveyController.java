@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.survey.SurveyInfoEntity;
-import com.bisys.core.service.impl.SurveyServiceImpl;
+import com.bisys.core.service.impl.StartSurveyServiceImpl;
 import com.google.gson.Gson;
 /**
  * 主页
@@ -23,17 +23,17 @@ import com.google.gson.Gson;
  */
 @Controller
 @RequestMapping("/system/survey")
-public class SysSurveyController{
+public class SysStartSurveyController{
 	
 	private Logger logger = Logger.getLogger(this.getClass());
 	
 	@Autowired
-	private SurveyServiceImpl surveyService;
+	private StartSurveyServiceImpl surveyService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String survey(HttpServletRequest request){
 		logger.info("开始答题");
-		return "system/survey/surveyList";
+		return "system/survey/StartSurveyList";
 	}
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)

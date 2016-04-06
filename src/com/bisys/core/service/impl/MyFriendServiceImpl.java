@@ -51,7 +51,8 @@ public class MyFriendServiceImpl{
 				List<VipSurveyFriendInfoEntity> friend_result = surveyDao.getVipFriendSurveyInfo(bean);
 				for(VipSurveyFriendInfoEntity item : friend_result)
 				{
-					result_temp.add(item);				}
+					result_temp.add(item);				
+				}
 			} 
 		}
 		

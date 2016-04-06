@@ -10,10 +10,10 @@ import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.dao.UserDao;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 
-@Service("SurveyServiceImpl")
-public class SurveyServiceImpl{
+@Service("StartSurveyServiceImpl")
+public class StartSurveyServiceImpl{
 	
-	private static Logger logger = Logger.getLogger(SurveyServiceImpl.class);
+	private static Logger logger = Logger.getLogger(StartSurveyServiceImpl.class);
 	
 	@Autowired
 	private UserDao userDao;

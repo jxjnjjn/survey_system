@@ -33,7 +33,7 @@ public class SysMyFriendController{
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String login(HttpServletRequest request){
 		logger.info("我的好友");
-		return "system/survey/myfriend";
+		return "system/survey/MyFriendList";
 	}
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
