@@ -19,7 +19,7 @@
 			<shiro:authenticated>
 				<ul class="nav navbar-nav">
 					<shiro:hasAnyRoles name="admin">
-						<li role="presentation"><a href="" target="mainframe">创建问卷</a></li>
+						<li role="presentation"><a href="/system/createsurvey" target="mainframe">创建问卷</a></li>
 						<li role="presentation"><a href="" target="mainframe">问卷状态</a></li>
 						<li role="presentation"><a href="/system/vip" target="mainframe">会员管理</a></li>
 					</shiro:hasAnyRoles>
