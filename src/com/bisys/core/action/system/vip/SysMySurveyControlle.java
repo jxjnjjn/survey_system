@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bisys.core.entity.JsonResult;
+import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 import com.bisys.core.service.impl.MySurveyServiceImpl;
 import com.google.gson.Gson;
@@ -31,7 +33,7 @@ public class SysMySurveyControlle{
 	private MySurveyServiceImpl surveyService;
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String login(HttpServletRequest request){
+	public String mysurvey(HttpServletRequest request){
 		logger.info("我的问卷");
 		return "system/vip/MySurveyList";
 	}
@@ -39,8 +41,25 @@ public class SysMySurveyControlle{
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getlist(@RequestParam String user_name, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		List<VipUserSurveyInfoEntity> surveyinfoList= surveyService.getSurveyInfo(user_name);
-		logger.info(new Gson().toJson(surveyinfoList));
-		return new Gson().toJson(surveyinfoList);
+		logger.info("获取我的问卷列表："+user_name); 
+		
+		boolean flag = false;
+		String errorMessage = "查询失败";
+		List<VipUserSurveyInfoEntity> surveyinfoList = null;
+		
+		try {
+			surveyinfoList = surveyService.getSurveyInfo(user_name);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin search failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<VipUserSurveyInfoEntity> jsonResult = new JsonResult<VipUserSurveyInfoEntity>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
+		jsonResult.setData(surveyinfoList);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
 	}
 }

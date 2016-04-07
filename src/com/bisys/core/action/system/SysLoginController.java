@@ -75,7 +75,7 @@ public class SysLoginController{
 		
 		boolean flag = false;
 		String errorMessage = "用户登录失败";
-		JsonResult jsonResult = new JsonResult();
+		JsonResult<SysUserVo> jsonResult = new JsonResult<SysUserVo>();
 		
 		try {
 			user = userService.sysAdminLogin(user, request, response);
@@ -89,7 +89,7 @@ public class SysLoginController{
 		
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "用户登录成功" : errorMessage);
-		jsonResult.setData(user);
+		//jsonResult.setData(user);
 		return new Gson().toJson(jsonResult);
 	}
 	
@@ -103,7 +103,7 @@ public class SysLoginController{
 		logger.info("添加用户:" + user.toString());
 		boolean flag = false;
 		String errorMessage = "用户注册失败";
-		JsonResult jsonResult = new JsonResult();
+		JsonResult<SysUserVo> jsonResult = new JsonResult<SysUserVo>();
 		
 		try {
 			user = userService.sysAdminRegister(user, request, response);
@@ -117,7 +117,7 @@ public class SysLoginController{
 		
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "用户注册成功" : errorMessage);
-		jsonResult.setData(user);
+		//jsonResult.setData(user);
 		return new Gson().toJson(jsonResult);
 	}
 	
@@ -132,7 +132,7 @@ public class SysLoginController{
 		
 		boolean flag = false;
 		String errorMessage = "修改密码失败";
-		JsonResult jsonResult = new JsonResult();
+		JsonResult<SysUserVo> jsonResult = new JsonResult<SysUserVo>();
 		
 		try {
 			user = userService.sysAdminforgetpassword(user, request, response);
@@ -146,7 +146,7 @@ public class SysLoginController{
 		
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "修改密码成功" : errorMessage);
-		jsonResult.setData(user);
+		//jsonResult.setData(user);
 		return new Gson().toJson(jsonResult);
 	}
 	
@@ -161,7 +161,7 @@ public class SysLoginController{
 		
 		boolean flag = false;
 		String errorMessage = "修改密码失败";
-		JsonResult jsonResult = new JsonResult();
+		JsonResult<SysUserVo> jsonResult = new JsonResult<SysUserVo>();
 		
 		try {
 			user = userService.sysAdminChangePass(user, request, response);
@@ -175,7 +175,7 @@ public class SysLoginController{
 		
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "修改密码成功" : errorMessage);
-		jsonResult.setData(user);
+		//jsonResult.setData(user);
 		return new Gson().toJson(jsonResult);
 	}
 }

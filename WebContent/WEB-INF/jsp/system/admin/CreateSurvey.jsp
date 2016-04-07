@@ -19,6 +19,7 @@
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid">
+		<button type="button" class="btn btn-link">返回</button>
 		<div id="listDiv" class="listDiv">
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">
@@ -95,36 +96,6 @@
 	<script charset="utf-8" src="/static/editor/lang/zh-CN.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
-	<script>
-	        KindEditor.ready(function(K) {
-	                window.editor = K.create('#survey_content',{
-						resizeType : 1,
-						allowPreviewEmoticons : false,
-						allowImageUpload : false,
-						items : [
-							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-					});
-	                window.editor = K.create('#survey_title',{
-						resizeType : 1,
-						allowPreviewEmoticons : false,
-						allowImageUpload : false,
-						items : [
-							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-					});
-	                window.editor = K.create('#survey_desc',{
-						resizeType : 1,
-						allowPreviewEmoticons : false,
-						allowImageUpload : false,
-						items : [
-							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-					});
-	        });
-	</script>
+	<script type="text/javascript" src="/static/js/system/admin/CreateSurvey.js"></script>
 </body>
 </html>

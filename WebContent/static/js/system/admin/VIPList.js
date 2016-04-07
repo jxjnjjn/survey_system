@@ -13,8 +13,14 @@ function getData(){
 			status:0},
 		async : true,
 		success : function(result) {
-			creatTableHtml(result);
-			//creatpage(result);//分页
+			if(result.resultCode == 0){
+				if(result.data != null){
+					creatTableHtml(result.data);
+					//creatpage(result);//分页
+				}
+			}else{
+				alert(result.resultMessage);
+			}
 		}
 		});
 }

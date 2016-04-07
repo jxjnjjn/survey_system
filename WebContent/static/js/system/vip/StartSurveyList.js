@@ -7,14 +7,20 @@ getData();
 function getData(){
 	$.ajax({
 		type : "GET",
-		url : "/system/survey/getlist",
+		url : "/system/startsurvey/getlist",
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
 			status:0},
 		async : true,
 		success : function(result) {
-			creatListgroupHtml(result);
+			if(result.resultCode == 0){
+				if(result.data != null){
+					creatListgroupHtml(result.data);
+				}
+			}else{
+				alert(result.resultMessage);
+			}
 		}
 		});
 }

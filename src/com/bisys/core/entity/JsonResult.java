@@ -1,10 +1,11 @@
 package com.bisys.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
 /**
  * 返回前台的json数据
  */
-public class JsonResult implements Serializable{
+public class JsonResult<T> implements Serializable{
 
 	private static final long serialVersionUID = 4273005680206220420L;
 	/**
@@ -19,7 +20,7 @@ public class JsonResult implements Serializable{
 	/**
 	 * 返回的数据
 	 */
-	private Object data;
+	private List<T> data;
 	
 	public int getResultCode() {
 		return resultCode;
@@ -33,10 +34,10 @@ public class JsonResult implements Serializable{
 	public void setResultMessage(String resultMessage) {
 		this.resultMessage = resultMessage;
 	}
-	public Object getData() {
+	public List<T> getData() {
 		return data;
 	}
-	public void setData(Object data) {
+	public void setData(List<T> data) {
 		this.data = data;
 	}
 	
