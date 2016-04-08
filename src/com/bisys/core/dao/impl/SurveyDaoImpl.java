@@ -66,11 +66,11 @@ public class SurveyDaoImpl implements SurveyDao {
 	 *
 	 * */
 	@Override
-	public boolean insertIntoSurveyTable(String survey_name,String survey_desc , String survey_text , String survey_anwser , String start_time , String end_time , int status) throws Exception
+	public boolean insertIntoSurveyTable(SurveyInfoEntity survey) throws Exception
 	{
 		String sql = "call p_insert_survey_table ('"
-				+survey_name+"','"+survey_desc+"','"+survey_text+"','"+survey_anwser+"','"
-				+start_time+"','"+end_time+"',"+status+");";
+				+survey.getSurvey_name()+"','"+survey.getSurvey_desc()+"','"+survey.getSurvey_text()+"','"+survey.getSurvey_anwser()+"','"
+				+survey.getStart_time()+"','"+survey.getEnd_time()+"',"+survey.getStatus()+");";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}

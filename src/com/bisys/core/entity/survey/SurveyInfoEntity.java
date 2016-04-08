@@ -20,6 +20,21 @@ public class SurveyInfoEntity {
 	private String survey_desc;
 	
 	/*
+	 * 问卷内容
+	 * */
+	private String survey_text;
+	
+	/*
+	 * 问卷答案
+	 * */
+	private String survey_anwser;
+	
+	/*
+	 * 问卷状态
+	 * */
+	private String status;
+	
+	/*
 	 * 开始时间
 	 * */
 	private Date start_time;
@@ -48,6 +63,32 @@ public class SurveyInfoEntity {
 
 	public void setSurvey_desc(String survey_desc) {
 		this.survey_desc = survey_desc;
+	}
+	
+	
+
+	public String getSurvey_text() {
+		return survey_text;
+	}
+
+	public void setSurvey_text(String survey_text) {
+		this.survey_text = survey_text;
+	}
+
+	public String getSurvey_anwser() {
+		return survey_anwser;
+	}
+
+	public void setSurvey_anwser(String survey_anwser) {
+		this.survey_anwser = survey_anwser;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public Date getStart_time() {

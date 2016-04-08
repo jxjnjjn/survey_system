@@ -1,4 +1,4 @@
-package com.bisys.core.action.system.vip;
+package com.bisys.core.action.system;
 
 import java.util.List;
 
