@@ -2,6 +2,8 @@ package com.bisys.core.entity;
 
 import java.io.Serializable;
 import java.util.List;
+
+import com.bisys.core.util.JsonPageInfo;
 /**
  * 返回前台的json数据
  */
@@ -22,9 +24,17 @@ public class JsonResult<T> implements Serializable{
 	 */
 	private List<T> data;
 	
+	
+	private JsonPageInfo pageInfo;
+	
 	public int getResultCode() {
 		return resultCode;
 	}
+	
+	public void setPageInfo(JsonPageInfo result) {
+		this.pageInfo = result;
+	}
+	
 	public void setResultCode(int resultCode) {
 		this.resultCode = resultCode;
 	}
