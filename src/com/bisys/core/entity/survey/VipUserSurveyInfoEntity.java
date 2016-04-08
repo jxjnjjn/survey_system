@@ -103,8 +103,17 @@ public class VipUserSurveyInfoEntity {
 	
 	public void calculat_correct_rate()
 	{
-		int len = this.survey_anwser.length();
-		int correct_num = 0;
+		if(this.survey_anwser != null)
+		{
+			int len = this.survey_anwser.length();
+			int correct_num = 0;
+			this.correct_rate = 0;
+		}
+		else
+		{
+			this.correct_rate = 0;
+		}
+		
 		
 		//this.correct_rate =  correct_num/len;
 	}
