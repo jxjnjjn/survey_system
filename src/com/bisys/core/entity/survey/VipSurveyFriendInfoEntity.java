@@ -32,4 +32,15 @@ public class VipSurveyFriendInfoEntity {
 	public void setSurvey_name(String survey_name) {
 		this.survey_name = survey_name;
 	}
+	
+	public void addSurveyToList(String survey_name) {
+		if(this.survey_name == null)
+		{
+			this.survey_name = survey_name;
+		}
+		else
+		{
+			this.survey_name = this.survey_name+","+survey_name;
+		}	
+	}
 }
