@@ -14,7 +14,7 @@ public class VipFriendInfoEntity {
 	/*
 	 * 好友信息【friend1,friend2】
 	 * */
-	private String friend_list;
+	private String friends;
 
 	public String getUser_name() {
 		return user_name;
@@ -24,11 +24,11 @@ public class VipFriendInfoEntity {
 		this.user_name = user_name;
 	}
 
-	public String getFriend_list() {
-		return friend_list;
+	public String getFriends() {
+		return friends;
 	}
 
-	public void setFriend_list(String friend_list) {
-		this.friend_list = friend_list;
+	public void setFriends(String friends) {
+		this.friends = friends;
 	}
 }

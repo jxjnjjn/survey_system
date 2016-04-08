@@ -28,7 +28,8 @@ public class MyFriendServiceImpl{
 		{
 			if(bean != null)
 			{
-				List<VipSurveyFriendInfoEntity> result_temp = this.getFriendName(bean.getFriend_list());
+				List<VipSurveyFriendInfoEntity> result_temp = this.getFriendName(bean.getFriends());
+				
 				for(VipSurveyFriendInfoEntity bean1 : result_temp)
 				{
 					result.add(bean1);
