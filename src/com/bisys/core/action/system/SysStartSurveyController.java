@@ -34,7 +34,7 @@ public class SysStartSurveyController{
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String startsurvey(HttpServletRequest request){
 		logger.info("开始答题");
-		return "system/vip/StartSurveyList";
+		return "system/StartSurveyList";
 	}
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)

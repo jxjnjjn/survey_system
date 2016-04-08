@@ -19,7 +19,7 @@
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid">
-		<button type="button" class="btn btn-link">返回</button>
+		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">
@@ -77,8 +77,8 @@
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-default">保存问卷</button>
-								<button type="submit" class="btn btn-info">预览问卷</button>
+								<button type="submit" class="btn btn-default" id="savesurveybtn">保存问卷</button>
+								<button type="submit" class="btn btn-info" id="showsurveybtn">预览问卷</button>
 							</div>
 						</div>
 					</form>

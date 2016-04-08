@@ -3,6 +3,14 @@
 /*=======================================*/
 getData();
 
+$("#createsurveybtn").on('click',function(){
+	createsurvey();
+});
+
+function createsurvey(){
+	window.location.href="/system/survey/createsurvey";
+}
+
 function getData(){
 	$.ajax({
 		type : "GET",

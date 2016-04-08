@@ -49,6 +49,6 @@
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
-	<script type="text/javascript" src="/static/js/system/vip/StartSurveyList.js"></script>
+	<script type="text/javascript" src="/static/js/system/StartSurveyList.js"></script>
 </body>
 </html>
