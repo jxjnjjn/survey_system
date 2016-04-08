@@ -22,6 +22,7 @@
 		<ul id="contentUl" class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a>我的好友</a></li>
 		</ul>
+		<button type="button" class="btn btn-info" id="addfriendbtn" style="margin-top: 10px;">添加好友</button>
 		<div id="listDiv" class="listDiv">
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">

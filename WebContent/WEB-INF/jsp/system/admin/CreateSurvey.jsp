@@ -32,36 +32,36 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<form class="form-horizontal">
+					<form id="surveyinfoForm" class="form-horizontal">
 						<input type="hidden" name="user_name" id="user_name" value="${sysUser.user_name}">
 						<div class="form-group">
-							<label for="survey_title" class="col-sm-2 control-label">问卷标题</label>
+							<label for="survey_name" class="col-sm-2 control-label">问卷标题</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="survey_title" placeholder="问卷标题">
+								<textarea id="survey_name" name="survey_name" class="form-control" rows="10"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="survey_desc" class="col-sm-2 control-label">问卷描述</label>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" id="survey_desc" placeholder="问卷描述">
+								<textarea id="survey_desc" name="survey_desc" class="form-control" rows="10"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="survey_content" class="col-sm-2 control-label">问卷内容</label>
+							<label for="survey_text" class="col-sm-2 control-label">问卷内容</label>
 							<div class="col-sm-10">
-								<textarea id="survey_content" class="form-control" rows="20"></textarea>
+								<textarea id="survey_text" name="survey_text" class="form-control" rows="20"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="starttime" class="col-sm-2 control-label">问卷开始时间</label>
+							<label for="start_time" class="col-sm-2 control-label">问卷开始时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" placeholder="开始时间" name="starttime" id="starttime" />
+								<input type="text" class="form-control" placeholder="开始时间" name="start_time" id="start_time" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="endtime" class="col-sm-2 control-label">问卷结束时间</label>
+							<label for="end_time" class="col-sm-2 control-label">问卷结束时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" placeholder="结束时间" name="endtime" id="endtime" />
+								<input type="text" class="form-control" placeholder="结束时间" name="end_time" id="end_time" />
 							</div>
 						</div>
 						<div class="form-group">

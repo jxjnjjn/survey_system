@@ -3,6 +3,10 @@
 /*=======================================*/
 getData();
 
+$("#addfriendbtn").on('click',function(){
+	addfriend();
+});
+
 function getData(){
 	var username = $("#user_name").val();
 	$.ajax({
@@ -36,7 +40,8 @@ function creatTableHtml(tableInfo){
 
 function creatTablehead(){
 	var th = "<th>好友名称</th>";
-		th = th + "<th>问卷名称</th>";
+		th = th + "<th>近几期问卷</th>";
+		th = th + "<th>操作</th>";
 		
 	var tr = "<tr>"+th+"</tr>";
 	var thead = "<thead>"+ tr +"</thead>";
@@ -48,10 +53,21 @@ function creatTablebody(tableInfo){
 	for(var i in tableInfo){
 		var td = "<th>"+tableInfo[i].user_name+"</th>";
 		td = td + "<td>"+tableInfo[i].survey_name+"</td>";
+		td = td + "<td class=\"text-center\">";
+		td = td + "<button type=\"button\" class=\"btn btn-danger btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].user_name+"')\">删除</button>"
+		td = td + "</td>";
 
 		tr = tr + "<tr>"+td+"</tr>";
 	}
 	
 	var tbody = "<tbody>"+ tr +"</tbody>";
 	return tbody;
+}
+
+function addfriend(){
+
+}
+
+function delfriend(){
+
 }

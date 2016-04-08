@@ -41,10 +41,10 @@ public class SysSurveyController{
 		return "system/admin/CreateSurvey";
 	}
 	
-	@RequestMapping(value = "savesurvey", method = RequestMethod.GET)
+	@RequestMapping(value = "savesurvey", method = RequestMethod.POST)
 	@ResponseBody 
 	public String savesurvey( @RequestBody SurveyInfoEntity survey, HttpServletRequest request, HttpServletResponse response){
-		logger.info("保存问卷");
+		logger.info("保存问卷"+new Gson().toJson(survey));
 		boolean flag = false;
 		String errorMessage = "保存失败";
 		

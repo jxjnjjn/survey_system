@@ -1,22 +1,22 @@
 /*=======================================*/
 /*	@author noviachan                    */
 /*=======================================*/
-getData();
+getData(1);
 
-function getData(){
+function getData(pageNo){
 	$.ajax({
 		type : "GET",
 		url : "/system/vip/getlist",
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			status:0},
+			pageNo:1},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){
 				if(result.data != null){
 					creatTableHtml(result.data);
-					//creatpage(result);//分页
+					//creatpage(result.);//分页
 				}
 			}else{
 				alert(result.resultMessage);
