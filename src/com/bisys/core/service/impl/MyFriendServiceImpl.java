@@ -37,7 +37,52 @@ public class MyFriendServiceImpl{
 			}
 		}
 		
-		return result;
+		//logger.info(new Gson().toJson(result));
+		return this.getSurveyInfoGroupByUserName(result);
+	}
+	
+	private List<VipSurveyFriendInfoEntity> getSurveyInfoGroupByUserName(List<VipSurveyFriendInfoEntity> result) throws Exception
+	{
+		List<VipSurveyFriendInfoEntity> p_result = new ArrayList<VipSurveyFriendInfoEntity>();
+		
+		if(result != null)
+		{
+			for(VipSurveyFriendInfoEntity bean : result)
+			{
+				VipSurveyFriendInfoEntity item = this.findByUserName(p_result, bean);
+				
+				if(item == null)
+				{
+					item = new VipSurveyFriendInfoEntity();
+					item.setUser_name(bean.getUser_name());
+					p_result.add(item);
+				}
+				
+				item.addSurveyToList(bean.getSurvey_name());
+			}
+		}
+		
+		return p_result;
+	}
+	
+	private VipSurveyFriendInfoEntity findByUserName(List<VipSurveyFriendInfoEntity> list , VipSurveyFriendInfoEntity item)
+	{
+		if(list != null)
+		{
+			for(VipSurveyFriendInfoEntity bean :list )
+			{
+				if(bean != null && bean.getUser_name() != null 
+						&& item != null && item.getUser_name() != null)
+				{
+					if(bean.getUser_name().compareTo(item.getUser_name()) == 0)
+					{
+						return bean;
+					}
+				}
+			}
+		}
+		
+		return null;
 	}
 	
 	private List<VipSurveyFriendInfoEntity> getFriendName(String friend_name) throws Exception
