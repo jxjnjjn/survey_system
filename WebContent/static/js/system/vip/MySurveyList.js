@@ -1,9 +1,9 @@
 /*=======================================*/
 /*	@author noviachan                    */
 /*=======================================*/
-getData();
+getData(1);
 
-function getData(){
+function getData(pageNo){
 	var username = $("#user_name").val();
 	console.log(username);
 	$.ajax({
@@ -12,13 +12,14 @@ function getData(){
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			user_name:username},
+			user_name:username,
+			pageNo:pageNo},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){
 				if(result.data != null){
 					creatTableHtml(result.data);
-					//creatpage(result);//分页
+					creatpage(result.pageInfo);//分页
 				}
 			}else{
 				alert(result.resultMessage);

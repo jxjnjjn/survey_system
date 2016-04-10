@@ -1,7 +1,7 @@
 /*=======================================*/
 /*	@author noviachan                    */
 /*=======================================*/
-getData();
+getData(1);
 
 $("#createsurveybtn").on('click',function(){
 	createsurvey();
@@ -11,20 +11,21 @@ function createsurvey(){
 	window.location.href="/system/survey/createsurvey";
 }
 
-function getData(){
+function getData(pageNo){
 	$.ajax({
 		type : "GET",
 		url : "/system/survey/getlist",
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			status:0},
+			status:0,
+			pageNo:pageNo},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){
 				if(result.data != null){
 					creatTableHtml(result.data);
-					//creatpage(result);//分页
+					creatpage(result.pageInfo);//分页
 				}
 			}else{
 				alert(result.resultMessage);

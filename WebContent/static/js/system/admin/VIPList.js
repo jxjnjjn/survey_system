@@ -10,13 +10,13 @@ function getData(pageNo){
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			pageNo:1},
+			pageNo:pageNo},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){
 				if(result.data != null){
 					creatTableHtml(result.data);
-					//creatpage(result.);//分页
+					creatpage(result.pageInfo);//分页
 				}
 			}else{
 				alert(result.resultMessage);
