@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid">
-		<button type="button" class="btn btn-link" id="createsurveybtn">创建问卷</button>
+		<button type="button" class="btn btn-success" id="createsurveybtn">创建问卷</button>
 		<div id="listDiv" class="listDiv">
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">

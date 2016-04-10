@@ -35,6 +35,7 @@
 				<div class="panel-body">
 					<div id="detailstable">
 						<div id="datatable" class="list-group"></div>
+						<div id="pageinfo" class="module-head" style="height: 45px; line-height: 45px;"></div>
 					</div>
 				</div>
 			</div>

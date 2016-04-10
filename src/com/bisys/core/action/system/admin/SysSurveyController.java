@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
-import com.bisys.core.entity.survey.VipListEntity;
-import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.service.impl.SurveyServiceImpl;
 import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;

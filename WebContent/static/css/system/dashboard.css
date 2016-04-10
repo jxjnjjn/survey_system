@@ -12,6 +12,7 @@ body, textarea, input, select, button {
 #detailtable th, #annulustable th{
 	min-width: 100px;
     text-align: center;
+    background:#eee;
 }
 
 #detailtable td, #annulustable td{

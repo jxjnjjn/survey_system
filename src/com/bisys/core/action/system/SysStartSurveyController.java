@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.service.impl.StartSurveyServiceImpl;
+import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
 /**
  * 主页
@@ -39,15 +40,25 @@ public class SysStartSurveyController{
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlist(@RequestParam int status, HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public String getlist(@RequestParam int status, HttpServletRequest request, HttpServletResponse response, int pageNo) throws Exception{
 		logger.info("获取开始答题列表："+status); 
 		
 		boolean flag = false;
 		String errorMessage = "查询失败";
 		List<SurveyInfoEntity> surveyinfoList = null;
+		JsonPageInfo pageInfo = null;
 		
 		try {
-			surveyinfoList = surveyService.getSurveyInfo(status);
+			List<SurveyInfoEntity>  result = surveyService.getSurveyInfo(status);
+
+			int length = 0;
+			if(result != null)
+			{
+				length = result.size();
+			}
+			
+			surveyinfoList = surveyService.getEntityInfo(result ,pageNo);
+			pageInfo = surveyService.getPageInfo(length ,pageNo);
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin search failed! ", e);
@@ -58,6 +69,7 @@ public class SysStartSurveyController{
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		jsonResult.setData(surveyinfoList);
+		jsonResult.setPageInfo(pageInfo);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}

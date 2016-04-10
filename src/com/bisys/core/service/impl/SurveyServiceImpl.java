@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
-import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.util.JsonPageInfo;
 
 @Service("SurveyServiceImpl")

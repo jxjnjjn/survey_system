@@ -31,7 +31,7 @@ function getData(pageNo){
 function creatTableHtml(tableInfo){
 	var theadhtml = creatTablehead();
 	var tbodyhtml = creatTablebody(tableInfo);
-	var html = "<div class=\"table-responsive\"><table id=\"detailtable\" class=\"table\">" + theadhtml + tbodyhtml + "</table></div>";
+	var html = "<div class=\"table-responsive\"><table id=\"detailtable\" class=\"table table-bordered\">" + theadhtml + tbodyhtml + "</table></div>";
 	$("#datatable").html(html);
 }
 

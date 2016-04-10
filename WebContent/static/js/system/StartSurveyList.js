@@ -18,6 +18,7 @@ function getData(pageNo){
 			if(result.resultCode == 0){
 				if(result.data != null){
 					creatListgroupHtml(result.data);
+					creatpage(result.pageInfo);//分页
 				}
 			}else{
 				alert(result.resultMessage);
@@ -29,7 +30,7 @@ function getData(pageNo){
 function creatListgroupHtml(tableInfo){
 	var html = "";
 	for(var i in tableInfo){
-		html += "<a href=\"#\" class=\"list-group-item list-group-item-warning\">";
+		html += "<a href=\"#\" class=\"list-group-item\">";
 		html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
 		html += "<div class=\"row\">";
 		html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";

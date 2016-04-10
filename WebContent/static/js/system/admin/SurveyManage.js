@@ -37,7 +37,7 @@ function getData(pageNo){
 function creatTableHtml(tableInfo){
 	var theadhtml = creatTablehead();
 	var tbodyhtml = creatTablebody(tableInfo);
-	var html = "<div class=\"table-responsive\"><table id=\"detailtable\" class=\"table\">" + theadhtml + tbodyhtml + "</table></div>";
+	var html = "<div class=\"table-responsive\"><table id=\"detailtable\" class=\"table table-bordered\">" + theadhtml + tbodyhtml + "</table></div>";
 	$("#datatable").html(html);
 }
 
@@ -61,7 +61,7 @@ function creatTablebody(tableInfo){
 		td = td + "<td>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</td>";
 		td = td + "<td>"+formatdate(tableInfo[i].end_time,"yyyy-MM-dd hh:mm:ss")+"</td>";
 		td = td + "<td>"+tableInfo[i].num+"</td>";
-		td = td + "<td>"+tableInfo[i].status+"</td>";
+		td = td + "<td>"+getstatus(tableInfo[i].status)+"</td>";
 		td = td + "<td class=\"text-center\">";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">编辑</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">发布</button>";
@@ -74,4 +74,16 @@ function creatTablebody(tableInfo){
 	
 	var tbody = "<tbody>"+ tr +"</tbody>";
 	return tbody;
+}
+
+function getstatus(status){
+	var temp="未知";
+	if(status == "1"){
+		temp="<span style=\"color:#5cb85c;\">在线</span>";
+	}else if(status == "2"){
+		temp="<span>未发布</span>";
+	}else if(status == "3"){
+		temp="<span style=\"color:#d9534f;\">已结束</span>";
+	}
+	return temp;
 }
