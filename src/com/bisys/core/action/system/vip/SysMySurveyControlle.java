@@ -14,9 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
-import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 import com.bisys.core.service.impl.MySurveyServiceImpl;
+import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
 /**
  * 主页
@@ -40,15 +41,25 @@ public class SysMySurveyControlle{
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlist(@RequestParam String user_name, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		logger.info("获取我的问卷列表："+user_name); 
+	public String getlist(@RequestParam String user_name, HttpServletRequest request, HttpServletResponse response, int pageNo) throws Exception{
+		logger.info("获取我的问卷列表：用户名["+user_name +"],pageNo["+pageNo+"]。"); 
 		
 		boolean flag = false;
 		String errorMessage = "查询失败";
 		List<VipUserSurveyInfoEntity> surveyinfoList = null;
+		JsonPageInfo pageInfo = null;
 		
 		try {
-			surveyinfoList = surveyService.getSurveyInfo(user_name);
+			List<VipUserSurveyInfoEntity> result = surveyService.getSurveyInfo(user_name);
+			
+			int length = 0;
+			if(result != null)
+			{
+				length = result.size();
+			}
+			
+			surveyinfoList = surveyService.getEntityInfo(result ,pageNo);
+			pageInfo = surveyService.getPageInfo(length ,pageNo);
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin search failed! ", e);
@@ -59,6 +70,7 @@ public class SysMySurveyControlle{
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		jsonResult.setData(surveyinfoList);
+		jsonResult.setPageInfo(pageInfo);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}

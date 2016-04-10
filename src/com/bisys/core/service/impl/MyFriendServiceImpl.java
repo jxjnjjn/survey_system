@@ -10,12 +10,14 @@ import org.springframework.stereotype.Service;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
+import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
+import com.bisys.core.util.JsonPageInfo;
 
 @Service("MyFriendServiceImpl")
 public class MyFriendServiceImpl{
 	
 	private static Logger logger = Logger.getLogger(MyFriendServiceImpl.class);
-	
+	private static int everyPageNum = 10;
 	@Autowired
 	private SurveyDao surveyDao;
 
@@ -39,6 +41,35 @@ public class MyFriendServiceImpl{
 		
 		//logger.info(new Gson().toJson(result));
 		return this.getSurveyInfoGroupByUserName(result);
+	}
+	
+	public List<VipSurveyFriendInfoEntity> getEntityInfo(List<VipSurveyFriendInfoEntity> result , int pageNo) throws Exception
+	{
+		List<VipSurveyFriendInfoEntity> tableList = new ArrayList<VipSurveyFriendInfoEntity>();
+		
+		if(null != result)
+		{
+			int srcSize = result.size();
+			int starlow = everyPageNum*(pageNo-1);
+
+			if(starlow < srcSize && starlow >= 0)
+			{
+				int endlow = ((starlow + everyPageNum)>srcSize)?srcSize:(starlow + everyPageNum);
+						
+				for(int i=starlow;i<endlow;i++)
+				{
+					tableList.add(result.get(i));
+				}
+			}
+		}
+
+		return tableList;
+	}
+	
+	public JsonPageInfo getPageInfo(int length , int pageNo) throws Exception
+	{
+		JsonPageInfo result = new JsonPageInfo(pageNo , everyPageNum , length);
+		return result;
 	}
 	
 	private List<VipSurveyFriendInfoEntity> getSurveyInfoGroupByUserName(List<VipSurveyFriendInfoEntity> result) throws Exception
