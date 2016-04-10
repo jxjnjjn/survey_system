@@ -41,9 +41,7 @@ function savesurvey(){
 	editor1.sync();
 	editor2.sync();
 	var datasent = $("#surveyinfoForm").serializeObject();
-	//console.log(datasent.survey_text);
 	params = JSON.stringify(datasent); 
-	//console.log(params);
 	$.ajax({
 		type : "POST",
 		url : "/system/survey/savesurvey",

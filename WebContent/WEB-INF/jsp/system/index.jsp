@@ -20,7 +20,7 @@
 			<jsp:include page="common/topSideBar.jsp" />
 			<div class="container-fluid">
 				<div class="main">
-					<iframe id="mainframe" frameborder="0" src="/system/survey" name="mainframe"></iframe>
+					<iframe id="mainframe" frameborder="0" src="/system/startsurvey" name="mainframe"></iframe>
 				</div>
 			</div>
 			<jsp:include page="common/footerSideBar.jsp" />

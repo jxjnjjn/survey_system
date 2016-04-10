@@ -42,15 +42,12 @@ function creatTableHtml(tableInfo){
 }
 
 function creatTablehead(){
-	var th = "<th>用户名</th>";
-		th = th + "<th>注册时间</th>";
-		th = th + "<th>注册IP</th>";
-		th = th + "<th>注册来源</th>";
-		th = th + "<th>手机所属地区</th>";
-		th = th + "<th>IP所属地区</th>";
-		th = th + "<th>登陆次数</th>";
-		th = th + "<th>答题次数</th>";
-		th = th + "<th>好友数</th>";
+	var th = "<th>问卷名</th>";
+		th = th + "<th>开始时间</th>";
+		th = th + "<th>结束时间</th>";
+		th = th + "<th>答题人数</th>";
+		th = th + "<th>问卷状态</th>";
+		th = th + "<th>操作</th>";
 		
 	var tr = "<tr>"+th+"</tr>";
 	var thead = "<thead>"+ tr +"</thead>";
@@ -60,15 +57,17 @@ function creatTablehead(){
 function creatTablebody(tableInfo){
 	var tr =  "";
 	for(var i in tableInfo){
-		var td = "<th>"+tableInfo[i].user_name+"</th>";
-		td = td + "<td>"+formatdate(tableInfo[i].register_date,"yyyy-MM-dd hh:mm:ss")+"</td>";
-		td = td + "<td>"+tableInfo[i].register_ip+"</td>";
-		td = td + "<td>"+tableInfo[i].register_source+"</td>";
-		td = td + "<td>"+tableInfo[i].cellphone_zone+"</td>";
-		td = td + "<td>"+tableInfo[i].ip_zone+"</td>";
-		td = td + "<td>"+tableInfo[i].login_num+"</td>";
-		td = td + "<td>"+tableInfo[i].test_num+"</td>";
-		td = td + "<td>"+tableInfo[i].friends+"</td>";
+		var td = "<th>"+tableInfo[i].survey_name+"</th>";
+		td = td + "<td>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</td>";
+		td = td + "<td>"+formatdate(tableInfo[i].end_time,"yyyy-MM-dd hh:mm:ss")+"</td>";
+		td = td + "<td>"+tableInfo[i].num+"</td>";
+		td = td + "<td>"+tableInfo[i].status+"</td>";
+		td = td + "<td class=\"text-center\">";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">编辑</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">发布</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">删除</button>";
+		td = td + "</td>";
+		
 		tr = tr + "<tr>"+td+"</tr>";
 	}
 	

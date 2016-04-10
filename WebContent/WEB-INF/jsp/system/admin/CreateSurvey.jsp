@@ -52,6 +52,12 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="survey_anwser" class="col-sm-2 control-label">问卷答案</label>
+							<div class="col-sm-10">
+								<textarea id="survey_anwser" name="survey_anwser" class="form-control" rows="5"></textarea>
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="start_time" class="col-sm-2 control-label">问卷开始时间</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" placeholder="开始时间" name="start_time" id="start_time" />

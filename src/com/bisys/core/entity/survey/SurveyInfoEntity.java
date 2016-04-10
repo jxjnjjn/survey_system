@@ -1,6 +1,5 @@
 package com.bisys.core.entity.survey;
 
-import java.util.Date;
 
 /*
  * 功能：问卷信息

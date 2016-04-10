@@ -5,7 +5,6 @@ getData(1);
 
 function getData(pageNo){
 	var username = $("#user_name").val();
-	console.log(username);
 	$.ajax({
 		type : "GET",
 		url : "/system/mysurvey/getlist",

@@ -11,7 +11,7 @@ function getData(pageNo){
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			status:0,
+			status:1,
 			pageNo:pageNo},
 		async : true,
 		success : function(result) {

@@ -1,5 +1,7 @@
 package com.bisys.core.action.system.admin;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,10 +11,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.service.impl.SurveyServiceImpl;
 import com.google.gson.Gson;
 /**
@@ -62,30 +66,52 @@ public class SysSurveyController{
 		return new Gson().toJson(jsonResult);
 	}
 	
+	@RequestMapping(value = "showsurvey", method = RequestMethod.POST)
+	@ResponseBody 
+	public String showsurvey( @RequestBody SurveyInfoEntity survey, HttpServletRequest request, HttpServletResponse response){
+		logger.info("预览问卷"+new Gson().toJson(survey));
+		boolean flag = false;
+		String errorMessage = "预览失败";
+		List<SurveyInfoEntity> surveyinfoList = null;
+		
+		try {
+			surveyinfoList = surveyService.showSurveyInfo(survey);
+		}catch (Exception e) {
+			logger.error("sys admin save failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<SurveyInfoEntity> jsonResult = new JsonResult<SurveyInfoEntity>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "预览成功" : errorMessage);
+		jsonResult.setData(surveyinfoList);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlist(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public String getlist(@RequestParam int status, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		
 		logger.info("获取问卷管理列表"); 
-		return "";
-//		boolean flag = false;
-//		String errorMessage = "查询失败";
-//		List<VipListEntity> surveyinfoList = null;
-//		
-//		try {
-//			surveyinfoList = surveyService.getSurveyInfo();
-//			flag = true;
-//		}catch (Exception e) {
-//			logger.error("sys admin search failed! ", e);
-//		}
-//		
-//		//返回信息
-//		JsonResult<VipListEntity> jsonResult = new JsonResult<VipListEntity>();
-//		jsonResult.setResultCode(flag ? 0 : 1);
-//		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
-//		jsonResult.setData(surveyinfoList);
-//		logger.info(new Gson().toJson(jsonResult)); 
-//		return new Gson().toJson(jsonResult);
+		boolean flag = false;
+		String errorMessage = "查询失败";
+		List<SurveyInfoEntity> surveyinfoList = null;
+		
+		try {
+			surveyinfoList = surveyService.getSurveyInfo(status);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin search failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<SurveyInfoEntity> jsonResult = new JsonResult<SurveyInfoEntity>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
+		jsonResult.setData(surveyinfoList);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
 	}
 
 }
