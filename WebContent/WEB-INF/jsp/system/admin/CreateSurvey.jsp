@@ -33,7 +33,6 @@
 				</div>
 				<div class="panel-body">
 					<form id="surveyinfoForm" class="form-horizontal">
-						<input type="hidden" name="user_name" id="user_name" value="${sysUser.user_name}">
 						<div class="form-group">
 							<label for="survey_name" class="col-sm-2 control-label">问卷标题</label>
 							<div class="col-sm-10">
