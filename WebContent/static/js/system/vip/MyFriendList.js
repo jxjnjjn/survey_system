@@ -4,7 +4,7 @@
 getData(1);
 
 $("#addfriendbtn").on('click',function(){
-	addfriend();
+	addfriend("myfriend");
 });
 
 function getData(pageNo){
@@ -28,7 +28,7 @@ function getData(pageNo){
 				alert(result.resultMessage);
 			}
 		}
-		});
+	});
 }
 
 
@@ -65,10 +65,46 @@ function creatTablebody(tableInfo){
 	return tbody;
 }
 
-function addfriend(){
-
+function addfriend(friendname){
+	var username = $("#user_name").val();
+	$.ajax({
+		type : "GET",
+		url : "/system/myfriend/addfriend",
+		dataType : "JSON",
+		contentType : "application/json;charset=utf-8",
+		data : {
+			username:username,
+			friendname:friendname},
+		async : true,
+		success : function(result) {
+			if(result.resultCode == 0){
+				alert(result.resultMessage);
+				getData(1);
+			}else{
+				alert(result.resultMessage);
+			}
+		}
+	});
 }
 
-function delfriend(){
-
+function delfriend(friendname){
+	var username = $("#user_name").val();
+	$.ajax({
+		type : "GET",
+		url : "/system/myfriend/delfriend",
+		dataType : "JSON",
+		contentType : "application/json;charset=utf-8",
+		data : {
+			username:username,
+			friendname:friendname},
+		async : true,
+		success : function(result) {
+			if(result.resultCode == 0){
+				alert(result.resultMessage);
+				getData(1);
+			}else{
+				alert(result.resultMessage);
+			}
+		}
+	});
 }
