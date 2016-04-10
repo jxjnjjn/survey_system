@@ -48,13 +48,13 @@ public class ValidCodeController {
 	
     @RequestMapping(value = "getvaildcode")
     @ResponseBody 
-	public String getVaildCode(HttpServletRequest request, HttpServletResponse response, 
+	public String getVaildCode(HttpServletRequest request, HttpServletResponse response, String user_name,
     		 String randomString) throws Exception{    	
     	logger.info("获取验证码:" + randomString);
 		
 		boolean flag = false;
 		String errorMessage = "获取验证码失败";
-		JsonResult jsonResult = new JsonResult();
+		JsonResult<String> jsonResult = new JsonResult<String>();
 		
 		try {
 	        Random random = new Random();
@@ -63,7 +63,7 @@ public class ValidCodeController {
 	            int index = random.nextInt(alphas.length);
 	            sb.append(alphas[index]);
 	        }
-	        validCodeService.recordValidCode(randomString, sb.toString());
+	        validCodeService.recordValidCode(randomString, sb.toString(),user_name);
 			flag = true;
 		}catch (ServiceException serviceE){
 			logger.error("sys admin getvaildcode failed!"+serviceE.getMessage());

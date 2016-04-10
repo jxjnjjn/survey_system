@@ -70,13 +70,15 @@ function forgetpassword(){
 function validcode() {
 	var random = new Date().getTime();
 	$("#randomString").val(random);
+	var user_name = $("#user_name").val();
 	//$("#authCodeImg").attr("src", "/valid/getValidCode?randomString="+random);
 	$.ajax({
 		type : "GET",
 		url : "/valid/getvaildcode",
 		dataType : "json",
 		contentType : "application/json;charset=utf-8",
-		data : {randomString:random},
+		data : {randomString:random,
+			user_name:user_name},
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){   //获取验证码

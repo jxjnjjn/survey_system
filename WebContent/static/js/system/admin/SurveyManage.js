@@ -66,6 +66,7 @@ function creatTablebody(tableInfo){
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">编辑</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">发布</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">删除</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">问卷分析</button>";
 		td = td + "</td>";
 		
 		tr = tr + "<tr>"+td+"</tr>";

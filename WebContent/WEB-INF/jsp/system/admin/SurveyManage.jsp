@@ -15,7 +15,6 @@
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
-	<link href="/static/css/common/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid">

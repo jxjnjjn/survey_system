@@ -8,6 +8,7 @@ import com.bisys.core.dao.ValidCodeDao;
 import com.bisys.core.entity.ValidCode;
 import com.bisys.core.exception.ServiceException;
 import com.bisys.core.service.ValidCodeService;
+import com.bisys.core.util.HttpUtil;
 
 @Service
 public class ValidCodeServiceImpl implements ValidCodeService {
@@ -32,14 +33,14 @@ public class ValidCodeServiceImpl implements ValidCodeService {
 	}
 
 	@Override
-	public void recordValidCode(String random, String code) throws Exception{
+	public void recordValidCode(String random, String code,String user_name) throws Exception{
 		String codeKey = this.genCodeKey(random);
 		//create new code
 		ValidCode validCode = new ValidCode(codeKey, code);
 		try {
 			validCodeDao.saveValidCode(validCode);
 			//发送到手机端
-			this.send2phone(code);
+			this.send2phone(code,user_name);
 		} catch (Exception e) {
 			throw new ServiceException("获取验证码异常");
 		}
@@ -54,9 +55,11 @@ public class ValidCodeServiceImpl implements ValidCodeService {
 		return random;
 	}
 	
-	public void send2phone(String code) {
+	public void send2phone(String code,String user_name) {
 		//发送到手机端
-		logger.info("发送到手机端"+code);
-		
+		logger.info("发送到手机端" + user_name + ":" + code);
+		String result = HttpUtil.sendPost("https://sms.yunpian.com/v2/sms/single_send.json", "apikey=300164b07190d22bb7727b81918055fb&mobile=+639052298886&text=" + code);
+		//String result = HttpUtil.sendGet("https://sms.yunpian.com/v2/sms/single_send.json", "");
+		logger.info("发送到手机端返回值"+result);
 	}
 }
