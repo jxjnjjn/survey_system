@@ -64,7 +64,7 @@ function creatTablebody(tableInfo){
 		td = td + "<td>"+getstatus(tableInfo[i].status)+"</td>";
 		td = td + "<td class=\"text-center\">";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">编辑</button>";
-		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"updatestatus('"+tableInfo[i].survey_name+"')\">"+getbtn(tableInfo[i].status)+"</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"updatestatus('"+tableInfo[i].survey_name+"','"+tableInfo[i].status+"')\">"+getbtn(tableInfo[i].status)+"</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delsurvey('"+tableInfo[i].survey_name+"')\">删除</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">问卷分析</button>";
 		td = td + "</td>";
@@ -76,14 +76,15 @@ function creatTablebody(tableInfo){
 	return tbody;
 }
 
-function updatestatus(surveyname){
+function updatestatus(surveyname,status){
 	$.ajax({
 		type : "GET",
 		url : "/system/survey/updatestatus",
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			surveyname:surveyname},
+			surveyname:surveyname,
+			status:status},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){

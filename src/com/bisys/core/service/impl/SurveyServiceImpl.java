@@ -57,7 +57,8 @@ public class SurveyServiceImpl{
 
 	public boolean saveSurveyInfo(SurveyInfoEntity survey) throws Exception
 	{
-		survey.setStatus("1");
+		//默认未发布
+		survey.setStatus("2");
 		return surveyDao.insertIntoSurveyTable(survey);
 	}
 	
@@ -67,5 +68,13 @@ public class SurveyServiceImpl{
 		return null;
 	}
 	
+	public boolean updateStatus(String surveyname, int status) throws Exception
+	{
+		if(1 == status){
+			return surveyDao.updateSurveyStatus(surveyname,3);
+		}else{
+			return surveyDao.updateSurveyStatus(surveyname,1);
+		}
+	}
 	
 }

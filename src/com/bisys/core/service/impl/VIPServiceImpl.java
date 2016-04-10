@@ -11,7 +11,6 @@ import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.dao.UserDao;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.util.JsonPageInfo;
-import com.google.gson.Gson;
 
 @Service("VIPServiceImpl")
 public class VIPServiceImpl{

@@ -124,4 +124,25 @@ public class SysSurveyController{
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
+	
+	@RequestMapping(value = "updatestatus", method = RequestMethod.GET)
+	@ResponseBody 
+	public String updatestatus( String surveyname, int status, HttpServletRequest request, HttpServletResponse response){
+		logger.info("修改状态"+surveyname+":"+status);
+		boolean flag = false;
+		String errorMessage = "修改失败";
+		
+		try {
+			flag = surveyService.updateStatus(surveyname,status);
+		}catch (Exception e) {
+			logger.error("sys admin save failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "修改成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
 }
