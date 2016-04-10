@@ -26,4 +26,6 @@ public interface SurveyDao {
 	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name , Date today) throws Exception;
 	public List<VipFriendInfoEntity> getVipFriendInfo(String user_name) throws Exception;
 	boolean insertUserFriend(String user_name, String friend_name) throws Exception;
+	boolean deleteUserFriend(String user_name, String friend_name) throws Exception;
+	boolean updateSurveyStatus(String survey_name, int status) throws Exception;
 }

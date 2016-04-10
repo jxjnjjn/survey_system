@@ -218,4 +218,34 @@ public class SurveyDaoImpl implements SurveyDao {
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
+	
+	/*
+	 * 功能：删除好友
+	 * 说明1：user_name 用户名 , friend_name 要插入的好友名
+	 * 操作：update
+	 * 说明2：查找【vip_dynamic_info_table】表格，将friend_name从好友列表中删除。
+	 * */
+	@Override
+	public boolean deleteUserFriend(String user_name , String friend_name) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "call p_delete_vip_friend('" 
+				+user_name+"','"+friend_name+"');";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：更新【survey_table】表格，status字段
+	 * 操作：update
+	 * */
+	@Override
+	public boolean updateSurveyStatus(String survey_name , int status) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "call p_update_survey_status('" 
+				+survey_name+"',"+status+");";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 }
