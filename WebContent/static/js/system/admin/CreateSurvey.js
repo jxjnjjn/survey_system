@@ -1,6 +1,7 @@
 /*=======================================*/
 /*	@author noviachan                    */
 /*=======================================*/
+var editor1,editor2;
  KindEditor.ready(function(K) {
 //	                window.editor = K.create('#survey_content',{
 //						resizeType : 1,
@@ -11,7 +12,7 @@
 //							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
 //							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
 //					});
-	                window.editor = K.create('#survey_name',{
+	                editor1 = K.create('#survey_name',{
 						resizeType : 1,
 						allowPreviewEmoticons : false,
 						allowImageUpload : false,
@@ -20,7 +21,7 @@
 							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
 							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
 					});
-	                window.editor = K.create('#survey_desc',{
+	                editor2 = K.create('#survey_desc',{
 						resizeType : 1,
 						allowPreviewEmoticons : false,
 						allowImageUpload : false,
@@ -37,9 +38,12 @@ $("#savesurveybtn").on('click',function(){
 });
 
 function savesurvey(){
+	editor1.sync();
+	editor2.sync();
 	var datasent = $("#surveyinfoForm").serializeObject();
+	//console.log(datasent.survey_text);
 	params = JSON.stringify(datasent); 
-	console.log(params);
+	//console.log(params);
 	$.ajax({
 		type : "POST",
 		url : "/system/survey/savesurvey",

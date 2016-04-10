@@ -2,16 +2,17 @@
 /*	开始答题js                            */
 /*	@author noviachan                    */
 /*=======================================*/
-getData();
+getData(1);
 
-function getData(){
+function getData(pageNo){
 	$.ajax({
 		type : "GET",
 		url : "/system/startsurvey/getlist",
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
 		data : {
-			status:0},
+			status:0,
+			pageNo:pageNo},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){
