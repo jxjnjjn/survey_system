@@ -42,21 +42,25 @@ function savesurvey(){
 	editor2.sync();
 	var datasent = $("#surveyinfoForm").serializeObject();
 	params = JSON.stringify(datasent); 
-	$.ajax({
-		type : "POST",
-		url : "/system/survey/savesurvey",
-		dataType : "json",
-		contentType : "application/json;charset=utf-8",
-		data : params,
-		async : false,
-		success : function(data) {
-			if(data.resultCode == 0){
-				alert(data.resultMessage);
-			}else{
-				alert(data.resultMessage);
+	if(params.indexOf("\"\"")>-1){
+		alert("请检查信息是否完整");
+	}else{
+		$.ajax({
+			type : "POST",
+			url : "/system/survey/savesurvey",
+			dataType : "json",
+			contentType : "application/json;charset=utf-8",
+			data : params,
+			async : false,
+			success : function(data) {
+				if(data.resultCode == 0){
+					alert(data.resultMessage);
+				}else{
+					alert(data.resultMessage);
+				}
 			}
-		}
-	});
+		});
+	}
 }
 
 $("#backbtn").on('click',function(){

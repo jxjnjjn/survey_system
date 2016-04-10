@@ -36,19 +36,20 @@
 						<div class="form-group">
 							<label for="survey_name" class="col-sm-2 control-label">问卷标题</label>
 							<div class="col-sm-10">
-								<textarea id="survey_name" name="survey_name" class="form-control" rows="10"></textarea>
+								<textarea id="survey_name" name="survey_name" class="form-control" rows="5"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="survey_desc" class="col-sm-2 control-label">问卷描述</label>
 							<div class="col-sm-10">
-								<textarea id="survey_desc" name="survey_desc" class="form-control" rows="10"></textarea>
+								<textarea id="survey_desc" name="survey_desc" class="form-control" rows="5"></textarea>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="survey_text" class="col-sm-2 control-label">问卷内容</label>
 							<div class="col-sm-10">
 								<textarea id="survey_text" name="survey_text" class="form-control" rows="20"></textarea>
+								<span id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
 							</div>
 						</div>
 						<div class="form-group">

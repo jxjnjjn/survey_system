@@ -13,6 +13,10 @@ $(document).ready(function(){
 		login();
     });
 	
+	$("#questionBtn").on('click',function(){
+		window.location.href="/system";
+    });
+	
 	// 按回车执行查询
 	$("#username").on("keypress", function(){
 		var event = arguments.callee.caller.arguments[0]||window.event;//消除浏览器差异 

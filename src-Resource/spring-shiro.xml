@@ -15,6 +15,9 @@
 		<property name="filterChainDefinitions">
 			<value> 
 	            /static/**=anon
+	            /system**=anon
+	            /system/startsurvey**=anon
+	            /system/startsurvey/getlist**=anon
 				/system/login**=anon
 				/system/register**=anon
 				/system/forgetpassword**=anon

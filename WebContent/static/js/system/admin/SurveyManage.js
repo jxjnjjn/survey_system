@@ -64,7 +64,7 @@ function creatTablebody(tableInfo){
 		td = td + "<td>"+getstatus(tableInfo[i].status)+"</td>";
 		td = td + "<td class=\"text-center\">";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">编辑</button>";
-		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">发布</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">"+getbtn(tableInfo[i].status)+"</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">删除</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">问卷分析</button>";
 		td = td + "</td>";
@@ -83,7 +83,17 @@ function getstatus(status){
 	}else if(status == "2"){
 		temp="<span>未发布</span>";
 	}else if(status == "3"){
-		temp="<span style=\"color:#d9534f;\">已结束</span>";
+		temp="<span style=\"color:#d9534f;\">已暂停</span>";
+	}
+	return temp;
+}
+
+function getbtn(status){
+	var temp="";
+	if(status == "1"){
+		temp="<span>暂停</span>";
+	}else{
+		temp="<span>发布</span>";
 	}
 	return temp;
 }

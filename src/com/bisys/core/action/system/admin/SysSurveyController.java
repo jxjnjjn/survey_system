@@ -124,5 +124,4 @@ public class SysSurveyController{
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
-
 }
