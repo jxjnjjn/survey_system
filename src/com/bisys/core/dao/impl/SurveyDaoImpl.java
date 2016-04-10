@@ -201,4 +201,21 @@ public class SurveyDaoImpl implements SurveyDao {
 		return generalDao.getEntityList(VipFriendInfoEntity.class, sql, new Object[]{});
 	}
 	
+	/*
+	 * 功能：插入好友
+	 * 说明：user_name 用户名 , friend_name 要插入的好友名
+	 * 操作：update
+	 * 成功条件1：查找【vip_base_info_table】表格，不存在这样的记录：user_name和friend_name相同。
+	 * 成功条件2：查找【vip_dynamic_info_table】表格，user_name的好友个数小于5个。
+	 * 成功条件3：查找【vip_dynamic_info_table】表格，user_name的好友中没有friend_name。
+	 * */
+	@Override
+	public boolean insertUserFriend(String user_name , String friend_name) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "call p_insert_vip_friend('" 
+				+user_name+"','"+friend_name+"');";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 }
