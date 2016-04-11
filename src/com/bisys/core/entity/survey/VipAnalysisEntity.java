@@ -1,7 +1,7 @@
 package com.bisys.core.entity.survey;
 
 /*
- * 功能：会员分析
+ * 功能：会员分析-注册人数统计
  * */
 
 public class VipAnalysisEntity {

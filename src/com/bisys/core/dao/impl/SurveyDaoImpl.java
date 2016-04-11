@@ -16,7 +16,9 @@ import com.bisys.core.entity.survey.VipFriendInfoEntity;
 import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
+import com.bisys.core.entity.survey.VipTrendAnalysisEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
+import com.bisys.core.entity.survey.VipZoneAnalysisEntity;
 
 @Repository
 public class SurveyDaoImpl implements SurveyDao {
@@ -158,17 +160,45 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 	
 	/*
-	 * 功能：会员分析
+	 * 功能：会员分析-注册人数统计
 	 * 说明：today 查询当日日期
 	 * 
 	 * */
 	@Override
 	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception
 	{
-		String sql = "CALL p_select_vip_analysis("
-				+ today +")";
+		String sql = "CALL p_select_vip_analysis('"
+				+ today +"')";
 		logger.info(sql);
 		return generalDao.getEntityList(VipAnalysisEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：会员分析-注册人数趋势
+	 * 说明：start 查询开始日期 ， end 查询结束日期
+	 * 
+	 * */
+	@Override
+	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(Date start , Date end) throws Exception
+	{
+		String sql = "CALL p_select_vip_trend_analysis('"
+				+ start +"','"+end
+				+"')";
+		logger.info(sql);
+		return generalDao.getEntityList(VipTrendAnalysisEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：会员分析-区域分布
+	 * 说明：start 查询开始日期 ， end 查询结束日期
+	 * 
+	 * */
+	@Override
+	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception
+	{
+		String sql = "CALL p_select_vip_zone_analysis()";
+		logger.info(sql);
+		return generalDao.getEntityList(VipZoneAnalysisEntity.class, sql, new Object[]{});
 	}
 	
 	/*
