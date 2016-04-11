@@ -2,6 +2,8 @@ package com.bisys.core.entity.survey;
 
 import java.util.Date;
 
+import com.bisys.core.util.MathUtil;
+
 import sun.security.util.Length;
 
 /*
@@ -103,18 +105,6 @@ public class VipUserSurveyInfoEntity {
 	
 	public void calculat_correct_rate()
 	{
-		if(this.survey_anwser != null)
-		{
-			int len = this.survey_anwser.length();
-			int correct_num = 0;
-			this.correct_rate = 0;
-		}
-		else
-		{
-			this.correct_rate = 0;
-		}
-		
-		
-		//this.correct_rate =  correct_num/len;
+		this.correct_rate =  MathUtil.correctRate(this.answer, this.survey_anwser);
 	}
 }
