@@ -3,16 +3,7 @@
 /*=======================================*/
 var editor1,editor2;
  KindEditor.ready(function(K) {
-//	                window.editor = K.create('#survey_content',{
-//						resizeType : 1,
-//						allowPreviewEmoticons : false,
-//						allowImageUpload : false,
-//						items : [
-//							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
-//							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-//							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
-//					});
-	                editor1 = K.create('#survey_name',{
+	                window.editor = K.create('#survey_content',{
 						resizeType : 1,
 						allowPreviewEmoticons : false,
 						allowImageUpload : false,
@@ -21,6 +12,15 @@ var editor1,editor2;
 							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
 							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
 					});
+//	                editor1 = K.create('#survey_name',{
+//						resizeType : 1,
+//						allowPreviewEmoticons : false,
+//						allowImageUpload : false,
+//						items : [
+//							'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+//							'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+//							'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+//					});
 	                editor2 = K.create('#survey_desc',{
 						resizeType : 1,
 						allowPreviewEmoticons : false,
