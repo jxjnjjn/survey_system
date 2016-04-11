@@ -221,7 +221,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	
 	/*
 	 * 功能：删除好友
-	 * 说明1：user_name 用户名 , friend_name 要插入的好友名
+	 * 说明1：user_name 用户名 , friend_name 要删除的好友名
 	 * 操作：update
 	 * 说明2：查找【vip_dynamic_info_table】表格，将friend_name从好友列表中删除。
 	 * */
