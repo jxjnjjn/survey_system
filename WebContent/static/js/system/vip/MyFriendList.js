@@ -4,7 +4,8 @@
 getData(1);
 
 $("#addfriendbtn").on('click',function(){
-	addfriend("myfriend");
+	var friendname = $("#friend_name").val();
+	addfriend(friendname);
 });
 
 function getData(pageNo){

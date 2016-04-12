@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
-import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 import com.bisys.core.util.JsonPageInfo;
 
 @Service("MyFriendServiceImpl")
@@ -134,5 +133,15 @@ public class MyFriendServiceImpl{
 		}
 		
 		return result_temp;
+	}
+	
+	public boolean delfriend(String username, String friendname) throws Exception
+	{
+		return surveyDao.deleteUserFriend(username, friendname);
+	}
+	
+	public boolean addfriend(String username, String friendname) throws Exception
+	{
+		return surveyDao.insertUserFriend(username, friendname);
 	}
 }

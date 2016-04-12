@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
-import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 import com.bisys.core.service.impl.MyFriendServiceImpl;
 import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
@@ -73,6 +72,48 @@ public class SysMyFriendController{
 		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		jsonResult.setData(surveyinfoList);
 		jsonResult.setPageInfo(pageInfo);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
+	@RequestMapping(value = "delfriend", method = RequestMethod.GET)
+	@ResponseBody 
+	public String delfriend(String username, String friendname, HttpServletRequest request, HttpServletResponse response){
+		logger.info("删除好友："+username+":"+friendname);
+		boolean flag = false;
+		String errorMessage = "删除失败";
+		
+		try {
+			flag = surveyService.delfriend(username, friendname);
+		}catch (Exception e) {
+			logger.error("sys admin save failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "删除成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
+	@RequestMapping(value = "addfriend", method = RequestMethod.GET)
+	@ResponseBody 
+	public String addfriend(String username, String friendname, HttpServletRequest request, HttpServletResponse response){
+		logger.info("添加好友："+username+":"+friendname);
+		boolean flag = false;
+		String errorMessage = "添加失败";
+		
+		try {
+			flag = surveyService.addfriend(username, friendname);
+		}catch (Exception e) {
+			logger.error("sys admin save failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "添加成功" : errorMessage);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
