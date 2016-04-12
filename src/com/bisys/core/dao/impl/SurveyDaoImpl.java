@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
+import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.VipAnalysisEntity;
@@ -208,13 +209,26 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 
 	 * */
 	@Override
-	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name , Date today) throws Exception
+	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name) throws Exception
 	{
 		String sql = "CALL p_select_survey_analysis('"
-				+survey_name+"',"
-				+ today +")";
+				+survey_name+"')";
 		logger.info(sql);
 		return generalDao.getEntityList(SurveyAnalysisEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：问卷分析-手机区域分布
+	 * 说明：survey_name 问卷名称
+	 * 
+	 * */
+	@Override
+	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception
+	{
+		String sql = "CALL p_select_phone_zone_analysis("
+				+survey_name+"')";
+		logger.info(sql);
+		return generalDao.getEntityList(PhoneZoneAnalysisEntity.class, sql, new Object[]{});
 	}
 	
 	/*

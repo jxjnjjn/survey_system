@@ -3,6 +3,7 @@ package com.bisys.core.dao;
 import java.util.Date;
 import java.util.List;
 
+import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.VipAnalysisEntity;
@@ -24,7 +25,7 @@ public interface SurveyDao {
 	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;
 	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception; 
 	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception;
-	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name , Date today) throws Exception;
+	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name) throws Exception;
 	public List<VipFriendInfoEntity> getVipFriendInfo(String user_name) throws Exception;
 	boolean insertUserFriend(String user_name, String friend_name) throws Exception;
 	boolean deleteUserFriend(String user_name, String friend_name) throws Exception;
@@ -32,4 +33,6 @@ public interface SurveyDao {
 	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception;
 	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(Date start, Date end) throws Exception;
 	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception;
+	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception;
+	
 }
