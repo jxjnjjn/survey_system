@@ -12,6 +12,7 @@ import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.entity.survey.VipAnalysisEntity;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
 import com.bisys.core.entity.survey.VipInfoEntity;
@@ -204,7 +205,6 @@ public class SurveyDaoImpl implements SurveyDao {
 	
 	/*
 	 * 功能：问卷分析
-	 * 说明：today 查询当日日期
 	 * 说明：survey_name 查询问卷名字
 	 * 
 	 * */
@@ -215,6 +215,20 @@ public class SurveyDaoImpl implements SurveyDao {
 				+survey_name+"')";
 		logger.info(sql);
 		return generalDao.getEntityList(SurveyAnalysisEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：问卷排行榜
+	 * 说明：survey_name 查询问卷名字
+	 * 
+	 * */
+	@Override
+	public List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception
+	{
+		String sql = "CALL p_select_survey_correct_rate_top10('"
+				+survey_name+"')";
+		logger.info(sql);
+		return generalDao.getEntityList(SurveyRankListEntity.class, sql, new Object[]{});
 	}
 	
 	/*

@@ -6,6 +6,7 @@ import java.util.List;
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.entity.survey.VipAnalysisEntity;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
 import com.bisys.core.entity.survey.VipInfoEntity;
@@ -34,5 +35,6 @@ public interface SurveyDao {
 	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(Date start, Date end) throws Exception;
 	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception;
 	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception;
+	List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception;
 	
 }
