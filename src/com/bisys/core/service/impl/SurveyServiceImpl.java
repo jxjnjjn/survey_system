@@ -59,7 +59,7 @@ public class SurveyServiceImpl{
 	{
 		//默认未发布
 		survey.setStatus("2");
-		return surveyDao.insertIntoSurveyTable(survey);
+		return surveyDao.replaceSurveyTable(survey);
 	}
 	
 	public List<SurveyInfoEntity> showSurveyInfo(SurveyInfoEntity survey) throws Exception

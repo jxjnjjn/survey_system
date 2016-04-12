@@ -65,14 +65,13 @@ public class SurveyDaoImpl implements SurveyDao {
 	
 	/*
 	 * 表格：survey_table
-	 * 操作：INSERT
-	 * 成功条件：查找【survey_table】表格，不存在这样的记录：survey_name和要插入数据相同。
+	 * 操作：REPLACE
 	 *
 	 * */
 	@Override
-	public boolean insertIntoSurveyTable(SurveyInfoEntity survey) throws Exception
+	public boolean replaceSurveyTable(SurveyInfoEntity survey) throws Exception
 	{
-		String sql = "call p_insert_survey_table ('"
+		String sql = "call p_replace_survey_table ('"
 				+survey.getSurvey_name()+"','"+survey.getSurvey_desc()+"','"+survey.getSurvey_text()+"','"+survey.getSurvey_anwser()+"','"
 				+survey.getStart_time()+"','"+survey.getEnd_time()+"',"+survey.getStatus()+");";
 		logger.info(sql);
