@@ -29,7 +29,7 @@ function register(){
 		dataType : "json",
 		contentType : "application/json;charset=utf-8",
 		data : params,
-		async : false,
+		async : true,
 		success : function(data) {
 			if(data.resultCode == 0){   //注册成功
 				alert(data.resultMessage);
@@ -54,7 +54,7 @@ function forgetpassword(){
 		dataType : "json",
 		contentType : "application/json;charset=utf-8",
 		data : params,
-		async : false,
+		async : true,
 		success : function(data) {
 			if(data.resultCode == 0){   //修改成功
 				alert(data.resultMessage);
@@ -79,7 +79,7 @@ function validcode() {
 		contentType : "application/json;charset=utf-8",
 		data : {randomString:random,
 			user_name:user_name},
-		async : false,
+		async : true,
 		success : function(data) {
 			if(data.resultCode == 0){   //获取验证码
 				alert(data.resultMessage);

@@ -44,7 +44,7 @@
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript" src="/static/js/common/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/common/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>

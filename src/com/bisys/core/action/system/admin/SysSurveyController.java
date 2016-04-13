@@ -45,17 +45,24 @@ public class SysSurveyController{
 		return "system/admin/CreateSurvey";
 	}
 	
+	@RequestMapping(value = "editsurveyview", method = RequestMethod.GET)
+	public String editsurveyview(String surveyname,HttpServletRequest request){
+		logger.info("编辑问卷页面");
+		request.getSession().setAttribute("surveyname", surveyname);
+		return "system/admin/EditSurvey";
+	}
+	
 	@RequestMapping(value = "savesurvey", method = RequestMethod.POST)
 	@ResponseBody 
-	public String savesurvey( @RequestBody SurveyInfoEntity survey, HttpServletRequest request, HttpServletResponse response){
+	public String savesurvey( @RequestBody SurveyInfoEntity survey,HttpServletRequest request, HttpServletResponse response){
 		logger.info("保存问卷"+new Gson().toJson(survey));
 		boolean flag = false;
 		String errorMessage = "保存失败";
 		
 		try {
-			flag = surveyService.saveSurveyInfo(survey);
+			flag = surveyService.saveSurveyInfo(survey, survey.getOldname());
 		}catch (Exception e) {
-			logger.error("sys admin save failed! ", e);
+			logger.error("sys admin savesurvey failed! ", e);
 		}
 		
 		//返回信息
@@ -77,7 +84,7 @@ public class SysSurveyController{
 		try {
 			surveyinfoList = surveyService.showSurveyInfo(survey);
 		}catch (Exception e) {
-			logger.error("sys admin save failed! ", e);
+			logger.error("sys admin showsurvey failed! ", e);
 		}
 		
 		//返回信息
@@ -112,7 +119,7 @@ public class SysSurveyController{
 			pageInfo = surveyService.getPageInfo(length ,pageNo);
 			flag = true;
 		}catch (Exception e) {
-			logger.error("sys admin search failed! ", e);
+			logger.error("sys admin getlist failed! ", e);
 		}
 		
 		//返回信息
@@ -121,6 +128,31 @@ public class SysSurveyController{
 		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		jsonResult.setData(surveyinfoList);
 		jsonResult.setPageInfo(pageInfo);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
+	@RequestMapping(value = "editsurvey", method = RequestMethod.GET)
+	@ResponseBody 
+	public String editsurvey(String surveyname, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		logger.info("编辑问卷：" + surveyname); 
+		boolean flag = false;
+		String errorMessage = "编辑失败";
+		List<SurveyInfoEntity> surveyinfoList = null;
+		
+		try {
+			surveyinfoList = surveyService.getSurveyInfobyName(surveyname);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin editsurvey failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<SurveyInfoEntity> jsonResult = new JsonResult<SurveyInfoEntity>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "编辑成功" : errorMessage);
+		jsonResult.setData(surveyinfoList);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
@@ -135,7 +167,7 @@ public class SysSurveyController{
 		try {
 			flag = surveyService.updateStatus(surveyname,status);
 		}catch (Exception e) {
-			logger.error("sys admin save failed! ", e);
+			logger.error("sys admin updatestatus failed! ", e);
 		}
 		
 		//返回信息

@@ -26,6 +26,11 @@ public class SurveyServiceImpl{
 		return surveyDao.getSurveyInfo(status);
 	}
 	
+	public List<SurveyInfoEntity> getSurveyInfobyName(String surveyname) throws Exception
+	{
+		return surveyDao.getSurveyInfoByName(surveyname);
+	}
+	
 	public List<SurveyInfoEntity> getEntityInfo(List<SurveyInfoEntity> result , int pageNo) throws Exception
 	{
 		List<SurveyInfoEntity> tableList = new ArrayList<SurveyInfoEntity>();

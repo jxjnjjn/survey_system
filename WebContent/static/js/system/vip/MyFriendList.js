@@ -54,7 +54,7 @@ function creatTablebody(tableInfo){
 	var tr =  "";
 	for(var i in tableInfo){
 		var td = "<th>"+tableInfo[i].user_name+"</th>";
-		td = td + "<td>"+tableInfo[i].survey_name+"</td>";
+		td = td + "<td>"+checkname(tableInfo[i].survey_name)+"</td>";
 		td = td + "<td class=\"text-center\">";
 		td = td + "<button type=\"button\" class=\"btn btn-danger btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].user_name+"')\">删除</button>"
 		td = td + "</td>";
@@ -64,6 +64,13 @@ function creatTablebody(tableInfo){
 	
 	var tbody = "<tbody>"+ tr +"</tbody>";
 	return tbody;
+}
+
+function checkname(name){
+	if(name == null || name == ""){
+		return "无";
+	}
+	return name;
 }
 
 function addfriend(friendname){

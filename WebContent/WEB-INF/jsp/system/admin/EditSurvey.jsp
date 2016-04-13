@@ -33,6 +33,7 @@
 				</div>
 				<div class="panel-body">
 					<form id="surveyinfoForm" class="form-horizontal">
+						<input type="hidden" id="surveyname" value="${surveyname}"/>
 						<div class="form-group">
 							<label for="survey_name" class="col-sm-2 control-label">问卷标题</label>
 							<div class="col-sm-10">
@@ -103,6 +104,6 @@
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
 	<script type="text/javascript" src="/static/js/common/time.js"></script>
-	<script type="text/javascript" src="/static/js/system/admin/CreateSurvey.js"></script>
+	<script type="text/javascript" src="/static/js/system/admin/EditSurvey.js"></script>
 </body>
 </html>

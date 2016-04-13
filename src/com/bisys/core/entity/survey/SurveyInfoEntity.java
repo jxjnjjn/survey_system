@@ -47,6 +47,21 @@ public class SurveyInfoEntity {
 	 * 答卷人数
 	 * */
 	private  int num;
+	
+	/*
+	 * 结束时间
+	 * */
+	private String oldname;
+
+	
+	
+	public String getOldname() {
+		return oldname;
+	}
+
+	public void setOldname(String oldname) {
+		this.oldname = oldname;
+	}
 
 	public String getSurvey_name() {
 		return survey_name;
