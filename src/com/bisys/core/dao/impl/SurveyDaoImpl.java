@@ -335,4 +335,19 @@ public class SurveyDaoImpl implements SurveyDao {
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
+	
+	/*
+	 * 功能：更新【survey_table】表格
+	 * 操作：delete
+	 * 说明: survey_name 为要删除的 问卷的名称
+	 * */
+	@Override
+	public boolean deleteSurveyByName(String survey_name) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "call p_delete_survey_by_name('" 
+				+survey_name+"');";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 }
