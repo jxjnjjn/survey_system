@@ -166,6 +166,20 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 
 	 * */
 	@Override
+	public boolean setSurveyAnswer(String survey_name , String answer) throws Exception
+	{
+		String sql = "CALL p_update_survey_anwser('"
+				+ survey_name +"','"+answer+"')";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：查询问卷信息
+	 * 说明：survey_name 为问卷名字。。。。。
+	 * 
+	 * */
+	@Override
 	public List<SurveyInfoEntity> getSurveyInfoByName(String survey_name) throws Exception
 	{
 		String sql = "CALL p_select_survey_list_by_name('"
