@@ -36,5 +36,6 @@ public interface SurveyDao {
 	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception;
 	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception;
 	List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception;
+	List<SurveyInfoEntity> getSurveyInfoByName(String survey_name) throws Exception;
 	
 }

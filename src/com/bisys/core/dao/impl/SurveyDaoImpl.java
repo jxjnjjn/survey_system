@@ -161,6 +161,20 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 	
 	/*
+	 * 功能：查询问卷信息
+	 * 说明：survey_name 为问卷名字。。。。。
+	 * 
+	 * */
+	@Override
+	public List<SurveyInfoEntity> getSurveyInfoByName(String survey_name) throws Exception
+	{
+		String sql = "CALL p_select_survey_list_by_name('"
+				+ survey_name +"')";
+		logger.info(sql);
+		return generalDao.getEntityList(SurveyInfoEntity.class, sql, new Object[]{});
+	}
+	
+	/*
 	 * 功能：会员分析-注册人数统计
 	 * 说明：today 查询当日日期
 	 * 
