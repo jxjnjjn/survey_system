@@ -177,4 +177,25 @@ public class SysSurveyController{
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
+	
+	@RequestMapping(value = "deletesurvey", method = RequestMethod.GET)
+	@ResponseBody 
+	public String deletesurvey( String surveyname, HttpServletRequest request, HttpServletResponse response){
+		logger.info("删除问卷：【"+surveyname+"】。");
+		boolean flag = false;
+		String errorMessage = "修改失败";
+		
+		try {
+			flag = surveyService.deleteSurvey(surveyname);
+		}catch (Exception e) {
+			logger.error("sys admin delete survey failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "修改成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
 }

@@ -82,4 +82,9 @@ public class SurveyServiceImpl{
 		}
 	}
 	
+	public boolean deleteSurvey(String surveyname) throws Exception
+	{
+		return surveyDao.deleteSurveyByName(surveyname);
+	}
+	
 }
