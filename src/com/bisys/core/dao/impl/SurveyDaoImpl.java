@@ -69,9 +69,10 @@ public class SurveyDaoImpl implements SurveyDao {
 	 *
 	 * */
 	@Override
-	public boolean replaceSurveyTable(SurveyInfoEntity survey) throws Exception
+	public boolean replaceSurveyTable(SurveyInfoEntity survey , String old_survey_name) throws Exception
 	{
 		String sql = "call p_replace_survey_table ('"
+				+old_survey_name+"','"
 				+survey.getSurvey_name()+"','"+survey.getSurvey_desc()+"','"+survey.getSurvey_text()+"','"+survey.getSurvey_anwser()+"','"
 				+survey.getStart_time()+"','"+survey.getEnd_time()+"',"+survey.getStatus()+");";
 		logger.info(sql);

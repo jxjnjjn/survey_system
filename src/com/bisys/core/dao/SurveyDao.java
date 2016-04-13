@@ -19,7 +19,7 @@ import com.bisys.core.entity.survey.VipZoneAnalysisEntity;
 public interface SurveyDao {
 	public boolean insertIntoVipBaseTable(String user_name,String password , String register_date , String register_ip , String register_source , String cellphone_zone , String ip_zone , String role_name , String permission_name) throws Exception;
 	public boolean replaceIntoVipDynamicTable(String user_name,int login_num , int test_num , String friends) throws Exception;
-	public boolean replaceSurveyTable(SurveyInfoEntity survey) throws Exception;
+	public boolean replaceSurveyTable(SurveyInfoEntity survey , String old_survey_name) throws Exception;
 	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , int transfer_flag) throws Exception; 
 	public List<VipListEntity> getVipList() throws Exception; 
 	public List<VipInfoEntity> getVipInfo(String user_name) throws Exception;

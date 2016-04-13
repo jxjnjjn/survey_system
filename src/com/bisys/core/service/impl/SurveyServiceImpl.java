@@ -55,11 +55,11 @@ public class SurveyServiceImpl{
 		return result;
 	}
 
-	public boolean saveSurveyInfo(SurveyInfoEntity survey) throws Exception
+	public boolean saveSurveyInfo(SurveyInfoEntity survey , String old_survey_name) throws Exception
 	{
 		//默认未发布
 		survey.setStatus("2");
-		return surveyDao.replaceSurveyTable(survey);
+		return surveyDao.replaceSurveyTable(survey , old_survey_name);
 	}
 	
 	public List<SurveyInfoEntity> showSurveyInfo(SurveyInfoEntity survey) throws Exception
