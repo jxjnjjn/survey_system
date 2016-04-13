@@ -78,7 +78,6 @@ function savesurvey(){
 	if(params.indexOf("\"\"")>-1){
 		alert("请检查信息是否完整");
 	}else{
-		console.log("before ajax");
 		$.ajax({
 			type : "POST",
 			url : "/system/survey/savesurvey",
@@ -87,7 +86,6 @@ function savesurvey(){
 			data : params,
 			async : false,
 			success : function(data) {
-				console.log("after ajax");
 				alert(data.resultMessage);
 				if(data.resultCode == 0){
 					back();
@@ -98,7 +96,5 @@ function savesurvey(){
 }
 
 function back(){
-	console.log("before window.location set");
 	window.location.href="/system/survey";
-	console.log("after window.location set");
 }

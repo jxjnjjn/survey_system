@@ -60,7 +60,5 @@ function savesurvey(){
 }
 
 function back(){
-	alert("before window.location set");
 	window.location.href="/system/survey";
-	alert("after window.location set");
 }
