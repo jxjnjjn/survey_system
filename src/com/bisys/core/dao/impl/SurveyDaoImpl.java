@@ -161,8 +161,9 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 	
 	/*
-	 * 功能：查询问卷信息
-	 * 说明：survey_name 为问卷名字。。。。。
+	 * 功能：设置问卷答案
+	 * 操作：UPDATE
+	 * 说明：survey_name 为问卷名字，answer 为问卷答案
 	 * 
 	 * */
 	@Override
