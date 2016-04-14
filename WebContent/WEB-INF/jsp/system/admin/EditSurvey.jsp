@@ -101,6 +101,7 @@
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap-datepicker.min.js"></script>
 	<script charset="utf-8" src="/static/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="/static/editor/lang/zh-CN.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
 	<script type="text/javascript" src="/static/js/common/time.js"></script>

@@ -83,6 +83,7 @@ public class SysSurveyController{
 		
 		try {
 			surveyinfoList = surveyService.showSurveyInfo(survey);
+			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin showsurvey failed! ", e);
 		}

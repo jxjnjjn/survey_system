@@ -21,6 +21,29 @@
 	<div id="contentDiv" class="container-fluid">
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
+			<div id="showsurveypanel" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-10 col-md-5">
+							<h4 style="margin-top: 0px; margin-bottom: 0px;">
+								<strong>问卷预览</strong>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<form id="showsurveyform">
+						<h2 class="text-center"><strong id="surveyname">问卷题目</strong><br/><small id="surveydesc">问卷描述</small></h2>
+						<div id="surveytext">
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="button" class="btn btn-default" id="closeshowpanel">关闭</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -100,6 +123,7 @@
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap-datepicker.min.js"></script>
 	<script charset="utf-8" src="/static/editor/kindeditor.js"></script>
+	<script charset="utf-8" src="/static/editor/lang/zh-CN.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
 	<script type="text/javascript" src="/static/js/common/time.js"></script>

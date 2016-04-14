@@ -18,6 +18,8 @@ $(document).ready(function(){
 KindEditor.ready(function(K) {
     editor1 = K.create('#survey_desc',{
 		resizeType : 1,
+		newlineTag : "br",
+		pasteType : 1,
 		allowPreviewEmoticons : false,
 		allowImageUpload : false,
 		items : [
@@ -27,6 +29,8 @@ KindEditor.ready(function(K) {
 	});
 	editor2 = K.create('#survey_text',{
 		resizeType : 1,
+		newlineTag : "br",
+		pasteType : 1,
 		allowPreviewEmoticons : false,
 		allowImageUpload : false,
 		items : [
