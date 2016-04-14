@@ -21,6 +21,29 @@
 	<div id="contentDiv" class="container-fluid">
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
+			<div id="showsurveypanel" class="panel panel-primary" style="display: none;">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-10 col-md-5">
+							<h4 style="margin-top: 0px; margin-bottom: 0px;">
+								<strong>问卷预览</strong>
+							</h4>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<form id="showsurveyform">
+						<h2 class="text-center"><strong id="surveyname">问卷题目</strong><br/><small id="surveydesc">问卷描述</small></h2>
+						<div id="surveytext">
+						</div>
+						<div class="form-group">
+							<div class="text-center">
+								<button type="button" class="btn btn-default" id="closeshowpanel">关闭</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">
 					<div class="row">
@@ -33,7 +56,7 @@
 				</div>
 				<div class="panel-body">
 					<form id="surveyinfoForm" class="form-horizontal">
-						<input type="hidden" id="surveyname" value="${surveyname}"/>
+						<input type="hidden" id="surveynamehide" value="${surveyname}"/>
 						<div class="form-group">
 							<label for="survey_name" class="col-sm-2 control-label">问卷标题</label>
 							<div class="col-sm-10">

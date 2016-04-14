@@ -37,7 +37,7 @@
 						<div id="surveytext">
 						</div>
 						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
+							<div class="text-center">
 								<button type="button" class="btn btn-default" id="closeshowpanel">关闭</button>
 							</div>
 						</div>

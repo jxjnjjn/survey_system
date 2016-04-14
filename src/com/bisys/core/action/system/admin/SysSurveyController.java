@@ -184,7 +184,7 @@ public class SysSurveyController{
 	public String deletesurvey( String surveyname, HttpServletRequest request, HttpServletResponse response){
 		logger.info("删除问卷：【"+surveyname+"】。");
 		boolean flag = false;
-		String errorMessage = "修改失败";
+		String errorMessage = "删除失败";
 		
 		try {
 			flag = surveyService.deleteSurvey(surveyname);
@@ -195,7 +195,7 @@ public class SysSurveyController{
 		//返回信息
 		JsonResult<String> jsonResult = new JsonResult<String>();
 		jsonResult.setResultCode(flag ? 0 : 1);
-		jsonResult.setResultMessage(flag ? "修改成功" : errorMessage);
+		jsonResult.setResultMessage(flag ? "删除成功" : errorMessage);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}

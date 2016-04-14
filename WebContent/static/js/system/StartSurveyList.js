@@ -28,9 +28,10 @@ function getData(pageNo){
 }
 
 function creatListgroupHtml(tableInfo){
+	var username = $("#user_name").val();
 	var html = "";
 	for(var i in tableInfo){
-		html += "<a href=\"#\" class=\"list-group-item\">";
+		html += "<a href=\"/system/startsurvey/surveytext?username="+username+"&surveyname="+tableInfo[i].survey_name+"\" class=\"list-group-item\">";
 		html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
 		html += "<div class=\"row\">";
 		html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
