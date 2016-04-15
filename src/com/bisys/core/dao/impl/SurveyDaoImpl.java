@@ -97,7 +97,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	
 	/*
 	 * 功能：会员列表
-	 * 
+	 * 说明：按会员注册降序返回
 	 * */
 	@Override
 	public List<VipListEntity> getVipList() throws Exception

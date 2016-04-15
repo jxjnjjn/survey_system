@@ -55,6 +55,13 @@ public class UserDaoImpl implements UserDao {
 		return generalDao.getEntity(SysUserVo.class, " select user_name,password from vip_base_info_table where user_name = ? ", new Object[]{userName});
 	}
 	
+	/*
+	 * 表格：visitor_table 
+	 * 操作：INSERT/UPDATE
+	 * 说明1：更新当天非会员访问数
+	 * 说明2：num>0 :本次有num个非会员登陆了系统。 num<0：本次有num个会员登陆了系统
+	 * 说明3：每次用户登陆系统，都会导致一次更新，当判断是VIP用户之后，需要传num<0更新数据。
+	 * */
 	@Override
 	public boolean updateVisitorTable(int num , String date_time) throws Exception {
 		String sql = "CALL p_update_visitor_table('"
@@ -63,6 +70,20 @@ public class UserDaoImpl implements UserDao {
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
 	
+	/*
+	 * 表格：vip_dynamic_info_table
+	 * 操作：INSERT/UPDATE
+	 * 成功条件1：查找【vip_base_info_table】表格，存在这样的记录：user_name和要插入数据相同。
+	 * 将相关字段求和。
+	 * */
+	@Override
+	public boolean addVipDynamicInfo(String user_name , int login_num , int test_num) throws Exception {
+		String sql = "CALL p_add_vip_dynamic_info('"
+				+ user_name +"',"+login_num +","+test_num
+				+")";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 
 	@Override
 	public List<UserManage> findUserByUsername(String username) throws Exception {
