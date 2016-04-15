@@ -1,6 +1,5 @@
 package com.bisys.core.action.system.admin;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +42,7 @@ public class SysVIPAnalysisController{
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getlist(HttpServletRequest request, HttpServletResponse response, 
-			Date today,int pageNo) throws Exception{
+			String today,int pageNo) throws Exception{
 
 		logger.info("获取会员分析-人数统计"); 
 		
@@ -81,7 +80,7 @@ public class SysVIPAnalysisController{
 	@RequestMapping(value = "getlisttrend", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getlisttrend(HttpServletRequest request, HttpServletResponse response, 
-			Date start , Date end ,int pageNo) throws Exception{
+			String start , String end ,int pageNo) throws Exception{
 
 		logger.info("获取会员分析-人数趋势"); 
 		

@@ -1,7 +1,6 @@
 package com.bisys.core.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -28,12 +27,12 @@ public class VIPAnalysisServiceImpl{
 	@Autowired
 	private SurveyDao surveyDao;
 	
-	public List<VipAnalysisEntity> getList(Date today) throws Exception
+	public List<VipAnalysisEntity> getList(String today) throws Exception
 	{
 		return surveyDao.getVipAnalysis(today);
 	}
 
-	public List<VipTrendAnalysisEntity> getListTrend(Date start , Date end) throws Exception
+	public List<VipTrendAnalysisEntity> getListTrend(String start , String end) throws Exception
 	{
 		return surveyDao.getVipTrendAnalysis(start , end);
 	}
