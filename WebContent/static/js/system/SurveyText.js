@@ -10,7 +10,6 @@ $("#backbtn").on('click',function(){
 function showsurvey(){
 	var username = $("#user_name").val();
 	var surveyname = $("#survey_name").val();
-	console.log(surveyname);
 	$.ajax({
 		type : "GET",
 		url : "/system/startsurvey/getsurveytext",

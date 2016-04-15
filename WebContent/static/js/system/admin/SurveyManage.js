@@ -66,7 +66,8 @@ function creatTablebody(tableInfo){
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"editsurvey('"+tableInfo[i].survey_name+"')\">编辑</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"updatestatus('"+tableInfo[i].survey_name+"','"+tableInfo[i].status+"')\">"+getbtn(tableInfo[i].status)+"</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delsurvey('"+tableInfo[i].survey_name+"')\">删除</button>";
-		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].survey_name+"')\">问卷分析</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"top10('"+tableInfo[i].survey_name+"')\">正确率TOP10</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"surveyanalysis('"+tableInfo[i].survey_name+"')\">问卷分析</button>";
 		td = td + "</td>";
 		
 		tr = tr + "<tr>"+td+"</tr>";

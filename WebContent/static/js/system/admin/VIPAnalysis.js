@@ -155,7 +155,7 @@ function getlistzone(){
 function creatnum(data){
 	var tempdata = new Array();
 	var o = {};  
-	o["name"]="注册地区";
+	o["name"]="注册人数";
 	var temp = new Array();
 	for(var i=0;i<data.length;i++){
 		temp.push(data[i].zone_num);
