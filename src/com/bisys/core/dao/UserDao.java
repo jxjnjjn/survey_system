@@ -1,6 +1,5 @@
 package com.bisys.core.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import com.bisys.core.entity.bo.SysUserBo;
@@ -18,5 +17,7 @@ public interface UserDao {
 	public List<UserManage> findUserByUsername(String username) throws Exception;
 
 	boolean updateVisitorTable(int num, String date_time) throws Exception;
+
+	boolean addVipDynamicInfo(String user_name, int login_num, int test_num) throws Exception;
 
 }
