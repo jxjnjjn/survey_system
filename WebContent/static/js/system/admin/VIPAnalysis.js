@@ -8,7 +8,7 @@ getlist();
 
 btnexecute(1,7);
 
-//getlistzone();
+getlistzone();
 
 $("#todaybtn").on('click',function(){
 	btnexecute(1,1);
@@ -132,17 +132,16 @@ function getlistzone(){
 		url : "/system/vipanalysis/getlistzone",
 		dataType : "JSON",
 		contentType : "application/json;charset=utf-8",
-		data : {
-			pageNo:pageNo},
+		data : {},
 		async : true,
 		success : function(result) {
 			if(result.resultCode == 0){
 				if(result.data != null){
 //					var locationChart = echarts.init(document.getElementById('locationchart'));
 //					locationChart.setOption(totalsalesoption, true);
-					var datatemp = creatdata(result.data);
-					var timetemp = creattime(result.data);
-					var locationoption=creatlineOption(datatemp,timetemp,"人");
+					var datatemp = creatnum(result.data);
+					var zonetemp = creatzone(result.data);
+					var locationoption=creatlineOption(datatemp,zonetemp,"人");
 					var locationChart = echarts.init(document.getElementById('locationchart'));
 					locationChart.setOption(locationoption, true);
 				}
@@ -151,4 +150,25 @@ function getlistzone(){
 			}
 		}
 		});
+}
+
+function creatnum(data){
+	var tempdata = new Array();
+	var o = {};  
+	o["name"]="注册地区";
+	var temp = new Array();
+	for(var i=0;i<data.length;i++){
+		temp.push(data[i].zone_num);
+	}
+	o["data"]=temp;
+	tempdata.push(o);
+	return tempdata;
+}
+
+function creatzone(data){
+	var temp = new Array();
+	for(var i=0;i<data.length;i++){
+		temp.push(data[i].zone_name);
+	}
+	return temp;
 }

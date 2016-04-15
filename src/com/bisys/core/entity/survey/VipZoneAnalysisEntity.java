@@ -16,7 +16,7 @@ public class VipZoneAnalysisEntity {
 	/*
 	 * 地区会员数
 	 * */
-	private Date zone_num;
+	private int zone_num;
 
 	public String getZone_name() {
 		return zone_name;
@@ -26,11 +26,12 @@ public class VipZoneAnalysisEntity {
 		this.zone_name = zone_name;
 	}
 
-	public Date getZone_num() {
+	public int getZone_num() {
 		return zone_num;
 	}
 
-	public void setZone_num(Date zone_num) {
+	public void setZone_num(int zone_num) {
 		this.zone_num = zone_num;
 	}
+
 }
