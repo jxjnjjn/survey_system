@@ -1,6 +1,5 @@
 package com.bisys.core.action.system.admin;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +17,6 @@ import com.bisys.core.entity.survey.VipAnalysisEntity;
 import com.bisys.core.entity.survey.VipTrendAnalysisEntity;
 import com.bisys.core.entity.survey.VipZoneAnalysisEntity;
 import com.bisys.core.service.impl.VIPAnalysisServiceImpl;
-import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
 /**
  * 主页
@@ -37,32 +35,21 @@ public class SysVIPAnalysisController{
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String vip(HttpServletRequest request){
 		logger.info("会员分析");
-		return "system/admin/VIPAnalysisList";
+		return "system/admin/VIPAnalysis";
 	}
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getlist(HttpServletRequest request, HttpServletResponse response, 
-			Date today,int pageNo) throws Exception{
-
+			String today) throws Exception{
 		logger.info("获取会员分析-人数统计"); 
 		
 		boolean flag = false;
 		String errorMessage = "查询失败";
 		List<VipAnalysisEntity> surveyinfoList = null;
-		JsonPageInfo pageInfo = null;
 		
 		try {
-			List<VipAnalysisEntity> result = surveyService.getList(today);
-			
-			int length = 0;
-			if(result != null)
-			{
-				length = result.size();
-			}
-			
-			surveyinfoList = surveyService.getEntityInfo(result ,pageNo);
-			pageInfo = surveyService.getPageInfo(length ,pageNo);
+			surveyinfoList = surveyService.getList(today);
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin search failed! ", e);
@@ -73,7 +60,6 @@ public class SysVIPAnalysisController{
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		jsonResult.setData(surveyinfoList);
-		jsonResult.setPageInfo(pageInfo);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
@@ -81,7 +67,7 @@ public class SysVIPAnalysisController{
 	@RequestMapping(value = "getlisttrend", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getlisttrend(HttpServletRequest request, HttpServletResponse response, 
-			Date start , Date end ,int pageNo) throws Exception{
+			String start , String end) throws Exception{
 
 		logger.info("获取会员分析-人数趋势"); 
 		
@@ -107,7 +93,7 @@ public class SysVIPAnalysisController{
 	
 	@RequestMapping(value = "getlistzone", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlistzone(HttpServletRequest request, HttpServletResponse response, int pageNo) throws Exception{
+	public String getlistzone(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
 		logger.info("获取会员分析-地区分布"); 
 		

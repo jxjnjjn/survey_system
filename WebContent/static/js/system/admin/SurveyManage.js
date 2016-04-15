@@ -124,7 +124,7 @@ function delsurvey(surveyname){
 function getstatus(status){
 	var temp="未知";
 	if(status == "1"){
-		temp="<span style=\"color:#5cb85c;\">在线</span>";
+		temp="<span style=\"color:#5cb85c;\">已发布</span>";
 	}else if(status == "2"){
 		temp="<span>未发布</span>";
 	}else if(status == "3"){

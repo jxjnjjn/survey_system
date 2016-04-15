@@ -19,8 +19,16 @@
 <body>
 	<div id="contentDiv" class="container-fluid">
 		<ul id="contentUl" class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a>会员列表</a></li>
+			<li role="presentation" class="active"><a href="/system/vip">会员列表</a></li>
+			<li role="presentation"><a href="/system/vipanalysis">会员分析</a></li>
 		</ul>
+		<form class="form-inline" style="margin-top: 10px;">
+			<div class="form-group">
+				<label for="vip_name">搜索会员</label>
+				<input type="text" placeholder="会员名称" name="vip_name" id="vip_name" class="form-control"/>
+			</div>
+			<button type="button" class="btn btn-success" id="searchvipbtn">搜索</button>
+		</form>
 		<div id="listDiv" class="listDiv">
 			<div id="tablepanel" class="panel panel-primary">
 				<div class="panel-heading">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.util.JsonPageInfo;
+import com.google.gson.Gson;
 
 @Service("StartSurveyServiceImpl")
 public class StartSurveyServiceImpl{
@@ -58,6 +59,7 @@ public class StartSurveyServiceImpl{
 	public List<SurveyInfoEntity> getsurveytext(String surveyname) throws Exception
 	{
 		SurveyInfoEntity survey = surveyDao.getSurveyInfoByName(surveyname).get(0);
+		logger.info(new Gson().toJson(survey)); 
 		
 		List<SurveyInfoEntity> surveyLs = new ArrayList<SurveyInfoEntity>();
 		String surveytext = survey.getSurvey_text();
