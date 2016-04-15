@@ -1,6 +1,5 @@
 package com.bisys.core.dao.impl;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -196,7 +195,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 
 	 * */
 	@Override
-	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception
+	public List<VipAnalysisEntity> getVipAnalysis(String today) throws Exception
 	{
 		String sql = "CALL p_select_vip_analysis('"
 				+ today +"')";
@@ -210,7 +209,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 
 	 * */
 	@Override
-	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(Date start , Date end) throws Exception
+	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(String start , String end) throws Exception
 	{
 		String sql = "CALL p_select_vip_trend_analysis('"
 				+ start +"','"+end

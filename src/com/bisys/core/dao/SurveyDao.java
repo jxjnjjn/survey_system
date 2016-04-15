@@ -1,6 +1,5 @@
 package com.bisys.core.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
@@ -31,8 +30,8 @@ public interface SurveyDao {
 	boolean insertUserFriend(String user_name, String friend_name) throws Exception;
 	boolean deleteUserFriend(String user_name, String friend_name) throws Exception;
 	boolean updateSurveyStatus(String survey_name, int status) throws Exception;
-	public List<VipAnalysisEntity> getVipAnalysis(Date today) throws Exception;
-	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(Date start, Date end) throws Exception;
+	public List<VipAnalysisEntity> getVipAnalysis(String today) throws Exception;
+	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(String start, String end) throws Exception;
 	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception;
 	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception;
 	List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception;

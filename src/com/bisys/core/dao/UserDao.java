@@ -1,5 +1,6 @@
 package com.bisys.core.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import com.bisys.core.entity.bo.SysUserBo;
@@ -15,5 +16,7 @@ public interface UserDao {
 	public void saveUser(SysUserBo user) throws Exception;
 	
 	public List<UserManage> findUserByUsername(String username) throws Exception;
+
+	boolean updateVisitorTable(int num, String date_time) throws Exception;
 
 }

@@ -54,6 +54,15 @@ public class UserDaoImpl implements UserDao {
 		}
 		return generalDao.getEntity(SysUserVo.class, " select user_name,password from vip_base_info_table where user_name = ? ", new Object[]{userName});
 	}
+	
+	@Override
+	public boolean updateVisitorTable(int num , String date_time) throws Exception {
+		String sql = "CALL p_update_visitor_table('"
+				+ num +"','"+date_time+"')";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
+	
 
 	@Override
 	public List<UserManage> findUserByUsername(String username) throws Exception {
