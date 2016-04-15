@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
-import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipUserSurveyInfoEntity;
 import com.bisys.core.util.JsonPageInfo;
 

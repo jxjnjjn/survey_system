@@ -4,8 +4,6 @@ import java.util.Date;
 
 import com.bisys.core.util.MathUtil;
 
-import sun.security.util.Length;
-
 /*
  * 功能：会员中心-我的问卷
  * */

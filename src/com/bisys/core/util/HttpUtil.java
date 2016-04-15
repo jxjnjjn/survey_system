@@ -11,8 +11,6 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
-import com.bisys.core.service.impl.UserServiceImpl;
-
 
 
 public class HttpUtil {
