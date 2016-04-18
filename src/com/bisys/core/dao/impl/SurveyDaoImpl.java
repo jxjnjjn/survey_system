@@ -121,6 +121,20 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 	
 	/*
+	 * 功能：会员删除
+	 * 说明：该删除动作会导致【vip_base_info_table】触发器触发，删除【vip_dynamic_info_table】以及【survey_user_table】表中，"user_name"用户的相关信息。
+	 * 
+	 * */
+	@Override
+	public boolean deleteVip(String user_name) throws Exception
+	{
+		String sql = "CALL p_delete_vip_by_name('"
+				+ "','"+user_name+"')";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
+	
+	/*
 	 * 功能：会员中心-我的问卷
 	 * 
 	 * */
