@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.util.JsonPageInfo;
 
 @Service("SurveyServiceImpl")
@@ -120,6 +121,11 @@ public class SurveyServiceImpl{
 	public boolean deleteSurvey(String surveyname) throws Exception
 	{
 		return surveyDao.deleteSurveyByName(surveyname);
+	}
+	
+	public List<SurveyRankListEntity> topchart(String surveyname) throws Exception
+	{
+		return surveyDao.getSurveyRankListAnalysis(surveyname);
 	}
 	
 }

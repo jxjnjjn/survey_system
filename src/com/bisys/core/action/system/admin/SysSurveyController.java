@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
+import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.service.impl.SurveyServiceImpl;
 import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
@@ -196,6 +197,29 @@ public class SysSurveyController{
 		JsonResult<String> jsonResult = new JsonResult<String>();
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "删除成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
+	@RequestMapping(value = "topchart", method = RequestMethod.GET)
+	@ResponseBody 
+	public String topchart( String surveyname, HttpServletRequest request, HttpServletResponse response){
+		logger.info("查询问卷排名：【"+surveyname+"】。");
+		boolean flag = false;
+		String errorMessage = "查询失败";
+		List<SurveyRankListEntity> result = null;
+		try {
+			result = surveyService.topchart(surveyname);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin delete survey failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<SurveyRankListEntity> jsonResult = new JsonResult<SurveyRankListEntity>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setData(result);
+		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
