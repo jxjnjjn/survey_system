@@ -21,9 +21,11 @@ import com.bisys.core.entity.gson.IPgson;
 import com.bisys.core.entity.gson.Phonegson;
 import com.bisys.core.entity.shiro.UserManage;
 import com.bisys.core.entity.vo.SysUserVo;
+import com.bisys.core.entity.vo.VisitorCheck;
 import com.bisys.core.exception.ServiceException;
 import com.bisys.core.service.UserService;
 import com.bisys.core.service.ValidCodeService;
+import com.bisys.core.util.DateUtil;
 import com.bisys.core.util.HttpUtil;
 import com.bisys.core.util.MD5Util;
 import com.google.gson.Gson;
@@ -39,6 +41,12 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private ValidCodeService validCodeService;
 
+	@Override
+	public boolean sysAdminVisitorCheck(VisitorCheck visitor, HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
+		return userDao.updateVisitorTable(visitor.getVisitor_num() , visitor.getVip_num() ,  DateUtil.dateToString(new Date(),"yyyy-MM-dd"));
+	}
+	
 	@Override
 	public SysUserVo sysAdminLogin(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		

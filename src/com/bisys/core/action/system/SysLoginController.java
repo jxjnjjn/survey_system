@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.vo.SysUserVo;
+import com.bisys.core.entity.vo.VisitorCheck;
 import com.bisys.core.exception.ServiceException;
 import com.bisys.core.service.UserService;
 import com.google.gson.Gson;
@@ -90,6 +91,34 @@ public class SysLoginController{
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "用户登录成功" : errorMessage);
 		//jsonResult.setData(user);
+		return new Gson().toJson(jsonResult);
+	}
+	
+	/**
+	 * 系统登录统计
+	 */
+	@RequestMapping(value = "visitorCheck", method = RequestMethod.POST)
+	@ResponseBody 
+	public String visitorCheck( @RequestBody VisitorCheck visitor, HttpServletRequest request, HttpServletResponse response){
+		
+		logger.info("登录统计:" + new Gson().toJson(visitor));
+		
+		boolean flag = false;
+		String errorMessage = "统计失败";
+		JsonResult<SysUserVo> jsonResult = new JsonResult<SysUserVo>();
+		
+		try {
+			userService.sysAdminVisitorCheck(visitor, request, response);
+			flag = true;
+		}catch (ServiceException serviceE){
+			logger.error("sys admin login failed!"+serviceE.getMessage());
+			errorMessage = serviceE.getMessage();
+		}catch (Exception e) {
+			logger.error("sys admin login failed!", e);
+		}
+		
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "统计成功" : errorMessage);
 		return new Gson().toJson(jsonResult);
 	}
 	

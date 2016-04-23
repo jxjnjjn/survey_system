@@ -23,6 +23,7 @@
 				/system/forgetpassword**=anon
 				/system/logout**=anon
 				/system/loginCheck**=anon
+				/system/visitorCheck**=anon
 				/system/addUser**=anon
 				/system/getbackpassword**=anon
 				/system/changepass**=anon

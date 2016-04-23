@@ -16,7 +16,7 @@ public interface UserDao {
 	
 	public List<UserManage> findUserByUsername(String username) throws Exception;
 
-	boolean updateVisitorTable(int num, String date_time) throws Exception;
+	boolean updateVisitorTable(int visitor_num , int vip_num , String date_time) throws Exception;
 
 	boolean addVipDynamicInfo(String user_name, int login_num, int test_num) throws Exception;
 

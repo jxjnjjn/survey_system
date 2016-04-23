@@ -59,13 +59,12 @@ public class UserDaoImpl implements UserDao {
 	 * 表格：visitor_table 
 	 * 操作：INSERT/UPDATE
 	 * 说明1：更新当天非会员访问数
-	 * 说明2：num>0 :本次有num个非会员登陆了系统。 num<0：本次有num个会员登陆了系统
-	 * 说明3：每次用户登陆系统，都会导致一次更新，当判断是VIP用户之后，需要传num<0更新数据。
+	 * 说明2：visitor_num : 本次登录的游客数 ； vip_num ： 本次登录的VIP人数 ； date_time ：时间
 	 * */
 	@Override
-	public boolean updateVisitorTable(int num , String date_time) throws Exception {
-		String sql = "CALL p_update_visitor_table('"
-				+ num +"','"+date_time+"')";
+	public boolean updateVisitorTable(int visitor_num , int vip_num , String date_time) throws Exception {
+		String sql = "CALL p_update_visitor_table("
+				+ visitor_num +","+vip_num+",'"+date_time+"')";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
