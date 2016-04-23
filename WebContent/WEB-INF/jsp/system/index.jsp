@@ -12,7 +12,7 @@
 	<title>会员管理后台</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
-	<!-- 我们自己的css样式文件放在这里 -->
+	<!-- 我们自己的css样式文件放在这里 --> 
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body style="padding-top: 50px;">
