@@ -22,7 +22,8 @@ public interface SurveyDao {
 	public List<VipAnalysisEntity> getVipAnalysis(String today) throws Exception;
 	public List<VipTrendAnalysisEntity> getVipTrendAnalysis(String start, String end) throws Exception;
 	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception;
-	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , int transfer_flag) throws Exception; 
+	boolean insertIntoSurveyUserTable(String user_name, String survey_name, int answer_time, String answer,
+			String answer_fillinblank, int transfer_flag) throws Exception;
 	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;
 	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception; 
 	public List<VipListEntity> getVipList() throws Exception; 
