@@ -43,7 +43,7 @@ public class VipUserSurveyInfoEntity {
 	/*
 	 * 正确率
 	 * */
-	private double correct_rate;
+	private String correct_rate;
 
 	public String getUser_name() {
 		return user_name;
@@ -93,16 +93,17 @@ public class VipUserSurveyInfoEntity {
 		this.survey_anwser = survey_anwser;
 	}
 
-	public double getCorrect_rate() {
+	public String getCorrect_rate() {
 		return correct_rate;
 	}
 
-	public void setCorrect_rate(double correct_rate) {
+	public void setCorrect_rate(String correct_rate) {
 		this.correct_rate = correct_rate;
 	}
 	
 	public void calculat_correct_rate()
 	{
-		this.correct_rate =  MathUtil.correctRate(this.answer, this.survey_anwser);
+		this.correct_rate =  MathUtil.correctRateString(this.answer, this.survey_anwser);
+		//this.correct_rate =  MathUtil.correctRate(this.answer, this.survey_anwser);
 	}
 }

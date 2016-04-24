@@ -72,6 +72,7 @@ public class MathUtil {
 		return MathUtil.round(MathUtil.dividedByDoubleSpec(src - compare, Math.abs(compare))*100);
 	}
 	
+	// 表现形式为：0.18
 	public static double correctRate (String answer , String base_answer)
 	{
 		if(answer == null || base_answer == null)
@@ -103,5 +104,39 @@ public class MathUtil {
 		}
 		
 		return  Math.round(MathUtil.dividedByDouble(correct_num , base_answer_length)*100)/100.0;
+	}
+	
+	// 表现形式为：“7/11” 
+	public static String correctRateString (String answer , String base_answer)
+	{
+		if(answer == null || base_answer == null)
+		{
+			return "0/0";
+		}
+		
+		answer = answer.toLowerCase();
+		base_answer = base_answer.toLowerCase();
+		int base_answer_length = base_answer.length();
+		int answer_length = answer.length();
+		int correct_num = 0;
+		int index = 0;
+		
+		char base_anwser_char_tmp ;
+		char anwser_char_tmp ;
+		
+		while (index >= 0 && index < base_answer_length && index < answer_length)
+		{
+			base_anwser_char_tmp = base_answer.charAt(index);
+			anwser_char_tmp = answer.charAt(index);
+			
+			if(base_anwser_char_tmp == anwser_char_tmp)
+			{
+				correct_num ++;
+			}
+			
+			index++;
+		}
+		
+		return  correct_num+"/"+base_answer_length;
 	}
 }
