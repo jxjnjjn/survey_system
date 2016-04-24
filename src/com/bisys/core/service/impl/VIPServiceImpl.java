@@ -30,6 +30,11 @@ public class VIPServiceImpl{
 		return surveyDao.getVipList();
 	}
 	
+	public List<VipListEntity> getByName(String userName) throws Exception
+	{
+		return surveyDao.getVipInfo(userName);
+	}
+	
 	public List<VipListEntity> getEntityInfo(List<VipListEntity> result , int pageNo) throws Exception
 	{
 		List<VipListEntity> tableList = new ArrayList<VipListEntity>();

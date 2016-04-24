@@ -27,7 +27,7 @@ public interface SurveyDao {
 	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;
 	public List<VipSurveyFriendInfoEntity> getVipFriendSurveyInfo(String user_name) throws Exception; 
 	public List<VipListEntity> getVipList() throws Exception; 
-	public List<VipInfoEntity> getVipInfo(String user_name) throws Exception;
+	public List<VipListEntity> getVipInfo(String user_name) throws Exception;
 	boolean deleteVip(String user_name) throws Exception;
 	boolean insertUserFriend(String user_name, String friend_name) throws Exception;
 	boolean deleteUserFriend(String user_name, String friend_name) throws Exception;
@@ -42,8 +42,8 @@ public interface SurveyDao {
 	public boolean replaceSurveyTable(SurveyInfoEntity survey , String old_survey_name) throws Exception;
 	boolean deleteSurveyByName(String survey_name) throws Exception;
 	boolean setSurveyAnswer(String survey_name, String answer) throws Exception;
-	List<SurveyInfoEntity> getSurveyInfoByName(String survey_name) throws Exception;
-	List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception;
+	public List<SurveyInfoEntity> getSurveyInfoByName(String survey_name) throws Exception;
+	public List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception;
 	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception;
 	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name) throws Exception;
 }

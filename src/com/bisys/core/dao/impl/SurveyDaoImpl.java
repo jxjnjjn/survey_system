@@ -109,15 +109,15 @@ public class SurveyDaoImpl implements SurveyDao {
 	
 	/*
 	 * 功能：会员查询
-	 * 
+	 * 说明 ： 结果字段同会员列表
 	 * */
 	@Override
-	public List<VipInfoEntity> getVipInfo(String user_name) throws Exception
+	public List<VipListEntity> getVipInfo(String user_name) throws Exception
 	{
 		String sql = "CALL p_select_vip_info('"
 				+ user_name +"')";
 		logger.info(sql);
-		return generalDao.getEntityList(VipInfoEntity.class, sql, new Object[]{});
+		return generalDao.getEntityList(VipListEntity.class, sql, new Object[]{});
 	}
 	
 	/*
