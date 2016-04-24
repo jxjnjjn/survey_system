@@ -27,7 +27,7 @@ public class SurveyAnalysisServiceImpl{
 	@Autowired
 	private SurveyDao surveyDao;
 	
-	public List<SurveyAnalysisEntity> getList(String survey_name) throws Exception
+	public List<SurveyAnalysisEntity> getSurveyAnalysisByName(String survey_name) throws Exception
 	{
 		return surveyDao.getSurveyAnalysis(survey_name);
 	}

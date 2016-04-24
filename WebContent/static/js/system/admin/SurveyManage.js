@@ -154,6 +154,27 @@ function topchart(surveyname){
 	});
 }
 
+function surveyanalysis(surveyname){
+	//console.error(surveyname);
+	$.ajax({
+		type : "GET",
+		url : "/system/surveyanalysis/getlist",
+		dataType : "JSON",
+		contentType : "application/json;charset=utf-8",
+		data : {
+			surveyname:surveyname},
+		async : true,
+		success : function(result) {
+			if(result.resultCode == 0){
+				//alert(result.resultMessage);
+				//getData(1);
+			}else{
+				//alert(result.resultMessage);
+			}
+		}
+	});
+}
+
 function getbtn(status){
 	var temp="";
 	if(status == "1"){
