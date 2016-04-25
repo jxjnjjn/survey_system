@@ -48,21 +48,6 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 	
 	/*
-	 * 表格：vip_dynamic_info_table
-	 * 操作：REPLACE
-	 * 成功条件：查找【vip_base_info_table】表格，存在这样的记录：user_name和要插入数据相同。
-	 *
-	 * */
-	@Override
-	public boolean replaceIntoVipDynamicTable(String user_name,int login_num , int test_num , String friends) throws Exception
-	{
-		String sql = "call p_replace_vip_dynamic_table ('"
-				+user_name+"',"+login_num+","+test_num+",'"+friends+"');";
-		logger.info(sql);
-		return generalDao.saveEntity(sql, new Object[]{});
-	}
-	
-	/*
 	 * 表格：survey_table
 	 * 操作：REPLACE
 	 *

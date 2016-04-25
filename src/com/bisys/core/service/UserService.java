@@ -25,4 +25,6 @@ public interface UserService {
 	public SysUserVo sysAdminChangePass(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception;
 
 	public List<UserManage> findUserByUsername(String username); 
+	
+	public void addupUserStatics(String userName , int loginNum , int transNum)throws Exception ;
 }

@@ -80,6 +80,8 @@ public class SysLoginController{
 		
 		try {
 			user = userService.sysAdminLogin(user, request, response);
+			//用户登录次数统计， 登录次数+1 ， 测试次数+0。
+			userService.addupUserStatics(user.getUser_name() , 1 , 0);
 			flag = true;
 		}catch (ServiceException serviceE){
 			logger.error("sys admin login failed!"+serviceE.getMessage());

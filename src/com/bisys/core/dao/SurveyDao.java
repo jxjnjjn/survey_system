@@ -33,7 +33,7 @@ public interface SurveyDao {
 	boolean deleteUserFriend(String user_name, String friend_name) throws Exception;
 	public List<VipFriendInfoEntity> getVipFriendInfo(String user_name) throws Exception;
 	public boolean insertIntoVipBaseTable(String user_name,String password , String register_date , String register_ip , String register_source , String cellphone_zone , String ip_zone , String role_name , String permission_name) throws Exception;
-	public boolean replaceIntoVipDynamicTable(String user_name,int login_num , int test_num , String friends) throws Exception;
+	
 	/*
 	 * 问卷 相关的操作
 	 * */

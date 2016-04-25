@@ -71,15 +71,16 @@ public class UserDaoImpl implements UserDao {
 	
 	/*
 	 * 表格：vip_dynamic_info_table
-	 * 操作：INSERT/UPDATE
-	 * 成功条件1：查找【vip_base_info_table】表格，存在这样的记录：user_name和要插入数据相同。
-	 * 将相关字段求和。
+	 * 操作：UPDATE
+	 * 成功条件：查找【vip_base_info_table】表格，存在这样的记录：user_name和要插入数据相同。
+	 * 说明：累计统计值：login_num ， test_num
+	 *
 	 * */
 	@Override
-	public boolean addVipDynamicInfo(String user_name , int login_num , int test_num) throws Exception {
-		String sql = "CALL p_add_vip_dynamic_info('"
-				+ user_name +"',"+login_num +","+test_num
-				+")";
+	public boolean addIntoVipDynamicTable(String user_name,int login_num , int test_num) throws Exception
+	{
+		String sql = "call p_addup_vip_dynamic_table ('"
+				+user_name+"',"+login_num+","+test_num+");";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}

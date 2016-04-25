@@ -18,6 +18,5 @@ public interface UserDao {
 
 	boolean updateVisitorTable(int visitor_num , int vip_num , String date_time) throws Exception;
 
-	boolean addVipDynamicInfo(String user_name, int login_num, int test_num) throws Exception;
-
+	public boolean addIntoVipDynamicTable(String user_name,int login_num , int test_num) throws Exception;
 }
