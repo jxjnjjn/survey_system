@@ -102,6 +102,8 @@ function addfriend(friendname){
 				}
 			}
 			});
+	}else{
+		alert("请输入好友手机号！");
 	}
 }
 
