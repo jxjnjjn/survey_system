@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
+import com.bisys.core.entity.survey.VipFriendNum;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.util.JsonPageInfo;
 
@@ -143,5 +144,10 @@ public class MyFriendServiceImpl{
 	public boolean addfriend(String username, String friendname) throws Exception
 	{
 		return surveyDao.insertUserFriend(username, friendname);
+	}
+	
+	public List<VipFriendNum> friendCheck(String username) throws Exception
+	{
+		return surveyDao.getVipFriendNum(username);
 	}
 }

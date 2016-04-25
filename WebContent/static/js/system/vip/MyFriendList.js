@@ -74,6 +74,38 @@ function checkname(name){
 }
 
 function addfriend(friendname){
+	if(friendname != ""){
+		var username = $("#user_name").val();
+		$.ajax({
+			type : "GET",
+			url : "/system/myfriend/friendcheck",
+			dataType : "JSON",
+			contentType : "application/json;charset=utf-8",
+			data : {
+				username:username},
+			async : true,
+			success : function(result) {
+				if(result.resultCode == 0){
+					if(result.data != null){
+						//result.data[0].friend_num
+						//console.error("result.data[0].friend_num");
+						var friensNum = result.data[0].friend_num;
+						if(friensNum < 5){
+							addfriendIn(friendname);
+						}else{
+							alert("好友数已满！");
+						}
+
+				}else{
+					alert(result.resultMessage);
+				}
+				}
+			}
+			});
+	}
+}
+
+function addfriendIn(friendname){
 	var username = $("#user_name").val();
 	$.ajax({
 		type : "GET",

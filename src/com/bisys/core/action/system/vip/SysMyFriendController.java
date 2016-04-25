@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
+import com.bisys.core.entity.survey.VipFriendNum;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.service.impl.MyFriendServiceImpl;
 import com.bisys.core.util.JsonPageInfo;
@@ -93,6 +94,31 @@ public class SysMyFriendController{
 		JsonResult<String> jsonResult = new JsonResult<String>();
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "删除成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
+	
+	@RequestMapping(value = "friendcheck", method = RequestMethod.GET)
+	@ResponseBody 
+	public String friendCheck(String username, HttpServletRequest request, HttpServletResponse response){
+		logger.info("好友人数检查："+username);
+		boolean flag = false;
+		List<VipFriendNum> result = null;
+		String errorMessage = "添加失败";
+		
+		try {
+			result = surveyService.friendCheck(username);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin save failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<VipFriendNum> jsonResult = new JsonResult<VipFriendNum>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "添加成功" : errorMessage);
+		jsonResult.setData(result);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
