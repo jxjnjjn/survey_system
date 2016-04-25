@@ -52,7 +52,8 @@ function savesurvey(){
 	var datasent = $("#surveyinfoForm").serializeObject();
 	datasent['oldname'] = survey_name;
 	params = JSON.stringify(datasent); 
-	if(params.indexOf("\"\"")>-1){
+	//if(params.indexOf("\"\"")>-1){
+	if(checkAvailable(params) != 0){
 		alert("请检查信息是否完整");
 	}else{
 		$.ajax({
@@ -70,6 +71,19 @@ function savesurvey(){
 			}
 		});
 	}
+}
+
+function checkAvailable(params){
+	var result = 0;
+	JSON.parse(params, function (k, v) {
+		if(k != "survey_anwser"){
+			if(v == ""){
+			 result = 1;
+			}
+		}
+	});
+	
+	return result;
 }
 
 function showsurvey(){
