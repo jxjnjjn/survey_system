@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
-import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.service.impl.SurveyServiceImpl;
 import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
@@ -51,6 +50,13 @@ public class SysSurveyController{
 		logger.info("问卷排行榜页面");
 		request.getSession().setAttribute("surveyname", surveyname);
 		return "system/admin/TopChartSurvey";
+	}
+	
+	@RequestMapping(value = "surveyanalysisview", method = RequestMethod.GET)
+	public String surveyanalysisview(String surveyname,HttpServletRequest request){
+		logger.info("问卷排行榜页面");
+		request.getSession().setAttribute("surveyname", surveyname);
+		return "system/admin/SurveyAnalysis";
 	}
 	
 	@RequestMapping(value = "editsurveyview", method = RequestMethod.GET)
