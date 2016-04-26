@@ -46,6 +46,13 @@ public class SysSurveyController{
 		return "system/admin/CreateSurvey";
 	}
 	
+	@RequestMapping(value = "topchartview", method = RequestMethod.GET)
+	public String topchartview(String surveyname,HttpServletRequest request){
+		logger.info("问卷排行榜页面");
+		request.getSession().setAttribute("surveyname", surveyname);
+		return "system/admin/TopChartSurvey";
+	}
+	
 	@RequestMapping(value = "editsurveyview", method = RequestMethod.GET)
 	public String editsurveyview(String surveyname,HttpServletRequest request){
 		logger.info("编辑问卷页面");
@@ -197,29 +204,6 @@ public class SysSurveyController{
 		JsonResult<String> jsonResult = new JsonResult<String>();
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "删除成功" : errorMessage);
-		logger.info(new Gson().toJson(jsonResult)); 
-		return new Gson().toJson(jsonResult);
-	}
-	
-	@RequestMapping(value = "topchart", method = RequestMethod.GET)
-	@ResponseBody 
-	public String topchart( String surveyname, HttpServletRequest request, HttpServletResponse response){
-		logger.info("查询问卷排名：【"+surveyname+"】。");
-		boolean flag = false;
-		String errorMessage = "查询失败";
-		List<SurveyRankListEntity> result = null;
-		try {
-			result = surveyService.topchart(surveyname);
-			flag = true;
-		}catch (Exception e) {
-			logger.error("sys admin delete survey failed! ", e);
-		}
-		
-		//返回信息
-		JsonResult<SurveyRankListEntity> jsonResult = new JsonResult<SurveyRankListEntity>();
-		jsonResult.setResultCode(flag ? 0 : 1);
-		jsonResult.setData(result);
-		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}

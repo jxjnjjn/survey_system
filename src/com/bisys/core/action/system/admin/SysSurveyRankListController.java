@@ -39,7 +39,7 @@ public class SysSurveyRankListController{
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlist(HttpServletRequest request, HttpServletResponse response, String survey_name ,  int pageNo) throws Exception{
+	public String getlist(HttpServletRequest request, HttpServletResponse response, String surveyname ,  int pageNo) throws Exception{
 
 		logger.info("获取问卷排行榜"); 
 		
@@ -49,7 +49,7 @@ public class SysSurveyRankListController{
 		JsonPageInfo pageInfo = null;
 		
 		try {
-			List<SurveyRankListEntity> result = surveyService.getList(survey_name);
+			List<SurveyRankListEntity> result = surveyService.getList(surveyname);
 			
 			int length = 0;
 			if(result != null)

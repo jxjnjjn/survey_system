@@ -77,6 +77,10 @@ function creatTablebody(tableInfo){
 	return tbody;
 }
 
+function topchart(surveyname){
+	window.location.href="/system/survey/topchartview?surveyname="+surveyname;
+}
+
 function editsurvey(surveyname){
 	window.location.href="/system/survey/editsurveyview?surveyname="+surveyname;
 }
@@ -132,26 +136,6 @@ function getstatus(status){
 		temp="<span style=\"color:#d9534f;\">已暂停</span>";
 	}
 	return temp;
-}
-
-function topchart(surveyname){
-	$.ajax({
-		type : "GET",
-		url : "/system/survey/topchart",
-		dataType : "JSON",
-		contentType : "application/json;charset=utf-8",
-		data : {
-			surveyname:surveyname},
-		async : true,
-		success : function(result) {
-			if(result.resultCode == 0){
-				//alert(result.resultMessage);
-				//getData(1);
-			}else{
-				//alert(result.resultMessage);
-			}
-		}
-	});
 }
 
 function surveyanalysis(surveyname){
