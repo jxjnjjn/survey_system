@@ -60,7 +60,8 @@ public class StartSurveyServiceImpl{
 	{
 		SurveyInfoEntity survey = surveyDao.getSurveyInfoByName(surveyname).get(0);
 		logger.info(new Gson().toJson(survey)); 
-		
+		String radio_name = "";
+		int radio_num = 0;
 		List<SurveyInfoEntity> surveyLs = new ArrayList<SurveyInfoEntity>();
 		String surveytext = survey.getSurvey_text();
 		StringBuffer Stemp = new StringBuffer();
@@ -69,6 +70,8 @@ public class StartSurveyServiceImpl{
 			logger.info(questionsList.length);
 			for(String question :questionsList){
 				if("[单选题]".equals(question.substring(0, question.indexOf("]")+1))){
+					radio_num++;
+					radio_name = "optionsRadios_"+radio_num;
 					logger.info("[单选题]");
 					String[] ls = question.split("<br />\r\n");
 					logger.info(ls.length);
@@ -77,7 +80,8 @@ public class StartSurveyServiceImpl{
 					for(int i=1;i<ls.length;i++){
 						Stemp.append("<div class=\"radio\">");
 						Stemp.append("<label>");
-						Stemp.append(" <input type=\"radio\" name=\"optionsRadios\" value=\""+i+"\">");
+						//Stemp.append(" <input type=\"radio\" name=\"optionsRadios\" value=\""+i+"\">");
+						Stemp.append(" <input type=\"radio\" name=\""+ radio_name  +"\" value=\""+i+"\">");
 						Stemp.append(ls[i]);
 						Stemp.append(" </label>");
 						Stemp.append("</div>");
