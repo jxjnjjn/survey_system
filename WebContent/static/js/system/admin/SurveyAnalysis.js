@@ -39,12 +39,12 @@ function creatTableHtml(tableInfo){
 	var username = $("#user_name").val();
 	var html = "";
 	for(var i in tableInfo){
-		html += "<div> <font size=\"5\">";
+		html += "<br><div> <font size=\"5\">";
 		html += "<p><strong>1，参与的VIP人数： </strong>"+tableInfo[i].vip_num+"</p><br>";
 
 		html += "<p><strong>2，新会员比率： </strong>"+tableInfo[i].new_vip_rate*100+" %</p><br>";
 
-		html += "<p><strong>3，转发比率： </strong>"+tableInfo[i].transfer_rate+"</p>";
+		html += "<p><strong>3，转发比率： </strong>"+tableInfo[i].transfer_rate+"</p><br>";
 		html += "</div>";
 	}
 	$("#datatable").html(html);

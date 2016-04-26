@@ -30,11 +30,20 @@
 						</div>
 					</div>
 				</div>
-				
+				<div id="datatable" class="list-group"></div>
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-10 col-md-5">
+							<h4 style="margin-top: 0px; margin-bottom: 0px;">
+								<strong>来源分析  -  ${surveyname}</strong>
+							</h4>
+						</div>
+					</div>
+				</div>
 				<div class="panel-body">
 					<div id="detailstable">
 						<input type="hidden" id="surveynamehide" value="${surveyname}"/>
-						<div id="datatable" class="list-group"></div>
+						
 						<div id="pageinfo" class="module-head" style="height: 45px; line-height: 45px;"></div>
 					</div>
 				</div>
