@@ -44,7 +44,7 @@ function cellphonezone(surveyname){
 function creatnum(data){
 	var tempdata = new Array();
 	var o = {};  
-	o["name"]="注册人数";
+	o["name"]="VIP人数";
 	var temp = new Array();
 	for(var i=0;i<data.length;i++){
 		temp.push(data[i].zone_num);
