@@ -20,6 +20,17 @@ body, textarea, input, select, button {
     text-align: right;
 }
 
+#detailtable_2 th{
+	min-width: 100px;
+    text-align: left;
+    background:#eee;
+}
+
+#detailtable_2 td{
+	min-width: 100px;
+    text-align: left;
+}
+
 #annulustable td{
 	padding-right: 35px;
 }
