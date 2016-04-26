@@ -121,6 +121,10 @@ public class VipListEntity {
 	}
 
 	public void setFriends(String friends) {
+		if(friends == null){
+			friends = "N/A";
+		}
+			
 		this.friends = friends;
 	}
 }

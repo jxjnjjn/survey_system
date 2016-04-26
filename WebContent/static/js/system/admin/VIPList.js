@@ -77,7 +77,7 @@ function creatTablehead(){
 		th = th + "<th>IP所属地区</th>";
 		th = th + "<th>登陆次数</th>";
 		th = th + "<th>答题次数</th>";
-		th = th + "<th>好友数</th>";
+		th = th + "<th>好友列表</th>";
 		
 	var tr = "<tr>"+th+"</tr>";
 	var thead = "<thead>"+ tr +"</thead>";
