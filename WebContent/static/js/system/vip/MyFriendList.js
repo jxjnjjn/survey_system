@@ -82,26 +82,29 @@ function addfriend(friendname){
 			dataType : "JSON",
 			contentType : "application/json;charset=utf-8",
 			data : {
-				username:username},
+				username:username,
+				friendname:friendname},
 			async : true,
 			success : function(result) {
 				if(result.resultCode == 0){
 					if(result.data != null){
-						//result.data[0].friend_num
-						//console.error("result.data[0].friend_num");
 						var friensNum = result.data[0].friend_num;
+						var friensExist = result.data[0].friend_exist;
 						if(friensNum < 5){
-							addfriendIn(friendname);
+							if (friensExist != 0){
+								alert("该用户已注册或者已在好友列表中。");
+							}else{
+								addfriendIn(friendname);
+							}
 						}else{
 							alert("好友数已满！");
 						}
-
-				}else{
-					alert(result.resultMessage);
-				}
+					}else{
+						alert(result.resultMessage);
+					}
 				}
 			}
-			});
+		});
 	}else{
 		alert("请输入好友手机号！");
 	}

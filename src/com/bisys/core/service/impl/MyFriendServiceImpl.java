@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bisys.core.dao.SurveyDao;
+import com.bisys.core.entity.survey.VipFriendCheck;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
-import com.bisys.core.entity.survey.VipFriendNum;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.util.JsonPageInfo;
 
@@ -146,8 +146,8 @@ public class MyFriendServiceImpl{
 		return surveyDao.insertUserFriend(username, friendname);
 	}
 	
-	public List<VipFriendNum> friendCheck(String username) throws Exception
+	public List<VipFriendCheck> friendCheck(String user_name , String friend_name) throws Exception
 	{
-		return surveyDao.getVipFriendNum(username);
+		return surveyDao.getVipFriendNum(user_name , friend_name);
 	}
 }

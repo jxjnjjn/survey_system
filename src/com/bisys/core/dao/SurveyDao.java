@@ -7,8 +7,8 @@ import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.entity.survey.VipAnalysisEntity;
+import com.bisys.core.entity.survey.VipFriendCheck;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
-import com.bisys.core.entity.survey.VipFriendNum;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.entity.survey.VipTrendAnalysisEntity;
@@ -33,7 +33,7 @@ public interface SurveyDao {
 	boolean deleteUserFriend(String user_name, String friend_name) throws Exception;
 	public List<VipFriendInfoEntity> getVipFriendInfo(String user_name) throws Exception;
 	public boolean insertIntoVipBaseTable(String user_name,String password , String register_date , String register_ip , String register_source , String cellphone_zone , String ip_zone , String role_name , String permission_name) throws Exception;
-	public List<VipFriendNum> getVipFriendNum(String user_name)throws Exception;
+	public List<VipFriendCheck> getVipFriendNum(String user_name , String friend_name)throws Exception;
 	/*
 	 * 问卷 相关的操作
 	 * */

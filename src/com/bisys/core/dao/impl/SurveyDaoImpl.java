@@ -13,9 +13,8 @@ import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.SurveyRankListEntity;
 import com.bisys.core.entity.survey.VipAnalysisEntity;
+import com.bisys.core.entity.survey.VipFriendCheck;
 import com.bisys.core.entity.survey.VipFriendInfoEntity;
-import com.bisys.core.entity.survey.VipFriendNum;
-import com.bisys.core.entity.survey.VipInfoEntity;
 import com.bisys.core.entity.survey.VipListEntity;
 import com.bisys.core.entity.survey.VipSurveyFriendInfoEntity;
 import com.bisys.core.entity.survey.VipTrendAnalysisEntity;
@@ -351,11 +350,12 @@ public class SurveyDaoImpl implements SurveyDao {
 	}
 
 	@Override
-	public List<VipFriendNum> getVipFriendNum(String user_name) throws Exception {
+	public List<VipFriendCheck> getVipFriendNum(String user_name , String friend_name) throws Exception {
 		// TODO Auto-generated method stub
-		String sql = "CALL p_select_vip_friend_num('"
-				+ user_name +"')";
+		String sql = "CALL p_select_vip_friend_check('"
+				+ user_name +"','"
+				+friend_name+"')";
 		logger.info(sql);
-		return generalDao.getEntityList(VipFriendNum.class, sql, new Object[]{});
+		return generalDao.getEntityList(VipFriendCheck.class, sql, new Object[]{});
 	}
 }
