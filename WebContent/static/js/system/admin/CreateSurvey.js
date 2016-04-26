@@ -91,7 +91,8 @@ function showsurvey(){
 	editor2.sync();
 	var datasent = $("#surveyinfoForm").serializeObject();
 	params = JSON.stringify(datasent); 
-	if(params.indexOf("\"\"")>-1){
+	//if(params.indexOf("\"\"")>-1){
+	if(checkAvailable(params) != 0){
 		alert("请检查信息是否完整");
 	}else{
 		$.ajax({

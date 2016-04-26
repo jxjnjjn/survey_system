@@ -88,7 +88,8 @@ function savesurvey(){
 	var datasent = $("#surveyinfoForm").serializeObject();
 	datasent['oldname'] = surveyname;
 	params = JSON.stringify(datasent); 
-	if(params.indexOf("\"\"")>-1){
+	//if(params.indexOf("\"\"")>-1){
+	if(checkAvailable(params) != 0){
 		alert("请检查信息是否完整");
 	}else{
 		$.ajax({
@@ -113,7 +114,8 @@ function showsurvey(){
 	editor2.sync();
 	var datasent = $("#surveyinfoForm").serializeObject();
 	params = JSON.stringify(datasent); 
-	if(params.indexOf("\"\"")>-1){
+	//if(params.indexOf("\"\"")>-1){
+	if(checkAvailable(params) != 0){
 		alert("请检查信息是否完整");
 	}else{
 		$.ajax({
@@ -138,6 +140,18 @@ function showsurvey(){
 	}
 }
 
+function checkAvailable(params){
+	var result = 0;
+	JSON.parse(params, function (k, v) {
+		if(k != "survey_anwser"){
+			if(v == ""){
+			 result = 1;
+			}
+		}
+	});
+	
+	return result;
+}
 function back(){
 	window.location.href="/system/survey";
 }
