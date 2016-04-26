@@ -46,6 +46,29 @@ public class SysStartSurveyController{
 		return "system/SurveyText";
 	}
 	
+	
+	@RequestMapping(value = "submitanswer", method = RequestMethod.GET)
+	@ResponseBody 
+	public String submitAnswer(@RequestParam String surveyname, String optionanswer , String username ,
+			HttpServletRequest request, HttpServletResponse response){
+		logger.info("提交答案，问卷名称:【"+surveyname+"】，答案：【"+optionanswer+"】");
+		boolean flag = false;
+		String errorMessage = "getsurveytext失败";
+		try {
+			surveyService.submitanswer(surveyname , optionanswer , username);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin showsurvey failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "getsurveytext成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
 	@RequestMapping(value = "getsurveytext", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getsurveytext(@RequestParam String surveyname, HttpServletRequest request, HttpServletResponse response){

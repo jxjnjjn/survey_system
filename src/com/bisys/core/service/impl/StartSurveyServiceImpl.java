@@ -27,6 +27,11 @@ public class StartSurveyServiceImpl{
 		return surveyDao.getSurveyInfo(status);
 	}
 	
+	public void submitanswer(String surveyname , String optionanswer , String username) throws Exception
+	{
+		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , null , 0);
+	}
+	
 	public List<SurveyInfoEntity> getEntityInfo(List<SurveyInfoEntity> result , int pageNo) throws Exception
 	{
 		List<SurveyInfoEntity> tableList = new ArrayList<SurveyInfoEntity>();

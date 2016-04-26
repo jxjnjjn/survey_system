@@ -74,7 +74,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , String answer_fillinblank , int transfer_flag) throws Exception
 	{
 		String sql = "call p_insert_survey_user_table ('"
-				+user_name+"','"+survey_name+"',"+answer_time+",'"+answer+",'"+answer_fillinblank+"',"
+				+user_name+"','"+survey_name+"',"+answer_time+",'"+answer+"','"+answer_fillinblank+"',"
 				+transfer_flag+");";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
