@@ -40,10 +40,21 @@
 						</div>
 					</div>
 				</div>
+				
+				<div id="locationchartpanel" class="panel panel-default">
+				<div class="panel-heading">
+					<h4 style="margin-top: 0px; margin-bottom: 0px;">
+						<strong>手机地区分布</strong>
+					</h4>
+				</div>
+				<div class="panel-body">
+					<div id="locationchart" class="main-chart"></div>
+				</div>
+				</div>
+				
 				<div class="panel-body">
 					<div id="detailstable">
 						<input type="hidden" id="surveynamehide" value="${surveyname}"/>
-						
 						<div id="pageinfo" class="module-head" style="height: 45px; line-height: 45px;"></div>
 					</div>
 				</div>
@@ -58,6 +69,8 @@
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
+	<script type="text/javascript" src="/static/js/common/echarts.min.js"></script>
+	<script type="text/javascript" src="/static/js/echart/linechart.js"></script>
 	<script type="text/javascript" src="/static/js/system/admin/SurveyAnalysis.js"></script>
 </body>
 </html>

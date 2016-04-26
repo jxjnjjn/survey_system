@@ -68,16 +68,16 @@ public class SysSurveyAnalysisController{
 	
 	@RequestMapping(value = "getlistphone", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlistzone(HttpServletRequest request, HttpServletResponse response,String survey_name , int pageNo) throws Exception{
+	public String getlistzone(HttpServletRequest request, HttpServletResponse response,String surveyname) throws Exception{
 
-		logger.info("获取问卷分析-手机号码分布"); 
+		logger.info("获取问卷:【"+surveyname+"】-手机号码分布"); 
 		
 		boolean flag = false;
 		String errorMessage = "查询失败";
 		List<PhoneZoneAnalysisEntity> surveyinfoList = null;
 		
 		try {
-			surveyinfoList = surveyService.getListPhone(survey_name);
+			surveyinfoList = surveyService.getListPhone(surveyname);
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin search failed! ", e);

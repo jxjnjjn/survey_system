@@ -267,7 +267,7 @@ public class SurveyDaoImpl implements SurveyDao {
 	@Override
 	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception
 	{
-		String sql = "CALL p_select_phone_zone_analysis("
+		String sql = "CALL p_select_phone_zone_analysis('"
 				+survey_name+"')";
 		logger.info(sql);
 		return generalDao.getEntityList(PhoneZoneAnalysisEntity.class, sql, new Object[]{});

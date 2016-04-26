@@ -99,7 +99,8 @@ function creatlineseries(chartinfo){
 		var seriestemp;
 		seriestemp = {
 	            name:chartinfo[i].name,
-	            type:'line',
+	            //type:'line',
+	            type:'bar',
 	            data:chartinfo[i].data
         };
 		series.push(seriestemp);
