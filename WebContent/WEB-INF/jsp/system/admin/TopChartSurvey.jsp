@@ -6,11 +6,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="问卷管理">
-	<meta name="keywords" content="问卷管理" />
+	<meta name="description" content="问卷排名">
+	<meta name="keywords" content="问卷排名" />
 	<meta name="author" content="noviachan">
 	<link rel="shortcut icon" href="/static/img/survey-icon.jpg">
-	<title>问卷管理</title>
+	<title>问卷排名</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->

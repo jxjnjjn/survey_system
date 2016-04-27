@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="BI后台管理系统">
+	<meta name="description" content="会员管理后台">
 	<meta name="author" content="noviachan">
 	<link rel="shortcut icon" href="/static/img/bisys-icon.png">
 	<title>会员管理后台</title>
