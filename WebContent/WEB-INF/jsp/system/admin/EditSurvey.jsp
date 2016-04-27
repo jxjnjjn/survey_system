@@ -6,11 +6,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="创建问卷">
-	<meta name="keywords" content="创建问卷" />
+	<meta name="description" content="问卷编辑">
+	<meta name="keywords" content="问卷编辑" />
 	<meta name="author" content="noviachan">
 	<link rel="shortcut icon" href="/static/img/survey-icon.jpg">
-	<title>创建问卷</title>
+	<title>问卷编辑</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
@@ -26,7 +26,7 @@
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">
-								<strong>问卷预览</strong>
+								<strong>问卷编辑</strong>
 							</h4>
 						</div>
 					</div>

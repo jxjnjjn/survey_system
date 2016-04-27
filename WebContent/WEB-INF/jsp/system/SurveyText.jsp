@@ -6,11 +6,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="创建问卷">
-	<meta name="keywords" content="创建问卷" />
+	<meta name="description" content="问卷调查">
+	<meta name="keywords" content="问卷调查" />
 	<meta name="author" content="noviachan">
 	<link rel="shortcut icon" href="/static/img/survey-icon.jpg">
-	<title>创建问卷</title>
+	<title>问卷调查</title>
 	<!-- Bootstrap core CSS -->
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
@@ -26,7 +26,7 @@
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">
-								<strong>开始问卷</strong>
+								<strong>问卷调查</strong>
 							</h4>
 						</div>
 					</div>
@@ -44,6 +44,16 @@
 							</div>
 						</div>
 					</form>
+					<!-- JiaThis Button BEGIN -->
+					<div class="jiathis_style_32x32 pull-right">
+						<a class="jiathis_button_tsina"></a>
+						<a class="jiathis_button_tieba"></a>
+						<a class="jiathis_button_qzone"></a>
+						<a class="jiathis_button_cqq"></a>
+						<a class="jiathis_button_douban"></a>
+						<a class="jiathis_button_weixin"></a>
+					</div>
+					<!-- JiaThis Button END -->
 				</div>
 			</div>
 		</div>
@@ -52,6 +62,7 @@
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->
 	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/static/js/common/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap-datepicker.min.js"></script>
