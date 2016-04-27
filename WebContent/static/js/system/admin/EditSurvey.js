@@ -79,6 +79,7 @@ function createform(data){
 	$("#survey_anwser").val(data[0].survey_anwser);
 	$("#start_time").val(data[0].start_time);
 	$("#end_time").val(data[0].end_time);
+	$("#end_time").val(data[0].end_time);
 }
 
 function savesurvey(){

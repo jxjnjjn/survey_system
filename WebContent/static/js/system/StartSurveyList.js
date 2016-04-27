@@ -43,7 +43,7 @@ function creatListgroupHtml(tableInfo){
 			html += "</div>";
 			html += "</a>";
 		}else{
-			html += "<a href=\"/system/startsurvey/surveytext?username="+username+"&surveyname="+tableInfo[i].survey_name+"\" class=\"list-group-item disabled\">";
+			html += "<a class=\"list-group-item disabled\">";
 			html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
 			html += "<div class=\"row\">";
 			html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
