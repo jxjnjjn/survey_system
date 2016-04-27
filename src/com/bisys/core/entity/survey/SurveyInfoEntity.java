@@ -55,7 +55,7 @@ public class SurveyInfoEntity {
 
 	/*
 	 * 是否为可用问卷（如果已经答过题了，则为不可用问卷）
-	 * 可用答卷：0 ， 不可用答卷：1
+	 * 可用答卷：0 ， 不可用答卷：!0
 	 * */
 	private  int suver_available;
 	
