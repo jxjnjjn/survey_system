@@ -59,6 +59,34 @@ public class SurveyInfoEntity {
 	 * */
 	private  int suver_available;
 	
+	/*
+	 * infor_type 
+	 * 0:显示信息，1：跳转到指定页面
+	 * */
+	private  int infos;
+	
+	/*
+	 * infor 
+	 * 感谢信息或者跳转的链接地址
+	 * */
+	private  String infomationdesc;
+
+	public int getInfos() {
+		return infos;
+	}
+
+	public void setInfos(int infos) {
+		this.infos = infos;
+	}
+
+	public String getInfomationdesc() {
+		return infomationdesc;
+	}
+
+	public void setInfomationdesc(String infomationdesc) {
+		this.infomationdesc = infomationdesc;
+	}
+
 	public String getOldname() {
 		return oldname;
 	}
