@@ -22,9 +22,9 @@ public class SurveyServiceImpl{
 	@Autowired
 	private SurveyDao surveyDao;
 	
-	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception
+	public List<SurveyInfoEntity> getSurveyInfo(int status , String username) throws Exception
 	{
-		return surveyDao.getSurveyInfo(status);
+		return surveyDao.getSurveyInfo(status , username);
 	}
 	
 	public List<SurveyInfoEntity> getSurveyInfobyName(String surveyname) throws Exception

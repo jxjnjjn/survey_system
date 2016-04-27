@@ -49,11 +49,15 @@ public class SurveyInfoEntity {
 	private  int num;
 	
 	/*
-	 * 结束时间
+	 * 更新之前的问卷名称（用于问卷更新）
 	 * */
 	private String oldname;
 
-	
+	/*
+	 * 是否为可用问卷（如果已经答过题了，则为不可用问卷）
+	 * 可用答卷：0 ， 不可用答卷：1
+	 * */
+	private  int suver_available;
 	
 	public String getOldname() {
 		return oldname;
@@ -61,6 +65,14 @@ public class SurveyInfoEntity {
 
 	public void setOldname(String oldname) {
 		this.oldname = oldname;
+	}
+
+	public int getSuver_available() {
+		return suver_available;
+	}
+
+	public void setSuver_available(int suver_available) {
+		this.suver_available = suver_available;
 	}
 
 	public String getSurvey_name() {

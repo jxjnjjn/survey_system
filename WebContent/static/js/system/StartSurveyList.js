@@ -5,6 +5,7 @@
 getData(1);
 
 function getData(pageNo){
+	var username = $("#user_name").val();
 	$.ajax({
 		type : "GET",
 		url : "/system/startsurvey/getlist",
@@ -12,6 +13,7 @@ function getData(pageNo){
 		contentType : "application/json;charset=utf-8",
 		data : {
 			status:1,
+			username:username,
 			pageNo:pageNo},
 		async : true,
 		success : function(result) {

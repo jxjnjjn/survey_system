@@ -47,6 +47,6 @@ public interface SurveyDao {
 	boolean setSurveyAnswer(String survey_name, String answer) throws Exception;
 	public List<SurveyInfoEntity> getSurveyInfoByName(String survey_name) throws Exception;
 	public List<SurveyRankListEntity> getSurveyRankListAnalysis(String survey_name) throws Exception;
-	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception;
+	public List<SurveyInfoEntity> getSurveyInfo(int status , String username) throws Exception;
 	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name) throws Exception;
 }

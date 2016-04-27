@@ -151,9 +151,9 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 
 	 * */
 	@Override
-	public List<SurveyInfoEntity> getSurveyInfo(int status) throws Exception
+	public List<SurveyInfoEntity> getSurveyInfo(int status , String username) throws Exception
 	{
-		String sql = "CALL p_select_survey_list("
+		String sql = "CALL p_select_survey_list('"+username+"',"
 				+ status +")";
 		logger.info(sql);
 		return generalDao.getEntityList(SurveyInfoEntity.class, sql, new Object[]{});
