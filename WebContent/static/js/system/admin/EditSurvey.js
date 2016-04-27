@@ -79,7 +79,13 @@ function createform(data){
 	$("#survey_anwser").val(data[0].survey_anwser);
 	$("#start_time").val(data[0].start_time);
 	$("#end_time").val(data[0].end_time);
-	$("#end_time").val(data[0].end_time);
+	$("#infomationdesc").val(data[0].infomationdesc);
+	console.log(data[0].infos);
+	if(data[0].infos == 1){
+		$("#inlineRadio1").prop("checked",true);
+	}else{
+		$("#inlineRadio2").prop("checked",true);
+	}
 }
 
 function savesurvey(){
@@ -89,7 +95,7 @@ function savesurvey(){
 	var datasent = $("#surveyinfoForm").serializeObject();
 	datasent['oldname'] = surveyname;
 	params = JSON.stringify(datasent); 
-	console.log(params);
+	//console.log(params);
 	//if(params.indexOf("\"\"")>-1){
 	if(checkAvailable(params) != 0){
 		alert("请检查信息是否完整");
