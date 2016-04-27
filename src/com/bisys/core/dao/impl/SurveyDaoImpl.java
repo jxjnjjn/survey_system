@@ -57,8 +57,9 @@ public class SurveyDaoImpl implements SurveyDao {
 	{
 		String sql = "call p_replace_survey_table ('"
 				+old_survey_name+"','"
-				+survey.getSurvey_name()+"','"+survey.getSurvey_desc()+"','"+survey.getSurvey_text()+"','"+survey.getSurvey_anwser()+"','"
-				+survey.getStart_time()+"','"+survey.getEnd_time()+"',"+survey.getStatus()+");";
+				+survey.getSurvey_name()+"','"+survey.getSurvey_desc()+"','"+survey.getSurvey_text()+"','"
+				+survey.getSurvey_anwser()+"','"+survey.getStart_time()+"','"+survey.getEnd_time()+"',"
+				+survey.getStatus()+","+survey.getInfos()+",'"+survey.getInfomationdesc()+"');";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}

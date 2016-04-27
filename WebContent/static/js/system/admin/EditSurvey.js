@@ -88,7 +88,7 @@ function savesurvey(){
 	var datasent = $("#surveyinfoForm").serializeObject();
 	datasent['oldname'] = surveyname;
 	params = JSON.stringify(datasent); 
-	//console.info(params);
+	console.log(params);
 	//if(params.indexOf("\"\"")>-1){
 	if(checkAvailable(params) != 0){
 		alert("请检查信息是否完整");
