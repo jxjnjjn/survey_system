@@ -50,12 +50,12 @@ public class SysStartSurveyController{
 	@RequestMapping(value = "submitanswer", method = RequestMethod.GET)
 	@ResponseBody 
 	public String submitAnswer(@RequestParam String surveyname, String optionanswer , String username ,
-			HttpServletRequest request, HttpServletResponse response){
-		logger.info("提交答案，问卷名称:【"+surveyname+"】，答案：【"+optionanswer+"】");
+			String fillinblankanswer ,HttpServletRequest request, HttpServletResponse response){
+		logger.info("提交答案，问卷名称:【"+surveyname+"】");
 		boolean flag = false;
 		String errorMessage = "getsurveytext失败";
 		try {
-			surveyService.submitanswer(surveyname , optionanswer , username);
+			surveyService.submitanswer(surveyname , optionanswer , username , fillinblankanswer);
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin showsurvey failed! ", e);

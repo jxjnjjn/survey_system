@@ -27,9 +27,10 @@ public class StartSurveyServiceImpl{
 		return surveyDao.getSurveyInfo(status);
 	}
 	
-	public void submitanswer(String surveyname , String optionanswer , String username) throws Exception
+	public void submitanswer(String surveyname , String optionanswer , 
+			String username , String fillinblankanswer) throws Exception
 	{
-		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , null , 0);
+		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , fillinblankanswer , 0);
 	}
 	
 	public List<SurveyInfoEntity> getEntityInfo(List<SurveyInfoEntity> result , int pageNo) throws Exception
@@ -67,6 +68,10 @@ public class StartSurveyServiceImpl{
 		logger.info(new Gson().toJson(survey)); 
 		String radio_name = "";
 		int radio_num = 0;
+		
+		String fillinblank_name = "";
+		int fillinblank_num = 0;
+		
 		List<SurveyInfoEntity> surveyLs = new ArrayList<SurveyInfoEntity>();
 		String surveytext = survey.getSurvey_text();
 		StringBuffer Stemp = new StringBuffer();
@@ -93,10 +98,12 @@ public class StartSurveyServiceImpl{
 					}
 					Stemp.append("</div>");
 				}else if("[填空题]".equals(question.substring(0, question.indexOf("]")+1))){
+					fillinblank_num++;
+					fillinblank_name = "fillinBlank_"+fillinblank_num;
 					logger.info("[填空题]");
 					Stemp.append("<div class=\"form-group\">");
 					Stemp.append("<h4><strong>"+question.substring(question.indexOf("]")+1)+"</strong></h4>");
-					Stemp.append("<input type=\"text\" class=\"form-control\" placeholder=\"请输入\">");
+					Stemp.append("<input type=\"text\" name=\""+ fillinblank_name  +"\" class=\"form-control\" placeholder=\"请输入\">");
 					Stemp.append("</div>");
 				}else{
 					logger.info("[未知]");

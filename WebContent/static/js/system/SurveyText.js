@@ -21,6 +21,14 @@ function nextradioname(index)
 	return radios_name;
 }
 
+function nextfillinblankname(index)
+{
+	var fillinblank_name = "";
+	index = index +1;
+	fillinblank_name = "fillinBlank_" + index;
+	return fillinblank_name;
+}
+
 function getanswer(){
 	var radiosexist = 0;
 	var radios_name = "";
@@ -47,8 +55,46 @@ function getanswer(){
 	return datasent;
 }
 
+function getfillinblankanswer(){
+	var fillinblankexist = 0;
+	var fillinblankname = "";
+	var datasent = "";
+	var result = 0;
+	var index = 0;
+	
+	do{
+		fillinblankname = nextfillinblankname(index);
+		fillinblankexist = $("input[name='"+fillinblankname+"']").length;
+		if (fillinblankexist > 0){
+			result = $("input[name='"+fillinblankname+"']").val();
+			if(result==undefined){
+				//do nothing.
+			}else{
+				if(datasent.length == 0){
+					datasent= result;
+				}else{
+					datasent= datasent +"||" +result;
+				}
+			}
+		}
+		
+		index = index +1;
+	}while(fillinblankexist > 0);
+	
+	//console.log(datasent);
+	return datasent;
+}
+
 function submitanswer(){
+	var checkresult = availablecheck();
+	
+	if(checkresult != 0){
+		alert("请完整答题！");
+		return;
+	}
+	
 	var optionanswer = getanswer();
+	var fillinblankanswer = getfillinblankanswer();
 	var username = $("#user_name").val();
 	var surveyname = $("#survey_name").val();
 	$.ajax({
@@ -59,16 +105,43 @@ function submitanswer(){
 		data : {
 			surveyname:surveyname,
 			optionanswer:optionanswer,
-			username:username},
+			username:username,
+			fillinblankanswer:fillinblankanswer},
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){
-				//
+				alert("success submit!");
+				back();
 			}else{
 				alert(data.resultMessage);
 			}
 		}
 	});
+}
+
+function availablecheck(){
+	var availableresult = 0;
+	var radiosexist = 0;
+	var radios_name = "";
+	var datasent = "";
+	var result = 0;
+	var index = 0;
+	
+	do{
+		radios_name = nextradioname(index);
+		radiosexist = $("input[name='"+radios_name+"']").length;
+		if (radiosexist > 0){
+			result = $("input[name='"+radios_name+"']:checked").val();
+
+			if(result==undefined){
+				availableresult = 1;
+				return availableresult;
+			}
+		}
+		index = index +1;
+	}while(radiosexist > 0);
+	
+	return availableresult;
 }
 
 function showsurvey(){
