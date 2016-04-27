@@ -58,7 +58,7 @@ public class ValidCodeServiceImpl implements ValidCodeService {
 	public void send2phone(String code,String user_name) {
 		//发送到手机端
 		logger.info("发送到手机端" + user_name + ":" + code);
-		String result = HttpUtil.sendPost("https://sms.yunpian.com/v2/sms/single_send.json", "apikey=300164b07190d22bb7727b81918055fb&mobile=+639052298886&text=" + code);
+		String result = HttpUtil.sendPost("https://sms.yunpian.com/v2/sms/single_send.json", "apikey=300164b07190d22bb7727b81918055fb&mobile="+user_name+"&text=【竞猜吧】验证码:" + code);
 		//String result = HttpUtil.sendGet("https://sms.yunpian.com/v2/sms/single_send.json", "");
 		logger.info("发送到手机端返回值"+result);
 	}
