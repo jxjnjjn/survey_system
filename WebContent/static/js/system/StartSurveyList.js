@@ -33,14 +33,25 @@ function creatListgroupHtml(tableInfo){
 	var username = $("#user_name").val();
 	var html = "";
 	for(var i in tableInfo){
-		html += "<a href=\"/system/startsurvey/surveytext?username="+username+"&surveyname="+tableInfo[i].survey_name+"\" class=\"list-group-item\">";
-		html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
-		html += "<div class=\"row\">";
-		html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
-		html += "<p class=\"list-group-item-text col-md-4\"><strong>结束时间：</strong>"+formatdate(tableInfo[i].end_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
-		html += "<p class=\"list-group-item-text col-md-4\"><strong>答题人数：</strong>"+tableInfo[i].num+"人</p>";
-		html += "</div>";
-		html += "</a>";
+		if(tableInfo[i].suver_available == 0){
+			html += "<a href=\"/system/startsurvey/surveytext?username="+username+"&surveyname="+tableInfo[i].survey_name+"\" class=\"list-group-item\">";
+			html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
+			html += "<div class=\"row\">";
+			html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
+			html += "<p class=\"list-group-item-text col-md-4\"><strong>结束时间：</strong>"+formatdate(tableInfo[i].end_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
+			html += "<p class=\"list-group-item-text col-md-4\"><strong>答题人数：</strong>"+tableInfo[i].num+"人</p>";
+			html += "</div>";
+			html += "</a>";
+		}else{
+			html += "<a href=\"/system/startsurvey/surveytext?username="+username+"&surveyname="+tableInfo[i].survey_name+"\" class=\"list-group-item disabled\">";
+			html += "<h2 class=\"list-group-item-heading\" style=\"text-align: center;\"><strong>"+tableInfo[i].survey_name+"</strong>  <small>"+tableInfo[i].survey_desc+"</small></h2>";
+			html += "<div class=\"row\">";
+			html += "<p class=\"list-group-item-text col-md-4\"><strong>开始时间：</strong>"+formatdate(tableInfo[i].start_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
+			html += "<p class=\"list-group-item-text col-md-4\"><strong>结束时间：</strong>"+formatdate(tableInfo[i].end_time,"yyyy-MM-dd hh:mm:ss")+"</p>";
+			html += "<p class=\"list-group-item-text col-md-4\"><strong>答题人数：</strong>"+tableInfo[i].num+"人</p>";
+			html += "</div>";
+			html += "</a>";
+		}
 	}
 	$("#datatable").html(html);
 }
