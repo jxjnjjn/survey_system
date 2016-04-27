@@ -122,7 +122,7 @@ public class SysSurveyController{
 		JsonPageInfo pageInfo = null;
 		
 		try {
-			List<SurveyInfoEntity>  result = surveyService.getSurveyInfo(status);
+			List<SurveyInfoEntity>  result = surveyService.getSurveyInfo(status , "");
 
 			int length = 0;
 			if(result != null)

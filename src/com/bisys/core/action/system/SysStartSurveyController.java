@@ -50,12 +50,12 @@ public class SysStartSurveyController{
 	@RequestMapping(value = "submitanswer", method = RequestMethod.GET)
 	@ResponseBody 
 	public String submitAnswer(@RequestParam String surveyname, String optionanswer , String username ,
-			HttpServletRequest request, HttpServletResponse response){
-		logger.info("提交答案，问卷名称:【"+surveyname+"】，答案：【"+optionanswer+"】");
+			String fillinblankanswer ,HttpServletRequest request, HttpServletResponse response){
+		logger.info("提交答案，问卷名称:【"+surveyname+"】");
 		boolean flag = false;
 		String errorMessage = "getsurveytext失败";
 		try {
-			surveyService.submitanswer(surveyname , optionanswer , username);
+			surveyService.submitanswer(surveyname , optionanswer , username , fillinblankanswer);
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin showsurvey failed! ", e);
@@ -95,8 +95,9 @@ public class SysStartSurveyController{
 	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
-	public String getlist(@RequestParam int status, HttpServletRequest request, HttpServletResponse response, int pageNo) throws Exception{
-		logger.info("获取开始答题列表："+status); 
+	public String getlist(@RequestParam int status, HttpServletRequest request, 
+			HttpServletResponse response, int pageNo , String username) throws Exception{
+		logger.info("获取开始答题列表：["+status+"] , username:["+username+"]."); 
 		
 		boolean flag = false;
 		String errorMessage = "查询失败";
@@ -104,7 +105,7 @@ public class SysStartSurveyController{
 		JsonPageInfo pageInfo = null;
 		
 		try {
-			List<SurveyInfoEntity>  result = surveyService.getSurveyInfo(status);
+			List<SurveyInfoEntity>  result = surveyService.getSurveyInfo(status , username);
 
 			int length = 0;
 			if(result != null)
