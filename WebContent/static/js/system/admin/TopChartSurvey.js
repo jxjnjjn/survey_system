@@ -49,6 +49,7 @@ function creatTablehead(){
 		th = th + "<th>注册时间</th>";
 		th = th + "<th>答题时间</th>";
 		th = th + "<th>用户答案</th>";
+		th = th + "<th>正确答案</th>";
 		th = th + "<th>正确率</th>";
 		
 	var tr = "<tr>"+th+"</tr>";
@@ -63,6 +64,7 @@ function creatTablebody(tableInfo){
 		td = td + "<td>"+formatdate(tableInfo[i].register_date,"yyyy-MM-dd hh:mm:ss")+"</td>";
 		td = td + "<td>"+formatdate(tableInfo[i].answer_date,"yyyy-MM-dd hh:mm:ss")+"</td>";
 		td = td + "<td>"+tableInfo[i].answer+"</td>";
+		td = td + "<td>"+tableInfo[i].correct_anwser+"</td>";
 		td = td + "<td>"+tableInfo[i].correct_rate+"</td>";
 		td = td + "</td>";
 		

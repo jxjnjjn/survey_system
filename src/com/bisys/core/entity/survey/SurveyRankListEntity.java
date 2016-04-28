@@ -29,9 +29,23 @@ public class SurveyRankListEntity {
 	private String answer;
 	
 	/*
+	 * 正确答案
+	 * */
+	private String correct_anwser;
+	
+	/*
 	 * 正确率
 	 * */
 	private String correct_rate;
+
+	
+	public String getCorrect_anwser() {
+		return correct_anwser;
+	}
+
+	public void setCorrect_anwser(String correct_anwser) {
+		this.correct_anwser = correct_anwser;
+	}
 
 	public String getUser_name() {
 		return user_name;
