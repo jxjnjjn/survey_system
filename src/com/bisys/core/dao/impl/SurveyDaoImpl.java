@@ -358,4 +358,17 @@ public class SurveyDaoImpl implements SurveyDao {
 		logger.info(sql);
 		return generalDao.getEntityList(VipFriendCheck.class, sql, new Object[]{});
 	}
+	
+	/*
+	 * 功能：更新【survey_user_transfer_table】表格
+	 * 操作：replace
+	 * */
+	public boolean updateUserSurveyTransfer(String user_name , String survey_name, int transfer) throws Exception
+	{
+		// TODO Auto-generated method stub
+		String sql = "call test_insert_survey_user_transfer_table('" 
+				+survey_name+"','"+user_name+"',"+transfer+");";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 }
