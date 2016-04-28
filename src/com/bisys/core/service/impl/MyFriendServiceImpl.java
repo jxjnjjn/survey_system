@@ -40,7 +40,8 @@ public class MyFriendServiceImpl{
 		}
 		
 		//logger.info(new Gson().toJson(result));
-		return this.getSurveyInfoGroupByUserName(result);
+		return result;
+		//return this.getSurveyInfoGroupByUserName(result);
 	}
 	
 	public List<VipSurveyFriendInfoEntity> getEntityInfo(List<VipSurveyFriendInfoEntity> result , int pageNo) throws Exception
@@ -128,6 +129,7 @@ public class MyFriendServiceImpl{
 				List<VipSurveyFriendInfoEntity> friend_result = surveyDao.getVipFriendSurveyInfo(bean);
 				for(VipSurveyFriendInfoEntity item : friend_result)
 				{
+					item.calculate_correct_rate();
 					result_temp.add(item);				
 				}
 			} 

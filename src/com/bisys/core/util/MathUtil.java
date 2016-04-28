@@ -109,9 +109,15 @@ public class MathUtil {
 	// 表现形式为：“7/11” 
 	public static String correctRateString (String answer , String base_answer)
 	{
-		if(answer == null || base_answer == null)
+		if(base_answer == null || base_answer.equals("N/A"))
 		{
 			return "0/0";
+		}
+		
+		if(answer == null )
+		{
+			int base_answer_length = base_answer.length();
+			return  "0/"+base_answer_length;
 		}
 		
 		answer = answer.toLowerCase();
