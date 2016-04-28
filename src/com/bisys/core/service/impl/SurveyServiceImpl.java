@@ -77,31 +77,43 @@ public class SurveyServiceImpl{
 		int radio_num = 0;
 		if(null != surveytext){
 			String[] questionsList = surveytext.split("<br />\r\n<br />\r\n");
-			logger.info(questionsList.length);
+			//logger.info(questionsList.length);
 			for(String question :questionsList){
 				if("[单选题]".equals(question.substring(0, question.indexOf("]")+1))){
 					radio_num++;
 					radio_name = "optionsRadios_"+radio_num;
 					logger.info("[单选题]");
 					String[] ls = question.split("<br />\r\n");
-					logger.info(ls.length);
-					Stemp.append("<div class=\"form-group\">");
+					//logger.info(ls.length);
+					Stemp.append("<div class=\"form-group form-group-lg\">");
 					Stemp.append("<h4><strong>"+ls[0].substring(ls[0].indexOf("]")+1)+"</strong></h4>");
+					
+					//<div class="btn-group" data-toggle="buttons">
+					Stemp.append("<div class=\"btn-group-vertical\" data-toggle=\"buttons\">");
 					for(int i=1;i<ls.length;i++){
-						Stemp.append("<div class=\"radio\">");
-						Stemp.append("<label>");
+						Stemp.append("<label class=\"btn btn-default btn-lg\">");
 						//Stemp.append(" <input type=\"radio\" name=\"optionsRadios\" value=\""+i+"\">");
-						Stemp.append(" <input type=\"radio\" name=\""+ radio_name  +"\" value=\""+i+"\">");
+						Stemp.append("<input type=\"radio\" name=\""+ radio_name  +"\" value=\""+i+"\">");
 						Stemp.append(ls[i]);
 						Stemp.append(" </label>");
-						Stemp.append("</div>");
 					}
+					Stemp.append("</div>");
+					
+//					for(int i=1;i<ls.length;i++){
+//						Stemp.append("<div class=\"radio\">");
+//						Stemp.append("<label>");
+//						//Stemp.append(" <input type=\"radio\" name=\"optionsRadios\" value=\""+i+"\">");
+//						Stemp.append("<input type=\"radio\" name=\""+ radio_name  +"\" value=\""+i+"\">");
+//						Stemp.append(ls[i]);
+//						Stemp.append(" </label>");
+//						Stemp.append("</div>");
+//					}
 					Stemp.append("</div>");
 				}else if("[填空题]".equals(question.substring(0, question.indexOf("]")+1))){
 					logger.info("[填空题]");
-					Stemp.append("<div class=\"form-group\">");
+					Stemp.append("<div class=\"form-group form-group-lg\">");
 					Stemp.append("<h4><strong>"+question.substring(question.indexOf("]")+1)+"</strong></h4>");
-					Stemp.append("<input type=\"text\" class=\"form-control\" placeholder=\"请输入\">");
+					Stemp.append("<input type=\"text\" class=\"form-control input-lg\" placeholder=\"请输入\">");
 					Stemp.append("</div>");
 				}else{
 					logger.info("[未知]");
