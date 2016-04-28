@@ -22,7 +22,7 @@ function getData(pageNo){
 		success : function(result) {
 			if(result.resultCode == 0){
 				if(result.data != null){
-					creatTableHtml(result.data);
+					creatpanelgroup(result.data);
 					creatpage(result.pageInfo);//分页
 				}
 			}else{
@@ -32,18 +32,69 @@ function getData(pageNo){
 	});
 }
 
+function creatpanelgroup(tableInfo){
+	var info = createInfo(tableInfo)
+	console.log(JSON.stringify(info));
+	var tbodypanel = creatpanel(info);
+	var html = "<div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">" + tbodypanel + "</div>";
+	$("#datatable").html(html);
+}
+
+function createInfo(data){
+	var temp = []; 
+	var usernametemp = "";
+	for(var i in data){
+		if(usernametemp != data[i].user_name){
+			var d = {};
+			d["user_name"] = data[i].user_name;
+			usernametemp = d["user_name"];
+			d["data"] = [];
+			for(var j in data){
+				if(d["user_name"] == data[j].user_name){
+					var survey = {
+						survey_name:data[j].survey_name,
+						survey_answer:data[j].survey_answer,
+						user_answer:data[j].user_answer,
+						correct_rate:data[j].correct_rate,
+					};
+					d["data"].push(survey);
+				}
+			}
+			temp.push(d);
+		}
+	}
+	return temp;
+}
+
+function creatpanel(tableInfo){
+	var tpanel = "";
+	for(var i in tableInfo){
+		tpanel += "<div class=\"panel panel-default\">";
+		tpanel += "<div class=\"panel-heading\" role=\"tab\" id=\"heading"+i+"\">";
+		tpanel += "<div class=\"row\"><div class=\"col-md-9\"><h4 class=\"panel-title\">";
+		tpanel += "<a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse"+i+"\" aria-expanded=\"false\" aria-controls=\"collapse"+i+"\">";
+		tpanel += "<strong>"+tableInfo[i].user_name+"</strong>";
+		tpanel += "</a></h4></div><div class=\"col-md-3\"><button type=\"button\" class=\"btn btn-link pull-right\" onclick=\"delfriend('"+tableInfo[i].user_name+"')\">删除</button></div></div></div>";
+		tpanel += "<div id=\"collapse"+i+"\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"heading"+i+"\">";
+		tpanel += "<div class=\"panel-body\" style=\"padding: 5px;\">";
+		tpanel += creatTableHtml(tableInfo[i].data);
+		tpanel += "</div></div></div>";
+	}
+	return tpanel;
+}
 
 function creatTableHtml(tableInfo){
 	var theadhtml = creatTablehead();
 	var tbodyhtml = creatTablebody(tableInfo);
 	var html = "<div class=\"table-responsive\"><table id=\"detailtable\" class=\"table table-bordered\">" + theadhtml + tbodyhtml + "</table></div>";
-	$("#datatable").html(html);
+	return html;
 }
 
 function creatTablehead(){
-	var th = "<th>好友名称</th>";
-		th = th + "<th>近几期问卷</th>";
-		th = th + "<th>操作</th>";
+	var th = "<th>近几期问卷名</th>";
+		th = th + "<th>正确答案</th>";
+		th = th + "<th>用户答案</th>";
+		th = th + "<th>正确率</th>";
 		
 	var tr = "<tr>"+th+"</tr>";
 	var thead = "<thead>"+ tr +"</thead>";
@@ -53,11 +104,10 @@ function creatTablehead(){
 function creatTablebody(tableInfo){
 	var tr =  "";
 	for(var i in tableInfo){
-		var td = "<th>"+tableInfo[i].user_name+"</th>";
-		td = td + "<td>"+checkname(tableInfo[i].survey_name)+"</td>";
-		td = td + "<td class=\"text-center\">";
-		td = td + "<button type=\"button\" class=\"btn btn-danger btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delfriend('"+tableInfo[i].user_name+"')\">删除</button>"
-		td = td + "</td>";
+		var td = "<th>"+checkname(tableInfo[i].survey_name)+"</th>";
+		td = td + "<td>"+checkname(tableInfo[i].survey_answer)+"</td>";
+		td = td + "<td>"+checkname(tableInfo[i].user_answer)+"</td>";
+		td = td + "<td>"+checkname(tableInfo[i].correct_rate)+"</td>";
 
 		tr = tr + "<tr>"+td+"</tr>";
 	}
@@ -67,8 +117,8 @@ function creatTablebody(tableInfo){
 }
 
 function checkname(name){
-	if(name == null || name == ""){
-		return "无";
+	if(name == null || name == "" || name == "N/A"){
+		return "暂无";
 	}
 	return name;
 }

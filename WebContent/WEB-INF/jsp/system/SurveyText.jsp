@@ -43,8 +43,11 @@
 						<div class="form-group">
 							<div class="text-center">
 								<shiro:authenticated>
-								<button type="button" class="btn btn-default" id="submitsurvey">提交</button>
+								<button type="button" class="btn btn-success" id="submitsurvey">提交</button>
 								</shiro:authenticated>
+								<shiro:guest>  
+								<button type="button" class="btn btn-success" id="registersurvey">马上注册</button>
+								</shiro:guest>
 							</div>
 						</div>
 					</form>

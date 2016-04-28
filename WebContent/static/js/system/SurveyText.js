@@ -13,6 +13,10 @@ $("#submitsurvey").on('click',function(){
 	submitanswer();
 });
 
+$("#registersurvey").on('click',function(){
+	register();
+});
+
 function nextradioname(index)
 {
 	var radios_name = "";
@@ -116,6 +120,7 @@ function submitanswer(){
 				//back();
 				if(infos == 0){
 					alert(infomationdesc);
+					back();
 				}else{
 					alert("提交成功!");
 					top.location.href=infomationdesc;
@@ -181,4 +186,8 @@ function showsurvey(){
 
 function back(){
 	window.location.href="/system/startsurvey";
+}
+
+function register(){
+	top.location.href="/system/register";
 }
