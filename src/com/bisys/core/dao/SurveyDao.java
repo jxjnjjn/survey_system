@@ -24,7 +24,7 @@ public interface SurveyDao {
 	public List<VipZoneAnalysisEntity> getVipZoneAnalysis() throws Exception;
 	
 	boolean insertIntoSurveyUserTable(String user_name , String survey_name, int answer_time, String answer,
-			String answer_fillinblank, int transfer_flag) throws Exception;
+			String answer_fillinblank) throws Exception;
 	
 	
 	public List<VipUserSurveyInfoEntity> getVipSurveyInfo(String user_name) throws Exception;

@@ -30,7 +30,7 @@ public class StartSurveyServiceImpl{
 	public void submitanswer(String surveyname , String optionanswer , 
 			String username , String fillinblankanswer) throws Exception
 	{
-		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , fillinblankanswer , 0);
+		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , fillinblankanswer);
 	}
 	
 	public List<SurveyInfoEntity> getEntityInfo(List<SurveyInfoEntity> result , int pageNo) throws Exception
