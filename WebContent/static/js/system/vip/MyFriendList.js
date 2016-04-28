@@ -91,7 +91,7 @@ function creatTableHtml(tableInfo){
 }
 
 function creatTablehead(){
-	var th = "<th>近几期问卷名</th>";
+	var th = "<th>好友近几期问卷名</th>";
 		th = th + "<th>正确答案</th>";
 		th = th + "<th>用户答案</th>";
 		th = th + "<th>正确率</th>";

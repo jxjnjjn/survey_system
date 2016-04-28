@@ -24,7 +24,7 @@
 		<form class="form-inline" style="margin-top: 10px;">
 			<div class="form-group">
 				<label for="friend_name">好友名：</label>
-				<input type="text" placeholder="好友名称" name="friend_name" id="friend_name" class="form-control"/>
+				<input type="text" placeholder="好友手机号" name="friend_name" id="friend_name" class="form-control"/>
 			</div>
 			<button type="button" class="btn btn-success" id="addfriendbtn">添加好友</button>
 		</form>

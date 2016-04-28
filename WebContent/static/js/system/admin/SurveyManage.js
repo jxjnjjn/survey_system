@@ -64,7 +64,7 @@ function creatTablebody(tableInfo){
 		td = td + "<td>"+getstatus(tableInfo[i].status)+"</td>";
 		td = td + "<td class=\"text-center\">";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"editsurvey('"+tableInfo[i].survey_name+"')\">编辑</button>";
-		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"updatestatus('"+tableInfo[i].survey_name+"','"+tableInfo[i].status+"')\">"+getbtn(tableInfo[i].status)+"</button>";
+		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"updatestatus('"+tableInfo[i].survey_name+"','"+tableInfo[i].status+"','"+tableInfo[i].end_time+"')\">"+getbtn(tableInfo[i].status)+"</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"delsurvey('"+tableInfo[i].survey_name+"')\">删除</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"topchart('"+tableInfo[i].survey_name+"')\">正确率排行</button>";
 		td = td + "<button type=\"button\" class=\"btn btn-link btn-sm\" style=\"margin-right: 5px;margin-left: 5px;\" onclick=\"surveyanalysis('"+tableInfo[i].survey_name+"')\">问卷分析</button>";
@@ -89,25 +89,29 @@ function editsurvey(surveyname){
 	window.location.href="/system/survey/editsurveyview?surveyname="+surveyname;
 }
 
-function updatestatus(surveyname,status){
-	$.ajax({
-		type : "GET",
-		url : "/system/survey/updatestatus",
-		dataType : "JSON",
-		contentType : "application/json;charset=utf-8",
-		data : {
-			surveyname:surveyname,
-			status:status},
-		async : true,
-		success : function(result) {
-			if(result.resultCode == 0){
-				alert(result.resultMessage);
-				getData(1);
-			}else{
-				alert(result.resultMessage);
+function updatestatus(surveyname,status,endtime){
+	if(new Date(endtime).getTime() < new Date().getTime()){
+		alert("此问卷已经过期，请编辑结束时间再发布。");
+	}else{
+		$.ajax({
+			type : "GET",
+			url : "/system/survey/updatestatus",
+			dataType : "JSON",
+			contentType : "application/json;charset=utf-8",
+			data : {
+				surveyname:surveyname,
+				status:status},
+			async : true,
+			success : function(result) {
+				if(result.resultCode == 0){
+					alert(result.resultMessage);
+					getData(1);
+				}else{
+					alert(result.resultMessage);
+				}
 			}
-		}
-	});
+		});
+	}
 }
 
 function delsurvey(surveyname){
