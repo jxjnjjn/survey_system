@@ -53,7 +53,7 @@ public class SysStartSurveyController{
 			String fillinblankanswer ,HttpServletRequest request, HttpServletResponse response){
 		logger.info("提交答案，问卷名称:【"+surveyname+"】");
 		boolean flag = false;
-		String errorMessage = "getsurveytext失败";
+		String errorMessage = "提交失败";
 		try {
 			surveyService.submitanswer(surveyname , optionanswer , username , fillinblankanswer);
 			flag = true;
@@ -64,7 +64,7 @@ public class SysStartSurveyController{
 		//返回信息
 		JsonResult<String> jsonResult = new JsonResult<String>();
 		jsonResult.setResultCode(flag ? 0 : 1);
-		jsonResult.setResultMessage(flag ? "getsurveytext成功" : errorMessage);
+		jsonResult.setResultMessage(flag ? "提交成功" : errorMessage);
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}

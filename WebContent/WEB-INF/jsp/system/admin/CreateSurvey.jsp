@@ -97,10 +97,10 @@
 							<label for="inputPassword3" class="col-sm-2 control-label">提交后的操作</label>
 							<div class="col-sm-10">
 								<label class="radio-inline">
-									<input type="radio" name="infos" id="inlineRadio1" value=1>显示感谢信息
+									<input type="radio" name="infos" id="inlineRadio1" value=0>显示感谢信息
 								</label>
 								<label class="radio-inline">
-									<input type="radio" name="infos" id="inlineRadio2" value=2>跳转到
+									<input type="radio" name="infos" id="inlineRadio2" value=1>跳转到
 								</label>
 								<textarea id="infomationdesc" name="infomationdesc" class="form-control" rows="2"></textarea>
 							</div>

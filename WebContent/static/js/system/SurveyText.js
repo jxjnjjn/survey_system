@@ -97,6 +97,8 @@ function submitanswer(){
 	var fillinblankanswer = getfillinblankanswer();
 	var username = $("#user_name").val();
 	var surveyname = $("#survey_name").val();
+	var infos = $("#infos").val();
+	var infomationdesc = $("#infomationdesc").val();
 	$.ajax({
 		type : "GET",
 		url : "/system/startsurvey/submitanswer",
@@ -110,8 +112,14 @@ function submitanswer(){
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){
-				alert("success submit!");
-				back();
+				//alert("提交成功!");
+				//back();
+				if(infos == 0){
+					alert(infomationdesc);
+				}else{
+					alert("提交成功!");
+					top.location.href=infomationdesc;
+				}
 			}else{
 				alert(data.resultMessage);
 			}
@@ -157,6 +165,8 @@ function showsurvey(){
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){
+				$("#infos").val(data.data[0].infos);
+				$("#infomationdesc").val(data.data[0].infomationdesc);
 				$("#surveyname").html(data.data[0].survey_name);
 				$("#surveydesc").html(data.data[0].survey_desc);
 				$("#surveytext").html(data.data[0].survey_text);

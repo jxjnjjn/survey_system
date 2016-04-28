@@ -18,6 +18,8 @@
 	            /system**=anon
 	            /system/startsurvey**=anon
 	            /system/startsurvey/getlist**=anon
+	            /system/startsurvey/surveytext**=anon
+	            /system/startsurvey/getsurveytext**=anon
 				/system/login**=anon
 				/system/register**=anon
 				/system/forgetpassword**=anon

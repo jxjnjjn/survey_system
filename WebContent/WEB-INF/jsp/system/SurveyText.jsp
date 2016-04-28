@@ -35,12 +35,16 @@
 					<form id="showsurveyform">
 						<input type="hidden" name="user_name" id="user_name" value="${username}">
 						<input type="hidden" name="survey_name" id="survey_name" value="${surveyname}">
+						<input type="hidden" name="infos" id="infos" value="${infos}">
+						<input type="hidden" name="infomationdesc" id="infomationdesc" value="${infomationdesc}">
 						<h2 class="text-center"><strong id="surveyname">问卷题目</strong><br/><small id="surveydesc">问卷描述</small></h2>
 						<div id="surveytext">
 						</div>
 						<div class="form-group">
 							<div class="text-center">
+								<shiro:authenticated>
 								<button type="button" class="btn btn-default" id="submitsurvey">提交</button>
+								</shiro:authenticated>
 							</div>
 						</div>
 					</form>

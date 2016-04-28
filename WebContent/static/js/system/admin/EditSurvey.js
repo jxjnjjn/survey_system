@@ -81,7 +81,7 @@ function createform(data){
 	$("#end_time").val(data[0].end_time);
 	$("#infomationdesc").val(data[0].infomationdesc);
 	console.log(data[0].infos);
-	if(data[0].infos == 1){
+	if(data[0].infos == 0){
 		$("#inlineRadio1").prop("checked",true);
 	}else{
 		$("#inlineRadio2").prop("checked",true);
