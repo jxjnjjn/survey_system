@@ -65,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-
+	
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->
 	<!-- Placed at the end of the document so the pages load faster -->

@@ -33,6 +33,11 @@ public class StartSurveyServiceImpl{
 		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , fillinblankanswer);
 	}
 	
+	public void sharing(String username, String surveyname, int num) throws Exception
+	{
+		surveyDao.updateUserSurveyTransfer(username, surveyname, num);
+	}
+	
 	public List<SurveyInfoEntity> getEntityInfo(List<SurveyInfoEntity> result , int pageNo) throws Exception
 	{
 		List<SurveyInfoEntity> tableList = new ArrayList<SurveyInfoEntity>();

@@ -129,4 +129,26 @@ public class SysStartSurveyController{
 		logger.info(new Gson().toJson(jsonResult)); 
 		return new Gson().toJson(jsonResult);
 	}
+	
+	@RequestMapping(value = "sharing", method = RequestMethod.GET)
+	@ResponseBody 
+	public String sharing(@RequestParam String surveyname, int num , String username ,
+			HttpServletRequest request, HttpServletResponse response){
+		logger.info("分享链接:【"+surveyname+","+username+","+num+"】");
+		boolean flag = false;
+		String errorMessage = "分享失败";
+		try {
+			surveyService.sharing(username, surveyname, num);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin showsurvey failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<String> jsonResult = new JsonResult<String>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "分享成功" : errorMessage);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
 }

@@ -1,8 +1,53 @@
 /*=======================================*/
 /*	@author noviachan                    */
 /*=======================================*/
+var jiathis_config;
+var urlString = "";
+
 $(document).ready(function(){
 	showsurvey();
+});
+
+$(".jiathis_button_tsina").on('click',function(){
+	sharing(1);
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		}
+});
+
+$(".jiathis_button_tieba").on('click',function(){
+	sharing(2);
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		}
+});
+
+$(".jiathis_button_qzone").on('click',function(){
+	sharing(3); 
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		}
+});
+
+$(".jiathis_button_cqq").on('click',function(){
+	sharing(4); 
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		}
+});
+
+$(".jiathis_button_douban").on('click',function(){
+	sharing(5); 
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		}
+});
+
+$(".jiathis_button_weixin").on('click',function(){
+	sharing(6);
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		} 
 });
 
 $("#backbtn").on('click',function(){
@@ -177,6 +222,29 @@ function showsurvey(){
 				$("#surveytext").html(data.data[0].survey_text);
 				$("#showsurveypanel").show();
 				$("#tablepanel").hide();
+			}else{
+				alert(data.resultMessage);
+			}
+		}
+	});
+}
+
+function sharing(num){
+	var username = $("#user_name").val();
+	var surveyname = $("#survey_name").val();
+	$.ajax({
+		type : "GET",
+		url : "/system/startsurvey/sharing",
+		dataType : "json",
+		contentType : "application/json;charset=utf-8",
+		data : {
+			surveyname:surveyname,
+			username:username,
+			num:num},
+		async : true,
+		success : function(data) {
+			if(data.resultCode == 0){
+				//alert(data.resultMessage);
 			}else{
 				alert(data.resultMessage);
 			}
