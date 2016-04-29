@@ -52,6 +52,17 @@
 				</div>
 				</div>
 				
+				<div id="locationchartpanel" class="panel panel-default">
+				<div class="panel-heading">
+					<h4 style="margin-top: 0px; margin-bottom: 0px;">
+						<strong>应用分布</strong>
+					</h4>
+				</div>
+				<div class="panel-body">
+					<div id="sharechart" class="main-chart"></div>
+				</div>
+				</div>
+				
 				<div class="panel-body">
 					<div id="detailstable">
 						<input type="hidden" id="surveynamehide" value="${surveyname}"/>

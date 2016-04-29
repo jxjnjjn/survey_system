@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.bisys.core.dao.GeneralDao;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
+import com.bisys.core.entity.survey.ShareAppAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.SurveyRankListEntity;
@@ -270,6 +271,19 @@ public class SurveyDaoImpl implements SurveyDao {
 				+survey_name+"')";
 		logger.info(sql);
 		return generalDao.getEntityList(PhoneZoneAnalysisEntity.class, sql, new Object[]{});
+	}
+	
+	/*
+	 * 功能：问卷分析-应用分布
+	 * 说明：survey_name 问卷名称
+	 * 
+	 * */
+	public List<ShareAppAnalysisEntity> getAppAnalysis(String survey_name) throws Exception
+	{
+		String sql = "CALL p_select_app_analysis('"
+				+survey_name+"')";
+		logger.info(sql);
+		return generalDao.getEntityList(ShareAppAnalysisEntity.class, sql, new Object[]{});
 	}
 	
 	/*

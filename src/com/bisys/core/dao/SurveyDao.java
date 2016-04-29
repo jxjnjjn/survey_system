@@ -3,6 +3,7 @@ package com.bisys.core.dao;
 import java.util.List;
 
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
+import com.bisys.core.entity.survey.ShareAppAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.entity.survey.SurveyRankListEntity;
@@ -33,6 +34,7 @@ public interface SurveyDao {
 	public List<VipFriendCheck> getVipFriendNum(String user_name , String friend_name)throws Exception;
 	/*问卷 相关的操作*/
 	public List<PhoneZoneAnalysisEntity> getPhoneZoneAnalysis(String survey_name) throws Exception;
+	public List<ShareAppAnalysisEntity> getAppAnalysis(String survey_name) throws Exception;
 	public boolean updateSurveyStatus(String survey_name, int status) throws Exception;
 	public boolean replaceSurveyTable(SurveyInfoEntity survey , String old_survey_name) throws Exception;
 	public boolean deleteSurveyByName(String survey_name) throws Exception;

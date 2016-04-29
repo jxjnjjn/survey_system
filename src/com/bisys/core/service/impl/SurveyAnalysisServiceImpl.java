@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.bisys.core.dao.SurveyDao;
 import com.bisys.core.dao.UserDao;
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
+import com.bisys.core.entity.survey.ShareAppAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.util.JsonPageInfo;
 
@@ -43,6 +44,10 @@ public class SurveyAnalysisServiceImpl{
 		return surveyDao.getPhoneZoneAnalysis(survey_name);
 	}
 	
+	public List<ShareAppAnalysisEntity> getListApp(String survey_name) throws Exception
+	{
+		return surveyDao.getAppAnalysis(survey_name);
+	}
 	
 	public List<SurveyAnalysisEntity> getEntityInfo(List<SurveyAnalysisEntity> result , int pageNo) throws Exception
 	{

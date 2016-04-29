@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.PhoneZoneAnalysisEntity;
+import com.bisys.core.entity.survey.ShareAppAnalysisEntity;
 import com.bisys.core.entity.survey.SurveyAnalysisEntity;
 import com.bisys.core.service.impl.SurveyAnalysisServiceImpl;
 import com.google.gson.Gson;
@@ -85,6 +86,32 @@ public class SysSurveyAnalysisController{
 		
 		//返回信息
 		JsonResult<PhoneZoneAnalysisEntity> jsonResult = new JsonResult<PhoneZoneAnalysisEntity>();
+		jsonResult.setResultCode(flag ? 0 : 1);
+		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
+		jsonResult.setData(surveyinfoList);
+		logger.info(new Gson().toJson(jsonResult)); 
+		return new Gson().toJson(jsonResult);
+	}
+	
+	@RequestMapping(value = "getlistshareapp", method = RequestMethod.GET)
+	@ResponseBody 
+	public String getlistshareapp(HttpServletRequest request, HttpServletResponse response,String surveyname) throws Exception{
+
+		logger.info("获取问卷:【"+surveyname+"】-应用分布"); 
+		
+		boolean flag = false;
+		String errorMessage = "查询失败";
+		List<ShareAppAnalysisEntity> surveyinfoList = null;
+		
+		try {
+			surveyinfoList = surveyService.getListApp(surveyname);
+			flag = true;
+		}catch (Exception e) {
+			logger.error("sys admin search failed! ", e);
+		}
+		
+		//返回信息
+		JsonResult<ShareAppAnalysisEntity> jsonResult = new JsonResult<ShareAppAnalysisEntity>();
 		jsonResult.setResultCode(flag ? 0 : 1);
 		jsonResult.setResultMessage(flag ? "查询成功" : errorMessage);
 		jsonResult.setData(surveyinfoList);

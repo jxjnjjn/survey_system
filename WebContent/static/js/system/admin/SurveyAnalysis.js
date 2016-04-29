@@ -9,10 +9,58 @@ $(document).ready(function(){
 	});
 	surveyanalysis($("#surveynamehide").val());
 	cellphonezone($("#surveynamehide").val());
+	shareappzone($("#surveynamehide").val());
 });
 
 function back(){
 	window.location.href="/system/survey";
+}
+
+function shareappzone(surveyname){
+	$.ajax({
+		type : "GET",
+		url : "/system/surveyanalysis/getlistshareapp",
+		dataType : "JSON",
+		contentType : "application/json;charset=utf-8",
+		data : {
+			surveyname:surveyname
+		},
+		async : true,
+		success : function(result) {
+			if(result.resultCode == 0){
+				if(result.data != null){
+					var datatemp = creatnumshare(result.data);
+					var zonetemp = creatappshare(result.data);
+					var locationoption=creatlineOption(datatemp,zonetemp,"人");
+					var locationChart = echarts.init(document.getElementById('sharechart'));
+					locationChart.setOption(locationoption, true);
+				}
+			}else{
+				alert(result.resultMessage);
+			}
+		}
+		});
+}
+
+function creatnumshare(data){
+	var tempdata = new Array();
+	var o = {};  
+	o["name"]="VIP人数";
+	var temp = new Array();
+	for(var i=0;i<data.length;i++){
+		temp.push(data[i].app_num);
+	}
+	o["data"]=temp;
+	tempdata.push(o);
+	return tempdata;
+}
+
+function creatappshare(data){
+	var temp = new Array();
+	for(var i=0;i<data.length;i++){
+		temp.push(data[i].app_name);
+	}
+	return temp;
 }
 
 function cellphonezone(surveyname){
