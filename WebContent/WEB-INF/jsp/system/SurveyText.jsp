@@ -15,7 +15,6 @@
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
-	<link href="/static/css/common/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid">
@@ -43,10 +42,10 @@
 						<div class="form-group">
 							<div class="text-center">
 								<shiro:authenticated>
-								<button type="button" class="btn btn-success" id="submitsurvey">提交</button>
+								<button type="button" class="btn btn-success btn-lg" id="submitsurvey">提交</button>
 								</shiro:authenticated>
 								<shiro:guest>  
-								<button type="button" class="btn btn-success" id="registersurvey">马上注册</button>
+								<button type="button" class="btn btn-success btn-lg" id="registersurvey">马上注册</button>
 								</shiro:guest>
 							</div>
 						</div>
@@ -72,7 +71,6 @@
 	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/static/js/common/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/static/js/common/bootstrap-datepicker.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
 	<script type="text/javascript" src="/static/js/common/time.js"></script>

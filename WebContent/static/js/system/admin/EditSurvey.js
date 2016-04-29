@@ -77,10 +77,10 @@ function createform(data){
 	editor1.html(data[0].survey_desc);
 	editor2.html(data[0].survey_text);
 	$("#survey_anwser").val(data[0].survey_anwser);
-	$("#start_time").val(data[0].start_time);
-	$("#end_time").val(data[0].end_time);
+	$("#start_time").val(formatdate(data[0].start_time,"yyyy-MM-dd hh:mm:ss"));
+	$("#end_time").val(formatdate(data[0].end_time,"yyyy-MM-dd hh:mm:ss"));
 	$("#infomationdesc").val(data[0].infomationdesc);
-	console.log(data[0].infos);
+	//console.log(data[0].infos);
 	if(data[0].infos == 0){
 		$("#inlineRadio1").prop("checked",true);
 	}else{

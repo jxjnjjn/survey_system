@@ -15,7 +15,7 @@
 	<link href="/static/css/common/bootstrap.min.css" rel="stylesheet">
 	<!-- 我们自己的css样式文件放在这里 -->
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
-	<link href="/static/css/common/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link href="/static/css/common/bootstrap-datetimepicker.min.css" rel="stylesheet">
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid">
@@ -84,13 +84,13 @@
 						<div class="form-group">
 							<label for="start_time" class="col-sm-2 control-label">问卷开始时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" placeholder="开始时间" name="start_time" id="start_time" data-date-format="yyyy-mm-dd"/>
+								<input type="text" class="form-control" placeholder="开始时间" name="start_time" id="start_time" data-date-format="yyyy-mm-dd hh:ii"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="end_time" class="col-sm-2 control-label">问卷结束时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" placeholder="结束时间" name="end_time" id="end_time"  data-date-format="yyyy-mm-dd"/>
+								<input type="text" class="form-control" placeholder="结束时间" name="end_time" id="end_time"  data-date-format="yyyy-mm-dd hh:ii"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -122,7 +122,7 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script type="text/javascript" src="/static/js/common/jquery-1.12.3.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/bootstrap.min.js"></script>
-	<script type="text/javascript" src="/static/js/common/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="/static/js/common/bootstrap-datetimepicker.min.js"></script>
 	<script charset="utf-8" src="/static/editor/kindeditor.js"></script>
 	<script charset="utf-8" src="/static/editor/lang/zh-CN.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>

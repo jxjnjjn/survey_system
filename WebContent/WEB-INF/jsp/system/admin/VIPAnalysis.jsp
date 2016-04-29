@@ -89,7 +89,7 @@
 	<script type="text/javascript" src="/static/js/common/echarts.min.js"></script>
 	<script type="text/javascript" src="/static/js/common/commonFunc.js"></script>
 	<script type="text/javascript" src="/static/js/common/pageInfo.js"></script>
-	<script type="text/javascript" src="/static/js/common/time.js"></script>
+	<script type="text/javascript" src="/static/js/common/datetime.js"></script>
 	<script type="text/javascript" src="/static/js/echart/linechart.js"></script>
 	<script type="text/javascript" src="/static/js/system/admin/VIPAnalysis.js"></script>
 </body>

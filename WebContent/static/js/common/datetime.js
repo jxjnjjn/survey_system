@@ -3,24 +3,24 @@
 /*	@author noviachan                    */
 /*=======================================*/
 //设置时间控件响应事件
-$('#start_time').datetimepicker()
+$('#start_time').datepicker()
 	.on('changeDate', function(ev){
-		$('#start_time').datetimepicker('hide');
+		$('#start_time').datepicker('hide');
 	});
 
-$('#end_time').datetimepicker()
+$('#end_time').datepicker()
 	.on('changeDate', function(ev){
-		$('#end_time').datetimepicker('hide');
+		$('#end_time').datepicker('hide');
 	});
 
-$('#startdate').datetimepicker()
+$('#startdate').datepicker()
 	.on('changeDate', function(ev){
 		startDate = new Date(ev.date);
-		$('#startdate').datetimepicker('hide');
+		$('#startdate').datepicker('hide');
 	});
 
-$('#enddate').datetimepicker()
+$('#enddate').datepicker()
 	.on('changeDate', function(ev){
 		endDate = new Date(ev.date);
-		$('#enddate').datetimepicker('hide');
+		$('#enddate').datepicker('hide');
 	});
