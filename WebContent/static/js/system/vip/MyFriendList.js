@@ -124,6 +124,14 @@ function checkname(name){
 }
 
 function addfriend(friendname){
+	var myreg = /^(((13)|(15)|(18))+\d{9})$/; 
+	var availableCheck = myreg.test(friendname);
+	if(!availableCheck)
+	{
+		alert("请正确输入手机号！");
+		return;
+	}
+	
 	if(friendname != ""){
 		var username = $("#user_name").val();
 		$.ajax({
