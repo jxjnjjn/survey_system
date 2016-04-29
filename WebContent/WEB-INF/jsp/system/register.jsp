@@ -23,6 +23,7 @@
 			<section id="content">
 				<form id="registerForm">
 					<h1>会员注册</h1>
+					<input type="hidden" name="register_source" id="register_source" value="${source}" />
 					<input type="hidden" name="randomString" id="randomString" value="" />
 					<div>
 						<input type="text" placeholder="手机号"  name="user_name" id="user_name" />

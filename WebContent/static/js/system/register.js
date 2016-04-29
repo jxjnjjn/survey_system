@@ -21,8 +21,8 @@ function register(){
 	var btn = $("#registerBtn");
     btn.button('loading');
 	var datasent = $("#registerForm").serializeObject();
-	params = JSON.stringify(datasent); 
-	console.log(params);
+	params = JSON.stringify(datasent);
+	//console.log(params);
 	$.ajax({
 		type : "POST",
 		url : "/system/addUser",

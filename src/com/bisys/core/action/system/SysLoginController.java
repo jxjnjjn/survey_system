@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bisys.core.entity.JsonResult;
@@ -42,8 +43,12 @@ public class SysLoginController{
 	}
 	
 	@RequestMapping(value = "register", method = RequestMethod.GET)
-	public String register(HttpServletRequest request){
-		logger.info("会员注册");
+	public String register(@RequestParam(required=false)String source, HttpServletRequest request){
+		logger.info("会员注册:source="+source);
+		if(null == source){
+			source="0";
+		}
+		request.getSession().setAttribute("source", source);
 		return "system/register";
 	}
 	

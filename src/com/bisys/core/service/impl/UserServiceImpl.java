@@ -97,7 +97,22 @@ public class UserServiceImpl implements UserService {
 		user.setRegister_date(now);
 		user.setRegister_ip(getIpAddr(request));
 		
-		user.setRegister_source("未知来源");
+		//user.setRegister_source("未知来源");
+		if("0".equals(user.getRegister_source())){
+			user.setRegister_source("未知来源");
+		}else if("1".equals(user.getRegister_source())){
+			user.setRegister_source("微博");
+		}else if("2".equals(user.getRegister_source())){
+			user.setRegister_source("百度贴吧");
+		}else if("3".equals(user.getRegister_source())){
+			user.setRegister_source("QQ空间");
+		}else if("4".equals(user.getRegister_source())){
+			user.setRegister_source("QQ");
+		}else if("5".equals(user.getRegister_source())){
+			user.setRegister_source("豆瓣");
+		}else if("6".equals(user.getRegister_source())){
+			user.setRegister_source("微信");
+		}
 		
 		try {
 			//获取手机区域
