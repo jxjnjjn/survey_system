@@ -5,10 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
@@ -129,4 +133,46 @@ public class HttpUtil {
         }
         return result;
     } 
+    
+    static public String getIpAddr(HttpServletRequest request) {   
+		String ipAddress = null;   
+		//ipAddress = this.getRequest().getRemoteAddr();   
+		ipAddress = request.getHeader("x-forwarded-for");   
+		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
+			//logger.error("Proxy-Client-IP");
+			ipAddress = request.getHeader("Proxy-Client-IP");   
+		}   
+		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
+			//logger.error("WL-Proxy-Client-IP");
+			ipAddress = request.getHeader("WL-Proxy-Client-IP");   
+		}   
+		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
+			//logger.error("getRemoteAddr");
+			ipAddress = request.getRemoteAddr();   
+			if(ipAddress.equals("127.0.0.1")){   
+				//logger.error("127.0.0.1");
+				//根据网卡取本机配置的IP   
+				InetAddress inet=null;   
+				try {   
+					inet = InetAddress.getLocalHost();   
+				} catch (UnknownHostException e) {   
+					e.printStackTrace();   
+				}   
+				ipAddress= inet.getHostAddress(); 
+			}  
+			if(ipAddress.equals("0:0:0:0:0:0:0:1"))
+			{
+				ipAddress = "127.0.0.1";
+			}
+		}   
+		//logger.error(ipAddress);
+		//对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割   
+		if(ipAddress!=null && ipAddress.length()>15){ //"***.***.***.***".length() = 15   
+			if(ipAddress.indexOf(",")>0){   
+				ipAddress = ipAddress.substring(0,ipAddress.indexOf(","));   
+			}   
+		}   
+		//logger.error(ipAddress);
+		return ipAddress;    
+	}
 }

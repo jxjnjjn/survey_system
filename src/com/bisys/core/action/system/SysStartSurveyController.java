@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bisys.core.entity.JsonResult;
 import com.bisys.core.entity.survey.SurveyInfoEntity;
 import com.bisys.core.service.impl.StartSurveyServiceImpl;
+import com.bisys.core.util.HttpUtil;
 import com.bisys.core.util.JsonPageInfo;
 import com.google.gson.Gson;
 /**
@@ -50,12 +51,12 @@ public class SysStartSurveyController{
 	@RequestMapping(value = "submitanswer", method = RequestMethod.GET)
 	@ResponseBody 
 	public String submitAnswer(@RequestParam String surveyname, String optionanswer , String username ,
-			String fillinblankanswer ,HttpServletRequest request, HttpServletResponse response){
+			String fillinblankanswer,HttpServletRequest request, HttpServletResponse response){
 		logger.info("提交答案，问卷名称:【"+surveyname+"】");
 		boolean flag = false;
 		String errorMessage = "提交失败";
 		try {
-			surveyService.submitanswer(surveyname , optionanswer , username , fillinblankanswer);
+			surveyService.submitanswer(surveyname , optionanswer , username , fillinblankanswer , HttpUtil.getIpAddr(request));
 			flag = true;
 		}catch (Exception e) {
 			logger.error("sys admin showsurvey failed! ", e);

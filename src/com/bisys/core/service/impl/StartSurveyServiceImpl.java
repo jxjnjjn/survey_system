@@ -28,9 +28,9 @@ public class StartSurveyServiceImpl{
 	}
 	
 	public void submitanswer(String surveyname , String optionanswer , 
-			String username , String fillinblankanswer) throws Exception
+			String username , String fillinblankanswer , String answer_ip) throws Exception
 	{
-		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , fillinblankanswer);
+		surveyDao.insertIntoSurveyUserTable(username ,surveyname ,  0 ,optionanswer , fillinblankanswer , answer_ip);
 	}
 	
 	public void sharing(String username, String surveyname, int num) throws Exception

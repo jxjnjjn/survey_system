@@ -44,7 +44,7 @@ public interface SurveyDao {
 	public List<SurveyInfoEntity> getSurveyInfo(int status , String username) throws Exception;
 	public List<SurveyAnalysisEntity> getSurveyAnalysis(String survey_name) throws Exception;
 	/*VIP，问卷相关*/
-	public boolean insertIntoSurveyUserTable(String user_name , String survey_name, int answer_time, 
-			String answer,String answer_fillinblank) throws Exception;
+	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , 
+			int answer_time , String answer , String answer_fillinblank , String answer_ip) throws Exception;
 	public boolean updateUserSurveyTransfer(String user_name , String survey_name, int transfer) throws Exception;
 }

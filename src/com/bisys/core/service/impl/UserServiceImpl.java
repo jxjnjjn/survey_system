@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserService {
 		Date now = new Date(); 
 		//SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		user.setRegister_date(now);
-		user.setRegister_ip(getIpAddr(request));
+		user.setRegister_ip(HttpUtil.getIpAddr(request));
 		
 		//user.setRegister_source("未知来源");
 		if("0".equals(user.getRegister_source())){
@@ -131,9 +131,9 @@ public class UserServiceImpl implements UserService {
 		
 		try {
 			//获取ip区域
-			String ipresult = HttpUtil.sendGet("http://ip.taobao.com/service/getIpInfo.php", "ip=" + getIpAddr(request));
+			String ipresult = HttpUtil.sendGet("http://ip.taobao.com/service/getIpInfo.php", "ip=" + HttpUtil.getIpAddr(request));
 			ipresult = ipresult.replace(" ", ""); 
-			logger.error("http://ip.taobao.com/service/getIpInfo.php?ip=" + getIpAddr(request) + " ,result= " + ipresult);
+			logger.error("http://ip.taobao.com/service/getIpInfo.php?ip=" + HttpUtil.getIpAddr(request) + " ,result= " + ipresult);
 			IPgson ig = new IPgson();
 			ig = new Gson().fromJson(ipresult, IPgson.class);
 			user.setIp_zone(ig.getData().getCity());
@@ -205,42 +205,4 @@ public class UserServiceImpl implements UserService {
 		}
 		return list;
 	}
-	
-	private String getIpAddr(HttpServletRequest request) {   
-		String ipAddress = null;   
-		//ipAddress = this.getRequest().getRemoteAddr();   
-		ipAddress = request.getHeader("x-forwarded-for");   
-		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
-			//logger.error("Proxy-Client-IP");
-			ipAddress = request.getHeader("Proxy-Client-IP");   
-		}   
-		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
-			//logger.error("WL-Proxy-Client-IP");
-			ipAddress = request.getHeader("WL-Proxy-Client-IP");   
-		}   
-		if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {   
-			//logger.error("getRemoteAddr");
-			ipAddress = request.getRemoteAddr();   
-			if(ipAddress.equals("127.0.0.1")){   
-				//logger.error("127.0.0.1");
-				//根据网卡取本机配置的IP   
-				InetAddress inet=null;   
-				try {   
-					inet = InetAddress.getLocalHost();   
-				} catch (UnknownHostException e) {   
-					e.printStackTrace();   
-				}   
-				ipAddress= inet.getHostAddress();   
-			}         
-		}   
-		//logger.error(ipAddress);
-		//对于通过多个代理的情况，第一个IP为客户端真实IP,多个IP按照','分割   
-		if(ipAddress!=null && ipAddress.length()>15){ //"***.***.***.***".length() = 15   
-			if(ipAddress.indexOf(",")>0){   
-				ipAddress = ipAddress.substring(0,ipAddress.indexOf(","));   
-			}   
-		}   
-		//logger.error(ipAddress);
-		return ipAddress;    
-	}   
 }

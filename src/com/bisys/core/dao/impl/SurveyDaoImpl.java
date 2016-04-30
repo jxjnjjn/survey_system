@@ -73,10 +73,11 @@ public class SurveyDaoImpl implements SurveyDao {
 	 * 成功条件3：查找【survey_user_table】表格，不存在这样的记录：user_name、survey_name都和要插入数据相同。
 	 * */
 	@Override
-	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , int answer_time , String answer , String answer_fillinblank) throws Exception
+	public boolean insertIntoSurveyUserTable(String user_name,String survey_name , 
+			int answer_time , String answer , String answer_fillinblank , String answer_ip) throws Exception
 	{
 		String sql = "call p_insert_survey_user_table ('"
-				+user_name+"','"+survey_name+"',"+answer_time+",'"+answer+"','"+answer_fillinblank+"');";
+				+user_name+"','"+survey_name+"',"+answer_time+",'"+answer+"','"+answer_fillinblank+"','"+answer_ip+"');";
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
