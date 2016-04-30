@@ -94,7 +94,7 @@ function getanswer(){
 			if(result==undefined){
 				datasent = datasent +"A";
 			}else{
-				result = String.fromCharCode(64+parseInt(result));
+				result = String.fromCharCode(63+parseInt(result));
 				datasent= datasent + result;
 			}
 		}
