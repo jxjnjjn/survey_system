@@ -84,13 +84,13 @@
 						<div class="form-group">
 							<label for="start_time" class="col-sm-2 control-label">问卷开始时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" placeholder="开始时间" name="start_time" id="start_time" data-date-format="yyyy-mm-dd hh:ii"/>
+								<input type="text" class="form-control" placeholder="开始时间" name="start_time" id="start_time" data-date-format="yyyy-mm-dd hh:ii:ss"/>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="end_time" class="col-sm-2 control-label">问卷结束时间</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" placeholder="结束时间" name="end_time" id="end_time"  data-date-format="yyyy-mm-dd hh:ii"/>
+								<input type="text" class="form-control" placeholder="结束时间" name="end_time" id="end_time"  data-date-format="yyyy-mm-dd hh:ii:ss"/>
 							</div>
 						</div>
 						<div class="form-group">
