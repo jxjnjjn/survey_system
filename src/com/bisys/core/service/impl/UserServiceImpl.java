@@ -136,7 +136,12 @@ public class UserServiceImpl implements UserService {
 			logger.error("http://ip.taobao.com/service/getIpInfo.php?ip=" + HttpUtil.getIpAddr(request) + " ,result= " + ipresult);
 			IPgson ig = new IPgson();
 			ig = new Gson().fromJson(ipresult, IPgson.class);
-			user.setIp_zone(ig.getData().getCity());
+			String city = ig.getData().getCity();
+			if(city.equals(""))
+			{
+				city = "本机";
+			}
+			user.setIp_zone(city);
 		} catch (Exception e) {
 			// TODO: handle exception
 			logger.error("获取IP区域异常");
