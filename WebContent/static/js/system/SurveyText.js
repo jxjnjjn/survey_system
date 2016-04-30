@@ -168,6 +168,9 @@ function submitanswer(){
 					back();
 				}else{
 					alert("提交成功!");
+					if(infomationdesc.indexof("http://") < 0){
+						infomationdesc = "http://" + infomationdesc;
+					}
 					top.location.href=infomationdesc;
 				}
 			}else{
