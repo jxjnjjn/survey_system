@@ -27,4 +27,6 @@ public interface UserService {
 	public List<UserManage> findUserByUsername(String username); 
 	
 	public void addupUserStatics(String userName , int loginNum , int transNum)throws Exception ;
+
+	public void updateLoginIP(String userName, String loginIP) throws Exception;
 }

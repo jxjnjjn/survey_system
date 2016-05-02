@@ -20,6 +20,7 @@ import com.bisys.core.entity.vo.SysUserVo;
 import com.bisys.core.entity.vo.VisitorCheck;
 import com.bisys.core.exception.ServiceException;
 import com.bisys.core.service.UserService;
+import com.bisys.core.util.HttpUtil;
 import com.google.gson.Gson;
 
 /**
@@ -89,6 +90,8 @@ public class SysLoginController{
 			user = userService.sysAdminLogin(user, request, response);
 			//用户登录次数统计， 登录次数+1 ， 测试次数+0。
 			userService.addupUserStatics(user.getUser_name() , 1 , 0);
+			//更新VIP用户登录IP
+			userService .updateLoginIP(user.getUser_name(), HttpUtil.getIpAddr(request));
 			flag = true;
 		}catch (ServiceException serviceE){
 			logger.error("sys admin login failed!"+serviceE.getMessage());

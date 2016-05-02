@@ -80,6 +80,11 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
+	public void updateLoginIP(String userName , String loginIP )throws Exception {
+		userDao.updateUserLoginIP(userName , loginIP);
+	}
+	
+	@Override
 	public SysUserVo sysAdminRegister(SysUserVo user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if(!user.getPassword().equals(user.getRepassword())){
 			throw new ServiceException("两次密码不同");

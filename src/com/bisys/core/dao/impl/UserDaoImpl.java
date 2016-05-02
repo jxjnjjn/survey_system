@@ -84,6 +84,22 @@ public class UserDaoImpl implements UserDao {
 		logger.info(sql);
 		return generalDao.saveEntity(sql, new Object[]{});
 	}
+	
+	/*
+	 * 表格：vip_dynamic_info_table
+	 * 操作：UPDATE
+	 * 成功条件：查找【vip_base_info_table】表格，存在这样的记录：user_name和要插入数据相同。
+	 * 说明：更新登录：login_ip
+	 *
+	 * */
+	@Override
+	public boolean updateUserLoginIP(String user_name,String login_ip) throws Exception
+	{
+		String sql = "call p_update_login_ip ('"
+				+user_name+"','"+login_ip+"');";
+		logger.info(sql);
+		return generalDao.saveEntity(sql, new Object[]{});
+	}
 
 	@Override
 	public List<UserManage> findUserByUsername(String username) throws Exception {
