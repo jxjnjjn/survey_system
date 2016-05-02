@@ -173,7 +173,7 @@ function submitanswer(){
 //					}
 //					top.location.href=infomationdesc;
 //				}
-				window.location.href="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
+				top.location.href ="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
 			}else{
 				alert(data.resultMessage);
 			}

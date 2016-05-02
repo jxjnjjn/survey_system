@@ -32,6 +32,7 @@
 		if(infos == 0){
 			//alert(infomationdesc);
 			//back();
+			setTimeout("top.location.href = '" + "/system" + "'",3000);
 		}else{
 			//alert("提交成功!");
 			$("#thankstitle").html("感谢您的参与！");
