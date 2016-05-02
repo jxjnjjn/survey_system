@@ -37,6 +37,13 @@ public class SysVIPController{
 		return "system/admin/VIPList";
 	}
 	
+	@RequestMapping(value = "data", method = RequestMethod.GET)
+	public String data(String vipname, HttpServletRequest request){
+		logger.info("会员详情");
+		request.getSession().setAttribute("vipname", vipname);
+		return "system/admin/vipSurvey";
+	}
+	
 	@RequestMapping(value = "getlist", method = RequestMethod.GET)
 	@ResponseBody 
 	public String getlist(HttpServletRequest request, HttpServletResponse response, int pageNo) throws Exception{

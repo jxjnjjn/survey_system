@@ -87,7 +87,7 @@ function creatTablehead(){
 function creatTablebody(tableInfo){
 	var tr =  "";
 	for(var i in tableInfo){
-		var td = "<th>"+tableInfo[i].user_name+"</th>";
+		var td = "<th><a href=\"/system/vip/data?vipname="+tableInfo[i].user_name+"\">"+tableInfo[i].user_name+"</a></th>";
 		td = td + "<td>"+formatdate(tableInfo[i].register_date,"yyyy-MM-dd hh:mm:ss")+"</td>";
 		td = td + "<td>"+tableInfo[i].register_ip+"</td>";
 		td = td + "<td>"+tableInfo[i].register_source+"</td>";

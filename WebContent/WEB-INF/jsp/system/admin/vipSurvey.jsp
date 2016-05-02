@@ -26,14 +26,14 @@
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">
-								<strong>问卷详情</strong>
+								<strong>问卷详情-${vipname}</strong>
 							</h4>
 						</div>
 					</div>
 				</div>
 				<div class="panel-body">
 					<div id="detailstable">
-						<input type="hidden" name="user_name" id="user_name" value="${sysUser.user_name}">
+						<input type="hidden" name="user_name" id="user_name" value="${vipname}">
 						<div id="datatable"></div>
 						<div id="pageinfo" class="module-head" style="height: 45px; line-height: 45px;"></div>
 					</div>
