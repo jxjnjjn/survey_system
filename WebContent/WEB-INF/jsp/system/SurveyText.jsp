@@ -41,9 +41,9 @@
 						</div>
 						<div class="form-group">
 							<div class="text-center">
-								<shiro:authenticated>
+								<shiro:hasAnyRoles name="vip">
 								<button type="button" class="btn btn-success btn-lg" id="submitsurvey">提交</button>
-								</shiro:authenticated>
+								</shiro:hasAnyRoles>
 								<shiro:guest>  
 								<button type="button" class="btn btn-success btn-lg" id="registersurvey">马上注册</button>
 								</shiro:guest>

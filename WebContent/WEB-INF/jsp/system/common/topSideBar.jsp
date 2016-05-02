@@ -29,14 +29,19 @@
 						<li role="presentation"><a href="/system/myfriend" target="mainframe">我的好友</a></li>
 					</shiro:hasAnyRoles>
 				</ul>
-				<div class="pull-right">
-					<p style="padding-top: 10px; color: #777;">
+			</shiro:authenticated>
+			<div class="pull-right">
+				<p style="padding-top: 10px; color: #777;">
+					<shiro:authenticated>
 						<span class="glyphicon glyphicon-user"></span> 欢迎您， <a class="navbar-link">${sysUser.user_name}</a>&nbsp;&nbsp;
 						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userModal">账户</button>
 						<button id="sysAdminLogout" type="button" class="btn btn-danger btn-sm logout" onfocus="this.blur()">退出</button>
-					</p>
-				</div>
-			</shiro:authenticated>
+					</shiro:authenticated>
+					<shiro:guest>  
+						<a href="/system/login">登录</a> <a href="/system/register">注册</a>
+					</shiro:guest>
+				</p>
+			</div>
 		</div>
 	</div>
 </div>
