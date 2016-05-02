@@ -47,6 +47,13 @@ public class SysStartSurveyController{
 		return "system/SurveyText";
 	}
 	
+	@RequestMapping(value = "thanks", method = RequestMethod.GET)
+	public String thanks(@RequestParam String thankstring, @RequestParam String infos, HttpServletRequest request, HttpServletResponse response){
+		logger.info("感谢信息:【"+thankstring+"】");
+		request.getSession().setAttribute("thankstring", thankstring);
+		request.getSession().setAttribute("infos", infos);
+		return "system/thanks";
+	}
 	
 	@RequestMapping(value = "submitanswer", method = RequestMethod.GET)
 	@ResponseBody 

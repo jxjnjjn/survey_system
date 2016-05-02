@@ -161,18 +161,19 @@ function submitanswer(){
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){
-				//alert("提交成功!");
+				alert("提交成功!");
 				//back();
-				if(infos == 0){
-					alert(infomationdesc);
-					back();
-				}else{
-					alert("提交成功!");
-					if(infomationdesc.indexof("http://") < 0){
-						infomationdesc = "http://" + infomationdesc;
-					}
-					top.location.href=infomationdesc;
-				}
+//				if(infos == 0){
+//					alert(infomationdesc);
+//					back();
+//				}else{
+//					alert("提交成功!");
+//					if(infomationdesc.indexOf("http://") < 0){
+//						infomationdesc = "http://" + infomationdesc;
+//					}
+//					top.location.href=infomationdesc;
+//				}
+				window.location.href="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
 			}else{
 				alert(data.resultMessage);
 			}
