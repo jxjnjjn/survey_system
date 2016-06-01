@@ -2,10 +2,13 @@
 /*	@author noviachan                    */
 /*=======================================*/
 var jiathis_config;
-var urlString = "http://localhost:8080";
+var urlString = "http://www.jcai8.com:8080";
 
 $(document).ready(function(){
 	showsurvey();
+	jiathis_config = { 
+			url: urlString+"/system/register"
+		}
 });
 
 $(".jiathis_button_tsina").on('click',function(){

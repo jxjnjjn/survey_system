@@ -71,6 +71,15 @@ function validcode() {
 	var random = new Date().getTime();
 	$("#randomString").val(random);
 	var user_name = $("#user_name").val();
+	
+	var myreg = /^(((13)|(15)|(18))+\d{9})$/; 
+	var availableCheck = myreg.test(user_name);
+	if(!availableCheck)
+	{
+		alert("请正确输入手机号！");
+		return;
+	}
+	
 	//$("#authCodeImg").attr("src", "/valid/getValidCode?randomString="+random);
 	$.ajax({
 		type : "GET",

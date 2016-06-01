@@ -1,6 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jsp/common/taglibs.jsp"%>
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation"  style="height: 65px;">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#usermanagenav">
@@ -11,7 +11,7 @@
 			</button>
 			<a class="navbar-brand"> 
 				<shiro:authenticated>
-				会员中心
+				<img class="img-rounded" src="/static/img/logo.png"  style="height: 40px;width:100px;">
 				</shiro:authenticated>
 			</a>
 		</div>
@@ -19,23 +19,24 @@
 			<shiro:authenticated>
 				<ul class="nav navbar-nav">
 					<shiro:hasAnyRoles name="admin">
-						<li role="presentation"><a href="/system/startsurvey" target="mainframe">在线问卷</a></li>
-						<li role="presentation"><a href="/system/survey" target="mainframe">问卷管理</a></li>
-						<li role="presentation"><a href="/system/vip" target="mainframe">会员管理</a></li>
+						<li role="presentation"><a href="/system/startsurvey" target="mainframe"><strong>在线问卷</strong></a></li>
+						<li role="presentation"><a href="/system/survey" target="mainframe"><strong>问卷管理</strong></a></li>
+						<li role="presentation"><a href="/system/vip" target="mainframe"><strong>会员管理</strong></a></li>
+						<li role="presentation"><a data-toggle="modal" data-target="#userModal"><strong>修改密码</strong></a></li>
 					</shiro:hasAnyRoles>
 					<shiro:hasAnyRoles name="vip">
-						<li role="presentation"><a href="/system/startsurvey" target="mainframe">开始答题</a></li>
-						<li role="presentation"><a href="/system/mysurvey" target="mainframe">我的问卷</a></li>
-						<li role="presentation"><a href="/system/myfriend" target="mainframe">我的好友</a></li>
+						<li role="presentation"><a href="/system/startsurvey" target="mainframe"><strong>开始答题</strong></a></li>
+						<li role="presentation"><a href="/system/mysurvey" target="mainframe"><strong>我的问卷</strong></a></li>
+						<li role="presentation"><a href="/system/myfriend" target="mainframe"><strong>我的好友</strong></a></li>
+						<li role="presentation"><a data-toggle="modal" data-target="#userModal"><strong>修改密码</strong></a></li>
 					</shiro:hasAnyRoles>
 				</ul>
 			</shiro:authenticated>
 			<div class="pull-right">
 				<p style="padding-top: 10px; color: #777;">
 					<shiro:authenticated>
-						<span class="glyphicon glyphicon-user"></span> 欢迎您， <a class="navbar-link">${sysUser.user_name}</a>&nbsp;&nbsp;
-						<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#userModal">账户</button>
-						<button id="sysAdminLogout" type="button" class="btn btn-danger btn-sm logout" onfocus="this.blur()">退出</button>
+						<span class="glyphicon glyphicon-user"></span><strong> 欢迎您， <a class="navbar-link">${sysUser.user_name}</a></strong>&nbsp;&nbsp;
+						<button id="sysAdminLogout" type="button" class="btn btn-danger logout" onfocus="this.blur()">退出</button>
 					</shiro:authenticated>
 					<shiro:guest>  
 						<a href="/system/login">登录</a> <a href="/system/register">注册</a>
