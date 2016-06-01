@@ -20,16 +20,7 @@
 	<div id="contentDiv" class="container-fluid">
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
-			<div id="showsurveypanel" class="panel panel-new" style="display: none;">
-				<div class="panel-heading">
-					<div class="row">
-						<div class="col-xs-10 col-md-5">
-							<h4 style="margin-top: 0px; margin-bottom: 0px;">
-								<strong>问卷调查</strong>
-							</h4>
-						</div>
-					</div>
-				</div>
+			<div id="showsurveypanel" class="panel panel-primary panel-new" style="display: none; padding:10px 50px 10px 50px;">
 				<div class="panel-body">
 					<form id="showsurveyform">
 						<input type="hidden" name="user_name" id="user_name" value="${username}">
