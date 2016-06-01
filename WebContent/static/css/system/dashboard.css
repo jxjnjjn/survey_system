@@ -103,6 +103,11 @@ body, textarea, input, select, button {
 .panel-new{
 	border-color:rgb(254,106,0);
 }
+.panel-heading-new{
+	color:rgb(255,255,255);
+	background-color:rgb(237,148,66);
+	border-color:rgb(237,148,66);
+}
 
 .btsuccess{
 	color:rgb(255,255,255);

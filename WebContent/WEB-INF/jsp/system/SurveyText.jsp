@@ -21,7 +21,7 @@
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
 			<div id="showsurveypanel" class="panel panel-new" style="display: none;">
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">
@@ -42,10 +42,10 @@
 						<div class="form-group">
 							<div class="text-center">
 								<shiro:hasAnyRoles name="vip">
-								<button type="button" class="btn btsuccess btn-lg" id="submitsurvey">提交</button>
+								<button type="button" class="btn btn-success btn-lg" id="submitsurvey">提交</button>
 								</shiro:hasAnyRoles>
 								<shiro:guest>  
-								<button type="button" class="btn btsuccess btn-lg" id="registersurvey">马上注册</button>
+								<button type="button" class="btn btn-success btn-lg" id="registersurvey">马上注册</button>
 								</shiro:guest>
 							</div>
 						</div>

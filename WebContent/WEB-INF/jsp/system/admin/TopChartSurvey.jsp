@@ -20,8 +20,8 @@
 	<div id="contentDiv" class="container-fluid">
 	<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
-			<div id="tablepanel" class="panel panel-primary">
-				<div class="panel-heading">
+			<div id="tablepanel" class="panel   panel-new">
+				<div class="panel-heading panel-heading-new">
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">

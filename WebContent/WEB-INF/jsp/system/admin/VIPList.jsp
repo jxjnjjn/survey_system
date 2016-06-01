@@ -27,11 +27,11 @@
 				<label for="vip_name">搜索会员</label>
 				<input type="text" placeholder="会员名称" name="vip_name" id="vip_name" class="form-control"/>
 			</div>
-			<button type="button" class="btn btn-success" id="searchvipbtn">搜索</button>
+			<button type="button" class="btn btsuccess" id="searchvipbtn">搜索</button>
 		</form>
 		<div id="listDiv" class="listDiv">
-			<div id="tablepanel" class="panel panel-primary">
-				<div class="panel-heading">
+			<div id="tablepanel" class="panel   panel-new">
+				<div class="panel-heading panel-heading-new">
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">

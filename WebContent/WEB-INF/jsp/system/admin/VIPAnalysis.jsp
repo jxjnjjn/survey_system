@@ -25,7 +25,7 @@
 		</ul>
 		<div id="listDiv" class="listDiv">
 			<div id="todaypanel" class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<h4 style="margin-top: 0px; margin-bottom: 0px;">
 						<strong>核心指数</strong>
 					</h4>
@@ -58,7 +58,7 @@
 				</button>
 			</div>
 			<div id="chartpanel" class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<h4 style="margin-top: 0px; margin-bottom: 0px;">
 						<strong>注册人数趋势</strong>
 					</h4>
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div id="locationchartpanel" class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<h4 style="margin-top: 0px; margin-bottom: 0px;">
 						<strong>注册用户地区分布</strong>
 					</h4>

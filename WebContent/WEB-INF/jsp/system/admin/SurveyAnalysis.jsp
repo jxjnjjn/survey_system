@@ -20,8 +20,8 @@
 	<div id="contentDiv" class="container-fluid">
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
-			<div id="tablepanel" class="panel panel-primary">
-				<div class="panel-heading">
+			<div id="tablepanel" class="panel   panel-new">
+				<div class="panel-heading panel-heading-new">
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">
@@ -31,7 +31,7 @@
 					</div>
 				</div>
 				<div id="datatable" class="list-group"></div>
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<div class="row">
 						<div class="col-xs-10 col-md-5">
 							<h4 style="margin-top: 0px; margin-bottom: 0px;">
@@ -42,7 +42,7 @@
 				</div>
 				
 				<div id="locationchartpanel" class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<h4 style="margin-top: 0px; margin-bottom: 0px;">
 						<strong>手机地区分布</strong>
 					</h4>
@@ -53,7 +53,7 @@
 				</div>
 				
 				<div id="locationchartpanel" class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading panel-heading-new">
 					<h4 style="margin-top: 0px; margin-bottom: 0px;">
 						<strong>应用分布</strong>
 					</h4>
