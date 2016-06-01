@@ -36,7 +36,7 @@
 				<p style="padding-top: 10px; color: #777;">
 					<shiro:authenticated>
 						<span class="glyphicon glyphicon-user"></span><strong> 欢迎您， <a class="navbar-link">${sysUser.user_name}</a></strong>&nbsp;&nbsp;
-						<button id="sysAdminLogout" type="button" class="btn btn-danger logout" onfocus="this.blur()">退出</button>
+						<button id="sysAdminLogout" type="button" class="btn logout" onfocus="this.blur()">退出</button>
 					</shiro:authenticated>
 					<shiro:guest>  
 						<a href="/system/login">登录</a> <a href="/system/register">注册</a>

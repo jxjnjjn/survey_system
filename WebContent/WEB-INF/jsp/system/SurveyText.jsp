@@ -20,7 +20,6 @@
 	<div id="contentDiv" class="container-fluid">
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv">
-
 			<div id="showsurveypanel" class="panel panel-new" style="display: none;">
 				<div class="panel-heading panel-heading-new">
 					<div class="row">

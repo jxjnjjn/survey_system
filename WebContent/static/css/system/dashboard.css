@@ -82,39 +82,6 @@ body, textarea, input, select, button {
 	color:#777;
 }
 
-.btnew:hover,
-.btnew:active,
-.btnew:focus{
-	background-color:rgb(254,200,94);
-}
-
-.btnew_1.active,
-.btnew_1:active{
-	color:rgb(0,0,0);
-	background-color:rgb(254,200,94);
-	border-color:rgb(255,148,20);
-}
-.btnew_1{
-	color:rgb(0,0,0);
-	background-color:rgb(255,255,255);
-	border-color:rgb(255,148,20);
-}
-
-.panel-new{
-	border-color:rgb(254,106,0);
-}
-.panel-heading-new{
-	color:rgb(255,255,255);
-	background-color:rgb(237,148,66);
-	border-color:rgb(237,148,66);
-}
-
-.btsuccess{
-	color:rgb(255,255,255);
-	background-color:rgb(230,77,71);
-	border-color:rgb(230,77,71);
-}
-
 .sidebar>ul>li>ul>li>a{
 	padding-left:50px;
 	background:#f5f5f5;
@@ -225,6 +192,37 @@ body, textarea, input, select, button {
 .yesterdayinfo{
 	text-align: center;
 }
-/*=========================no-useful=======================================*/
+/*=========================useful=======================================*/
+.btnew:hover,
+.btnew:active,
+.btnew:focus{
+	background-color:rgb(254,200,94);
+}
 
+.btnew_1.active,
+.btnew_1:active{
+	color:rgb(0,0,0);
+	background-color:rgb(254,200,94);
+	border-color:rgb(255,148,20);
+}
+.btnew_1{
+	color:rgb(0,0,0);
+	background-color:rgb(255,255,255);
+	border-color:rgb(255,148,20);
+}
+
+.panel-new{
+	border-color:rgb(254,106,0);
+}
+.panel-heading-new{
+	color:rgb(255,255,255);
+	background-color:rgb(237,148,66);
+	border-color:rgb(237,148,66);
+}
+
+#sysAdminLogout{
+	color:rgb(255,255,255);
+	background-color:rgb(237,148,66);
+	border-color:rgb(237,148,66);
+}
 /*================================================================*/
