@@ -26,7 +26,12 @@
 				<label for="friend_name">好友名：</label>
 				<input type="text" placeholder="好友手机号" name="friend_name" id="friend_name" class="form-control"/>
 			</div>
-			<button type="button" class="btn btn-success" id="addfriendbtn">添加好友</button>
+			<div class="form-group">
+				<button type="button" class="btn btn-success" id="addfriendbtn">添加好友</button>
+			</div>
+			<div class="form-group">
+				<p class="text-muted" style="font-size: 18px;">  *如果你的好友竞猜正确，你将获得100元奖励</p>
+			</div>
 		</form>
 		<div id="listDiv" class="listDiv">
 			<div id="tablepanel" class="panel panel-primary">

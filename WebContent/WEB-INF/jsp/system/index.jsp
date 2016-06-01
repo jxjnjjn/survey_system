@@ -15,7 +15,7 @@
 	<!-- 我们自己的css样式文件放在这里 --> 
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
-<body style="padding-top: 50px;">
+<body style="padding-top: 75px;">
 	<div class="container" style="width: 1200px;text-align: center;">
 			<jsp:include page="common/topSideBar.jsp" />
 			<div class="container-fluid">
