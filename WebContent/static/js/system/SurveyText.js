@@ -256,7 +256,7 @@ function createtext(surveytext){
 				Stemp += "<h4><strong>"+ls[1]+"</strong></h4>";
 				Stemp += "<div class=\"btn-group-vertical\" data-toggle=\"buttons\">";
 				for(var i=2;i<ls.length;i++){
-					Stemp += "<label class=\"btn btn-default btn-lg\">";
+					Stemp += "<label class=\"btn btnew_1 btn-lg btnew\">";
 					Stemp += "<input type=\"radio\" name=\""+ radio_name  +"\" value=\""+i+"\">";
 					Stemp += ls[i];
 					Stemp += " </label>";
