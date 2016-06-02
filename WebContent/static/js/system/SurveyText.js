@@ -176,7 +176,7 @@ function submitanswer(){
 //					}
 //					top.location.href=infomationdesc;
 //				}
-				top.location.href ="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
+				window.location.href ="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
 			}else{
 				alert(data.resultMessage);
 			}
