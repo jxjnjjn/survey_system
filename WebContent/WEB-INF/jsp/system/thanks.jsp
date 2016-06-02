@@ -30,8 +30,8 @@
 						<h4 id="thankstitle"  class="text-muted">${thankstring}</h4>
 					</div>
 					<!-- JiaThis Button BEGIN -->
-					<div style="text-align: center;">
-						<div class="jiathis_style_32x32">
+					<div  class="modal-footer">
+						<div class="jiathis_style_32x32" style="margin-left:400px">
 							<a class="jiathis_button_tsina"></a>
 							<a class="jiathis_button_tieba"></a>
 							<a class="jiathis_button_qzone"></a>

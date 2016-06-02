@@ -17,14 +17,19 @@
 </head>
 <body style="padding-top: 75px;">
 	<div class="container" style="width: 1200px;text-align: center;">
-			<jsp:include page="common/topSideBar.jsp" />
-			<div class="container-fluid">
-				<div class="main">
-					<iframe id="mainframe" frameborder="0" src="/system/startsurvey" name="mainframe"></iframe>
-				</div>
+		<jsp:include page="common/topSideBar.jsp" />
+		<div class="container-fluid">
+			<div class="main">
+				<iframe id="mainframe" frameborder="0" src="/system/startsurvey" name="mainframe"></iframe>
 			</div>
-			<jsp:include page="common/footerSideBar.jsp" />
+			<div style="z-index:9999;display: inline-block;top:200px;position: fixed;right:0px">
+				<img src="/static/img/QQ.jpg" class="img-rounded" 
+				onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=800147808&o=test&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');">
+			</div>
+		</div>
+		<jsp:include page="common/footerSideBar.jsp" />
 	</div>
+	
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->
 	<!-- Placed at the end of the document so the pages load faster -->
