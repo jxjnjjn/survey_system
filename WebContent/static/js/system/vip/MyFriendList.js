@@ -73,7 +73,7 @@ function creatpanel(tableInfo){
 		tpanel += "<div class=\"panel-heading\" role=\"tab\" id=\"heading"+i+"\" style=\"color: #f5f5f5;\">";
 		tpanel += "<div class=\"row\"><div class=\"col-md-9\"><h4 class=\"panel-title\">";
 		tpanel += "<a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse"+i+"\" aria-expanded=\"false\" aria-controls=\"collapse"+i+"\">";
-		tpanel += "<img src=\"/static/img/phone.png\" class=\"img-rounded\">  <strong>"+tableInfo[i].user_name+"</strong>";
+		tpanel += "<img src=\"/static/img/phone.png\" class=\"img-rounded\" style=\"margin-left:50px;\">  <strong><span class=\"strong-new\">"+tableInfo[i].user_name+"</span></strong>";
 		tpanel += "</a></h4></div><div class=\"col-md-3\"><button type=\"button\" class=\"btn btn-link pull-right\" onclick=\"delfriend('"+tableInfo[i].user_name+"')\">删除</button></div></div></div>";
 		tpanel += "<div id=\"collapse"+i+"\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"heading"+i+"\">";
 		tpanel += "<div class=\"panel-body\" style=\"padding: 5px;\">";

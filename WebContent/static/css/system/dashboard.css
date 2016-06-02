@@ -238,6 +238,11 @@ body, textarea, input, select, button {
 	background-color:rgb(184,92,115);
 	border-color:rgb(184,92,115);
 }
+.strong-new{
+	font-weight:700;
+	color:rgb(246,130,19);
+	margin-left:20px;
+}
 
 #sysAdminLogout{
 	color:rgb(255,255,255);
