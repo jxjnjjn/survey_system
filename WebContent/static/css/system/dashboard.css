@@ -220,6 +220,25 @@ body, textarea, input, select, button {
 	border-color:rgb(237,148,66);
 }
 
+.btn-success-new,
+.btn-success-new:hover,
+.btn-success-new:active,
+.btn-success-new:focus
+{
+	color:rgb(255,255,255);
+	background-color:rgb(230,77,71);
+	border-color:rgb(230,77,71);
+}
+
+.btn-add-new:hover,
+.btn-add-new:active,
+.btn-add-new:focus,
+.btn-add-new{
+	color:rgb(255,255,255);
+	background-color:rgb(184,92,115);
+	border-color:rgb(184,92,115);
+}
+
 #sysAdminLogout{
 	color:rgb(255,255,255);
 	background-color:rgb(237,148,66);
