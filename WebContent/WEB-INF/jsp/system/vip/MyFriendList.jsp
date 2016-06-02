@@ -17,7 +17,7 @@
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid panel panel-new">
+	<div id="contentDiv" class="container-fluid-new panel panel-new">
 	
 		<form class="form-inline" style="margin-top: 10px;">
 			<div class="form-group">
@@ -31,7 +31,7 @@
 				<div class="text-muted" style="font-size: 18px;">  *如果你的好友竞猜正确，你将获得100元奖励</div>
 			</div>
 		</form>
-		<div id="listDiv" class="listDiv">
+		<div id="listDiv" class="listDiv-new">
 			<div id="tablepanel" class="panel   panel-new">
 				<div class="panel-heading panel-heading-new">
 					<div class="row">

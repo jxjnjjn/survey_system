@@ -17,9 +17,9 @@
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid">
+	<div id="contentDiv" class="container-fluid-new">
 		<button type="button" class="btn btn-success-new" id="createsurveybtn">创建问卷</button>
-		<div id="listDiv" class="listDiv">
+		<div id="listDiv" class="listDiv-new">
 			<div id="tablepanel" class="panel   panel-new">
 				<div class="panel-heading panel-heading-new">
 					<div class="row">

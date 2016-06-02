@@ -255,7 +255,7 @@ function createtext(surveytext){
 				radio_num++;
 				radio_name = "optionsRadios_"+radio_num;
 				var ls = questionsList[question].split("<br />\r\n");
-				Stemp += "<div class=\"form-group form-group-lg\">";
+				Stemp += "<div class=\"form-group-new form-group-lg\">";
 				Stemp += "<h4><strong>"+ls[1]+"</strong></h4>";
 				Stemp += "<div class=\"btn-group-vertical\" data-toggle=\"buttons\">";
 				for(var i=2;i<ls.length;i++){
@@ -272,7 +272,7 @@ function createtext(surveytext){
 				var ls = questionsList[question].split("<br />\r\n");
 				fillinblank_num++;
 				fillinblank_name = "fillinBlank_"+fillinblank_num;
-				Stemp += "<div class=\"form-group form-group-lg\">";
+				Stemp += "<div class=\"form-group-new form-group-lg\">";
 				Stemp += "<h4><strong>"+ls[1]+"</strong></h4>";
 				Stemp += "<input type=\"text\" name=\""+ fillinblank_name  +"\" class=\"form-control input-lg\" placeholder=\"请输入\">";
 				Stemp += "</div>";

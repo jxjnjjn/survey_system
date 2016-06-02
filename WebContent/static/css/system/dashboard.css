@@ -213,6 +213,7 @@ body, textarea, input, select, button {
 
 .panel-new{
 	border-color:rgb(254,106,0);
+	margin-top: 15px;
 }
 .panel-heading-new{
 	color:rgb(255,255,255);
@@ -228,6 +229,15 @@ body, textarea, input, select, button {
 	color:rgb(255,255,255);
 	background-color:rgb(230,77,71);
 	border-color:rgb(230,77,71);
+}
+
+.container-fluid-new{
+	padding-right:8px;
+	padding-left:8px;
+	margin-right:auto;
+}
+.listDiv-new{
+	margin-top:40px;
 }
 
 .btn-add-new:hover,
@@ -255,6 +265,7 @@ body, textarea, input, select, button {
 	color:rgb(246,130,19);
 	margin-left:20px;
 }
+
 .active-new{
 	z-index:2;
 	color:rgb(255,255,255);
@@ -262,6 +273,7 @@ body, textarea, input, select, button {
 	background-color:rgb(238,149,67);
 	border-color:rgb(238,149,67);
 }
+
 .active-new>li>a:hover,
 .active-new>li>a:active,
 .active-new>li>a:focus,
@@ -271,6 +283,12 @@ body, textarea, input, select, button {
 	padding:6px 12px;
 	color:rgb(255,255,255);
 	background-color:rgb(182,112,52);
+}
+
+.form-group-new{
+	margin-bottom:15px;
+	margin-left:80px;
+	margin-right:80px;
 }
 
 #sysAdminLogout{
