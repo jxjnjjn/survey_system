@@ -18,12 +18,12 @@
 	<link href="/static/css/common/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid">
+	<div id="contentDiv" class="container-fluid-new">
 		<ul id="contentUl" class="nav nav-tabs" role="tablist">
 			<li role="presentation"><a href="/system/vip">会员列表</a></li>
 			<li role="presentation" class="active"><a href="/system/vipanalysis">会员分析</a></li>
 		</ul>
-		<div id="listDiv" class="listDiv">
+		<div id="listDiv" class="listDiv-new">
 			<div id="todaypanel" class="panel panel-default">
 				<div class="panel-heading panel-heading-new">
 					<h4 style="margin-top: 0px; margin-bottom: 0px;">

@@ -17,11 +17,9 @@
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid">
-		<ul id="contentUl" class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a>我已参与的问卷</a></li>
-		</ul>
-		<div id="listDiv" class="listDiv">
+	<div id="contentDiv" class="container-fluid-new panel panel-new">
+
+		<div id="listDiv" class="listDiv-new">
 			<div id="tablepanel" class="panel   panel-new">
 				<div class="panel-heading panel-heading-new">
 					<div class="row">

@@ -17,11 +17,11 @@
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid">
+	<div id="contentDiv" class="container-fluid-new">
 		<ul id="contentUl" class="nav nav-tabs" role="tablist">
 			<li role="presentation" class="active"><a>问卷列表</a></li>
 		</ul>
-		<div id="listDiv" class="listDiv">
+		<div id="listDiv" class="listDiv-new">
 			<div id="tablepanel" class="panel   panel-new">
 				<div class="panel-heading panel-heading-new">
 					<div class="row">

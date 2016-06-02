@@ -18,9 +18,9 @@
 	<link href="/static/css/common/bootstrap-datetimepicker.min.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid">
+	<div id="contentDiv" class="container-fluid-new">
 		<button type="button" class="btn btn-default" id="backbtn">返回</button>
-		<div id="listDiv" class="listDiv">
+		<div id="listDiv" class="listDiv-new">
 			<div id="showsurveypanel" class="panel   panel-new" style="display: none;">
 				<div class="panel-heading panel-heading-new">
 					<div class="row">
