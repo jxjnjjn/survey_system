@@ -28,4 +28,8 @@ function changePassword(){
 	}
 	});
 }
+
+function logout(){
+	window.location.href="/system/logout";
+}
 //////////////////////////////////////////////////////////////////
