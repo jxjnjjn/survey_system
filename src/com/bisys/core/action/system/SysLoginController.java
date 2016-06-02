@@ -43,6 +43,12 @@ public class SysLoginController{
 		return "system/login";
 	}
 	
+	@RequestMapping(value = "changepassword", method = RequestMethod.GET)
+	public String changepassword(HttpServletRequest request){
+		logger.info("管理员/会员修改密码");
+		return "system/changepassword";
+	}
+	
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(@RequestParam(required=false)String source, HttpServletRequest request){
 		logger.info("会员注册:source="+source);
