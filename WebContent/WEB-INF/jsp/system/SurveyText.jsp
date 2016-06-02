@@ -42,10 +42,10 @@
 						<div class="form-group">
 							<div class="text-center">
 								<shiro:hasAnyRoles name="vip">
-								<button type="button" class="btn btn-success btn-lg" id="submitsurvey">提交</button>
+								<button type="button" class="btn btn-lg btn-success-new" id="submitsurvey">提交</button>
 								</shiro:hasAnyRoles>
 								<shiro:guest>  
-								<button type="button" class="btn btn-success btn-lg" id="registersurvey">马上注册</button>
+								<button type="button" class="btn btn-lg btn-success-new" id="registersurvey">马上注册</button>
 								</shiro:guest>
 							</div>
 						</div>
