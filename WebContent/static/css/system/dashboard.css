@@ -246,6 +246,7 @@ body, textarea, input, select, button {
 	color:rgb(255,255,255);
 	background-color:rgb(238,149,67);
 	border-color:rgb(238,149,67);
+	margin-right:80px;
 }
 
 .strong-new{
@@ -253,6 +254,23 @@ body, textarea, input, select, button {
 	font-size:17px;
 	color:rgb(246,130,19);
 	margin-left:20px;
+}
+.active-new{
+	z-index:2;
+	color:rgb(255,255,255);
+	cursor:default;
+	background-color:rgb(238,149,67);
+	border-color:rgb(238,149,67);
+}
+.active-new>li>a:hover,
+.active-new>li>a:active,
+.active-new>li>a:focus,
+.active-new>li>a
+{
+	float:left;
+	padding:6px 12px;
+	color:rgb(255,255,255);
+	background-color:rgb(182,112,52);
 }
 
 #sysAdminLogout{

@@ -5,7 +5,7 @@
 function creatpage(pageInfo){
 	var ulinfo = creatulinfo(pageInfo);
 	var html = "<span class=\"title\" style=\"margin-left: 20px;\">共"+pageInfo.pageCount+" 页， 总共"+pageInfo.rowsCount+"条记录</span>";
-	html = html + "<ul class=\"pagination\" style=\"float: right;margin: 8px 30px;\">"+ulinfo+"</ul>";
+	html = html + "<ul class=\"pagination active-new\" style=\"float: right;margin: 8px 30px;\">"+ulinfo+"</ul>";
 	$("#pageinfo").html(html);
 }
 
@@ -13,7 +13,7 @@ function creatulinfo(pageInfo){
 	var ulinfo;
 	if(pageInfo.pageCount <= 1){
 		ulinfo = "<li class=\"disabled\"><a>上一页</a></li>"
-			   + "<li class=\"active\"><a>1</a></li>"
+			   + "<li class=\"active-new\"><a class=\"btn-success-new\">1</a></li>"
 			   + "<li class=\"disabled\"><a>下一页</a></li>";
 	}else if(pageInfo.pageCount >1){
 		if(pageInfo.pageNo == 1){
