@@ -238,8 +238,19 @@ body, textarea, input, select, button {
 	background-color:rgb(184,92,115);
 	border-color:rgb(184,92,115);
 }
+
+.btn-del-new:hover,
+.btn-del-new:active,
+.btn-del-new:focus,
+.btn-del-new{
+	color:rgb(255,255,255);
+	background-color:rgb(238,149,67);
+	border-color:rgb(238,149,67);
+}
+
 .strong-new{
 	font-weight:700;
+	font-size:17px;
 	color:rgb(246,130,19);
 	margin-left:20px;
 }
