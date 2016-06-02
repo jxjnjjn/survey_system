@@ -19,16 +19,16 @@
 			<shiro:authenticated>
 				<ul class="nav navbar-nav">
 					<shiro:hasAnyRoles name="admin">
-						<li role="presentation"><a href="/system/startsurvey" target="mainframe"><strong>在线问卷</strong></a></li>
-						<li role="presentation"><a href="/system/survey" target="mainframe"><strong>问卷管理</strong></a></li>
-						<li role="presentation"><a href="/system/vip" target="mainframe"><strong>会员管理</strong></a></li>
-						<li role="presentation"><a href="/system/changepassword" target="mainframe"><strong>修改密码</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/startsurvey" target="mainframe"><strong>在线问卷</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/survey" target="mainframe"><strong>问卷管理</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/vip" target="mainframe"><strong>会员管理</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/changepassword" target="mainframe"><strong>修改密码</strong></a></li>
 					</shiro:hasAnyRoles>
 					<shiro:hasAnyRoles name="vip">
-						<li role="presentation"><a href="/system/startsurvey" target="mainframe"><strong>开始答题</strong></a></li>
-						<li role="presentation"><a href="/system/mysurvey" target="mainframe"><strong>我的问卷</strong></a></li>
-						<li role="presentation"><a href="/system/myfriend" target="mainframe"><strong>我的好友</strong></a></li>
-						<li role="presentation"><a href="/system/changepassword" target="mainframe"><strong>修改密码</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/startsurvey" target="mainframe"><strong>开始答题</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/mysurvey" target="mainframe"><strong>我的问卷</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/myfriend" target="mainframe"><strong>我的好友</strong></a></li>
+						<li role="presentation" class="sidebarli"><a href="/system/changepassword" target="mainframe"><strong>修改密码</strong></a></li>
 					</shiro:hasAnyRoles>
 				</ul>
 			</shiro:authenticated>

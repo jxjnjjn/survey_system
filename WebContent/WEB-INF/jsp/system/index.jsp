@@ -24,8 +24,6 @@
 				</div>
 			</div>
 			<jsp:include page="common/footerSideBar.jsp" />
-			
-			<jsp:include page="common/userModal.jsp" />
 	</div>
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->

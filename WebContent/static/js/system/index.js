@@ -3,7 +3,11 @@
 /*	@author noviachan                    */
 /*=======================================*/
 $(document).ready(function(){
-	$('#bugModal').modal('toggle');
+	
+	$(".sidebarli").on('click',function(){
+		//返回顶部
+		rollback();
+    });
 	
 	$(".logout").on('click',function(){
 		logout();
@@ -58,6 +62,12 @@ $(document).ready(function(){
 		} // 回车键的键值为13
 	}); 
 });
+
+function rollback(){
+	//scroll(0,0);
+	//document.body.scrollTop=0;
+	$("html,body").animate({scrollTop:"0px"},400);
+}
 
 function logout(){
 	window.location.href="/system/logout";

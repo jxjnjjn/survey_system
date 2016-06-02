@@ -32,18 +32,20 @@
 					</div>
 				</div>
 				<div class="panel-body">
-					<div style="text-align: center;">
-						<img src="/static/img/100.jpg" class="img-thumbnail" style="width:400px;height:200px;">
-						<h2 id="thankstitle">${thankstring}</h2>
+					<div style="text-align: center;padding: 100px;">
+						<img src="/static/img/100.jpg" class="img-rounded" style="width:400px;height:200px;">
+						<h4 id="thankstitle"  class="text-muted">${thankstring}</h4>
 					</div>
 					<!-- JiaThis Button BEGIN -->
-					<div class="jiathis_style_32x32 pull-right">
-						<a class="jiathis_button_tsina"></a>
-						<a class="jiathis_button_tieba"></a>
-						<a class="jiathis_button_qzone"></a>
-						<a class="jiathis_button_cqq"></a>
-						<a class="jiathis_button_douban"></a>
-						<a class="jiathis_button_weixin"></a>
+					<div style="text-align: center;">
+						<div class="jiathis_style_32x32">
+							<a class="jiathis_button_tsina"></a>
+							<a class="jiathis_button_tieba"></a>
+							<a class="jiathis_button_qzone"></a>
+							<a class="jiathis_button_cqq"></a>
+							<a class="jiathis_button_douban"></a>
+							<a class="jiathis_button_weixin"></a>
+						</div>
 					</div>
 					<!-- JiaThis Button END -->
 				</div>

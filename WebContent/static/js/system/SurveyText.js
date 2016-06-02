@@ -164,6 +164,7 @@ function submitanswer(){
 		async : false,
 		success : function(data) {
 			if(data.resultCode == 0){
+				window.parent.rollback();
 				alert("提交成功!");
 				//back();
 //				if(infos == 0){
@@ -176,7 +177,7 @@ function submitanswer(){
 //					}
 //					top.location.href=infomationdesc;
 //				}
-				top.location.href ="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
+				window.location.href ="/system/startsurvey/thanks?infos="+infos+"&thankstring="+infomationdesc;
 			}else{
 				alert(data.resultMessage);
 			}
