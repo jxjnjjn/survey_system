@@ -17,10 +17,8 @@
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid">
-		<ul id="contentUl" class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a>我的好友</a></li>
-		</ul>
+	<div id="contentDiv" class="container-fluid panel panel-new">
+	
 		<form class="form-inline" style="margin-top: 10px;">
 			<div class="form-group">
 				<label for="friend_name">好友名：</label>
@@ -30,7 +28,7 @@
 				<button type="button" class="btn btn-add-new" id="addfriendbtn">添加好友</button>
 			</div>
 			<div class="form-group">
-				<p class="text-muted" style="font-size: 18px;">  *如果你的好友竞猜正确，你将获得100元奖励</p>
+				<div class="text-muted" style="font-size: 18px;">  *如果你的好友竞猜正确，你将获得100元奖励</div>
 			</div>
 		</form>
 		<div id="listDiv" class="listDiv">
