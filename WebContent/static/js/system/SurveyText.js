@@ -1,57 +1,7 @@
 /*=======================================*/
 /*	@author noviachan                    */
 /*=======================================*/
-var jiathis_config;
-var urlString = "http://www.jcai8.com:8080";
-
-$(document).ready(function(){
-	showsurvey();
-	jiathis_config = { 
-			url: urlString+"/system/register"
-		}
-});
-
-$(".jiathis_button_tsina").on('click',function(){
-	sharing(1);
-	jiathis_config = { 
-			url: urlString+"/system/register?source=1"
-		}
-});
-
-$(".jiathis_button_tieba").on('click',function(){
-	sharing(2);
-	jiathis_config = { 
-			url: urlString+"/system/register?source=2"
-		}
-});
-
-$(".jiathis_button_qzone").on('click',function(){
-	sharing(3); 
-	jiathis_config = { 
-			url: urlString+"/system/register?source=3"
-		}
-});
-
-$(".jiathis_button_cqq").on('click',function(){
-	sharing(4); 
-	jiathis_config = { 
-			url: urlString+"/system/register?source=4"
-		}
-});
-
-$(".jiathis_button_douban").on('click',function(){
-	sharing(5); 
-	jiathis_config = { 
-			url: urlString+"/system/register?source=5"
-		}
-});
-
-$(".jiathis_button_weixin").on('click',function(){
-	sharing(6);
-	jiathis_config = { 
-			url: urlString+"/system/register?source=6"
-		} 
-});
+showsurvey();
 
 $("#backbtn").on('click',function(){
 	back();
@@ -133,7 +83,6 @@ function getfillinblankanswer(){
 		index = index +1;
 	}while(fillinblankexist > 0);
 	
-	//console.log(datasent);
 	return datasent;
 }
 
@@ -283,29 +232,6 @@ function createtext(surveytext){
 		}
 	}
 	return Stemp;
-}
-
-function sharing(num){
-	var username = $("#user_name").val();
-	var surveyname = $("#survey_name").val();
-	$.ajax({
-		type : "GET",
-		url : "/system/startsurvey/sharing",
-		dataType : "json",
-		contentType : "application/json;charset=utf-8",
-		data : {
-			surveyname:surveyname,
-			username:username,
-			num:num},
-		async : true,
-		success : function(data) {
-			if(data.resultCode == 0){
-				//alert(data.resultMessage);
-			}else{
-				alert(data.resultMessage);
-			}
-		}
-	});
 }
 
 function back(){

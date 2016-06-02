@@ -20,17 +20,10 @@
 	<div class="container-fluid">
 		<input type="hidden" name="thankstring" id="thankstring" value="${thankstring}">
 		<input type="hidden" name="infos" id="infos" value="${infos}">
+		<input type="hidden" name="user_name" id="user_name" value="${username}">
+		<input type="hidden" name="survey_name" id="survey_name" value="${surveyname}">
 		<div id="listDiv" class="listDiv">
 			<div id="showsurveypanel" class="panel panel-new">
-				<div class="panel-heading panel-heading-new">
-					<div class="row">
-						<div class="col-xs-10 col-md-5">
-							<h4 style="margin-top: 0px; margin-bottom: 0px;">
-								<strong>感谢页面</strong>
-							</h4>
-						</div>
-					</div>
-				</div>
 				<div class="panel-body">
 					<div style="text-align: center;padding: 100px;">
 						<img src="/static/img/100.jpg" class="img-rounded" style="width:400px;height:200px;">
@@ -72,6 +65,76 @@
 				thankstring = "http://" + thankstring;
 			}
 			//setTimeout("top.location.href = '" + thankstring + "'",3000);
+		}
+		
+		var jiathis_config= { 
+				url: urlString+"/system/register"
+			}
+		var urlString = "http://www.jcai8.com:8080";
+
+		$(".jiathis_button_tsina").on('click',function(){
+			sharing(1);
+			jiathis_config = { 
+					url: urlString+"/system/register?source=1"
+				}
+		});
+
+		$(".jiathis_button_tieba").on('click',function(){
+			sharing(2);
+			jiathis_config = { 
+					url: urlString+"/system/register?source=2"
+				}
+		});
+
+		$(".jiathis_button_qzone").on('click',function(){
+			sharing(3); 
+			jiathis_config = { 
+					url: urlString+"/system/register?source=3"
+				}
+		});
+
+		$(".jiathis_button_cqq").on('click',function(){
+			sharing(4); 
+			jiathis_config = { 
+					url: urlString+"/system/register?source=4"
+				}
+		});
+
+		$(".jiathis_button_douban").on('click',function(){
+			sharing(5); 
+			jiathis_config = { 
+					url: urlString+"/system/register?source=5"
+				}
+		});
+
+		$(".jiathis_button_weixin").on('click',function(){
+			sharing(6);
+			jiathis_config = { 
+					url: urlString+"/system/register?source=6"
+				} 
+		});
+		
+		function sharing(num){
+			var username = $("#user_name").val();
+			var surveyname = $("#survey_name").val();
+			$.ajax({
+				type : "GET",
+				url : "/system/startsurvey/sharing",
+				dataType : "json",
+				contentType : "application/json;charset=utf-8",
+				data : {
+					surveyname:surveyname,
+					username:username,
+					num:num},
+				async : true,
+				success : function(data) {
+					if(data.resultCode == 0){
+						//alert(data.resultMessage);
+					}else{
+						alert(data.resultMessage);
+					}
+				}
+			});
 		}
 	</script>
 </body>

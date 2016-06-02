@@ -18,18 +18,8 @@
 </head>
 <body>
 	<div id="contentDiv" class="container-fluid-new">
-		<button type="button" class="btn btn-default" id="backbtn">返回</button>
 		<div id="listDiv" class="listDiv-new">
 			<div id="showsurveypanel" class="panel panel-new" style="display: none;">
-				<div class="panel-heading panel-heading-new">
-					<div class="row">
-						<div class="col-xs-10 col-md-5">
-							<h4 style="margin-top: 0px; margin-bottom: 0px;">
-								<strong>问卷调查</strong>
-							</h4>
-						</div>
-					</div>
-				</div>
 				<div class="panel-body">
 					<form id="showsurveyform">
 						<input type="hidden" name="user_name" id="user_name" value="${username}">
@@ -50,16 +40,6 @@
 							</div>
 						</div>
 					</form>
-					<!-- JiaThis Button BEGIN -->
-					<div class="jiathis_style_32x32 pull-right">
-						<a class="jiathis_button_tsina"></a>
-						<a class="jiathis_button_tieba"></a>
-						<a class="jiathis_button_qzone"></a>
-						<a class="jiathis_button_cqq"></a>
-						<a class="jiathis_button_douban"></a>
-						<a class="jiathis_button_weixin"></a>
-					</div>
-					<!-- JiaThis Button END -->
 				</div>
 			</div>
 		</div>

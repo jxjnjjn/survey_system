@@ -17,7 +17,7 @@
 	<link href="/static/css/system/dashboard.css" rel="stylesheet">
 </head>
 <body>
-	<div id="contentDiv" class="container-fluid-new">
+	<div id="contentDiv" class="container-fluid-new panel panel-new">
 		<div id="listDiv" class="listDiv-new">
 			<div id="tablepanel" class="panel   panel-new">
 				<div class="panel-heading panel-heading-new">
