@@ -45,7 +45,7 @@
 						<div>
 							<input type="button" value="登录" id="loginBtn"/>
 						</div>
-						<div style="padding: 10px;">
+						<div style="padding: 20px;">
 							<a href="/system/forgetpassword" class="pull-left"><span style="font-weight:bold;color:rgb(237,148,66);">忘记密码</span></a>
 							<a href="/system/register" class="pull-right"><span style="font-weight:bold;color:rgb(237,148,66);">会员注册</span></a>
 						</div>
