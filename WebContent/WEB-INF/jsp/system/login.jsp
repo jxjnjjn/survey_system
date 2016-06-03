@@ -56,16 +56,16 @@
 		</div>
 		<div id="loginfoot" class="row">
 		  <div class="col-md-3 center-block" style="text-align: center;">
-		  	<div class="footimg"><img src="/static/img/icon_1.png" class="img-rounded"><h3 class="text-muted">免费注册5秒</h3></div>
+		  	<div class="footimg"><img src="/static/img/icon_1.png" class="img-rounded"><h4 class="text-muted">免费注册5秒</h4></div>
 		  </div>
 		  <div class="col-md-3 center-block" style="text-align: center;">
-		  	<div class="footimg"><img src="/static/img/icon_2.png" class="img-rounded"><h3 class="text-muted">免费答题30秒</h3></div>
+		  	<div class="footimg"><img src="/static/img/icon_2.png" class="img-rounded"><h4 class="text-muted">免费答题30秒</h4></div>
 		  </div>
 		  <div class="col-md-3 center-block" style="text-align: center;">
-		  	<div class="footimg"><img src="/static/img/icon_3.png" class="img-rounded"><h3 class="text-muted">高额奖励1000元</h3></div>
+		  	<div class="footimg"><img src="/static/img/icon_3.png" class="img-rounded"><h4 class="text-muted">高额奖励1000元</h4></div>
 		  </div>
 		  <div class="col-md-3 center-block" style="text-align: center;">
-		  	<div class="footimg"><img src="/static/img/icon_4.png" class="img-rounded"><h3 class="text-muted">邀请好友100元</h3></div>
+		  	<div class="footimg"><img src="/static/img/icon_4.png" class="img-rounded"><h4 class="text-muted">邀请好友100元</h4></div>
 		  </div>
 		</div>
 		
