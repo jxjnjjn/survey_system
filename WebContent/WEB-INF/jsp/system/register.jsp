@@ -17,6 +17,8 @@
 	<link href="/static/css/system/login.css" rel="stylesheet">
 </head>
 <body>
+<div class="container-fluid">
+<div id="logintop" class="row">
 	<div id="loginup">
 	<div id="content">
 		<form id="registerForm">
@@ -45,6 +47,22 @@
 		</form>
 	</div>
 	</div>
+	</div>
+		<div id="loginfoot" class="row">
+		  <div class="col-md-3 center-block" style="text-align: center;">
+		  	<div class="footimg"><img src="/static/img/icon_1.png" class="img-rounded"><h3 class="text-muted">免费注册5秒</h3></div>
+		  </div>
+		  <div class="col-md-3 center-block" style="text-align: center;">
+		  	<div class="footimg"><img src="/static/img/icon_2.png" class="img-rounded"><h3 class="text-muted">免费答题30秒</h3></div>
+		  </div>
+		  <div class="col-md-3 center-block" style="text-align: center;">
+		  	<div class="footimg"><img src="/static/img/icon_3.png" class="img-rounded"><h3 class="text-muted">高额奖励1000元</h3></div>
+		  </div>
+		  <div class="col-md-3 center-block" style="text-align: center;">
+		  	<div class="footimg"><img src="/static/img/icon_4.png" class="img-rounded"><h3 class="text-muted">邀请好友100元</h3></div>
+		  </div>
+		</div>
+		</div>
 	<jsp:include page="common/footerSideBar.jsp" />
 	<!-- Bootstrap core JavaScript================================================== -->
 	<!-- 请首先引用jquery，再引用其他js文件 -->
