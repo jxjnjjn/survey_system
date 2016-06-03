@@ -12,8 +12,16 @@
 	height:600px;
 	width:1200px;
 }
-#loginleft{
-
+#content{
+	margin: 20px auto;
+	padding: 30px;
+	border:3px solid rgb(237,148,66);
+	height:550px;
+	width:350px;
+	text-align: center;
+	background-color: #000000;
+	filter:alpha(opacity=50);  
+    opacity: 0.5;  
 }
 #loginjumbo{
 	margin: auto;
@@ -25,4 +33,28 @@
 	margin: auto;
 	padding: 30px;
 	text-align: center;
+}
+.myinput{
+	width: 250px;
+	height:50px;
+	margin: 10px;
+	padding: 10px;
+	border:3px solid rgb(237,148,66);
+}
+#forgetpasswordBtn,
+#registerBtn,
+#validcodeBtn,
+#loginBtn{
+	width: 250px;
+	height:50px;
+	margin: 10px;
+	padding: 10px;
+	color:rgb(255,255,255);
+	background-color:rgb(237,148,66);
+	border-color:rgb(237,148,66);
+}
+
+#forgetpasswordForm,
+#registerForm{
+	margin-top: -40px;
 }

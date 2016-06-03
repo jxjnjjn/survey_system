@@ -28,30 +28,29 @@
 					<div id="loginjumbo">
 					  <h1><strong><span style="font-weight:bold;color:rgb(237,148,66);">开创免费竞猜先河</span></strong></h1>
 					  <h2><strong><span style="font-weight:bold;color:rgb(255,255,255);">只需30秒，赢取1000元</span></strong></h2>
-					  <p><a class="btn btn-primary btn-lg" href="#" role="button">查看今日竞猜</a></p>
+					  <p><a  id="questionBtn" class="btn btn-primary btn-lg" href="#" role="button">查看今日竞猜</a></p>
 					</div>
 				</div>
 			</div>
 			<div id="loginright" class="col-md-4">
-				<section id="content">
+				<div id="content">
 					<form id="loginForm">
-						<h1>会员登陆</h1>
+						<h1><span style="font-weight:bold;color:rgb(255,255,255);">注册|</span><img class="img-rounded" src="/static/img/1.png"></h1>
 						<div>
-							<input type="text" placeholder="手机号/用户名" name="user_name" id="user_name" />
+							<input type="text" placeholder="手机号/用户名" name="user_name" id="user_name" class="myinput"/>
 						</div>
 						<div>
-							<input type="password" placeholder="密码" name="password" id="password" />
+							<input type="password" placeholder="密码" name="password" id="password"  class="myinput"/>
 						</div>
 						<div>
 							<input type="button" value="登录" id="loginBtn"/>
-							<input type="button" value="预览题目" id="questionBtn"/>
 						</div>
-						<div>
-							<a href="/system/forgetpassword">忘记密码</a>
-							<a href="/system/register">会员注册</a>
+						<div style="padding: 10px;">
+							<a href="/system/forgetpassword" class="pull-left"><span style="font-weight:bold;color:rgb(237,148,66);">忘记密码</span></a>
+							<a href="/system/register" class="pull-right"><span style="font-weight:bold;color:rgb(237,148,66);">会员注册</span></a>
 						</div>
 					</form><!-- form -->
-				</section><!-- content -->
+				</div><!-- content -->
 			</div>
 			</div>
 		</div>
