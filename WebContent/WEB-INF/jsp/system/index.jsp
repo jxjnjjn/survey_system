@@ -23,7 +23,7 @@
 				<iframe id="mainframe" frameborder="0" src="/system/startsurvey" name="mainframe"></iframe>
 			</div>
 			<!--  <div style="z-index:9999;display: inline-block;top:200px;position: fixed;right:0px">-->
-			<div style="display: inline-block;top:200px;position: absolute;margin-left:600px;margin-top:80px">
+			<div style="display: inline-block;top:200px;position: absolute;margin-top:80px;right:20px;">
 				<img src="/static/img/QQ.jpg" class="img-rounded" 
 				onclick="javascript:window.open('http://b.qq.com/webc.htm?new=0&sid=800147808&o=test&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');">
 			</div>

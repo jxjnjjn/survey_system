@@ -33,7 +33,7 @@
 			<div>
 				<input type="password" placeholder="确认新密码"  name="repassword" id="repassword"  class="myinput"/>
 			</div>
-			<div style="margin-bottom: 10px;">
+			<div>
 				<button class="btn btn-default" type="button" id="validcodeBtn">发送到手机获取验证码</button>
 			</div>
 			<div>
