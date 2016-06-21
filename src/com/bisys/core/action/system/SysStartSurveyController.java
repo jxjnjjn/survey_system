@@ -40,8 +40,14 @@ public class SysStartSurveyController{
 	}
 	
 	@RequestMapping(value = "surveytext", method = RequestMethod.GET)
-	public String surveytext(String username, String surveyname, HttpServletRequest request){
+	public String surveytext(String username, String surveyname,@RequestParam(required=false)String source, HttpServletRequest request){
 		logger.info("surveytext页面"+username+surveyname);
+		if(null == source){
+			if(null == request.getSession().getAttribute("source")){
+				source="0";
+			}
+		}
+		request.getSession().setAttribute("source", source);
 		request.getSession().setAttribute("username", username);
 		request.getSession().setAttribute("surveyname", surveyname);
 		return "system/SurveyText";

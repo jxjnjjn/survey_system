@@ -54,6 +54,8 @@
 	<script type="text/javascript">
 		var infos = $("#infos").val();
 		var thankstring = $("#thankstring").val();
+		var username = $("#user_name").val();
+		var surveyname = $("#survey_name").val();
 		if(infos == 0){
 			//alert(infomationdesc);
 			//back();
@@ -67,50 +69,50 @@
 			//setTimeout("top.location.href = '" + thankstring + "'",3000);
 		}
 		
+		var urlString = "http://www.jcai8.com:8080/system/startsurvey/surveytext?username=" + username + "&surveyname=" + surveyname;
 		var jiathis_config= { 
-				url: urlString+"/system/register"
+				url: urlString
 			}
-		var urlString = "http://www.jcai8.com:8080";
 
 		$(".jiathis_button_tsina").on('click',function(){
 			sharing(1);
 			jiathis_config = { 
-					url: urlString+"/system/register?source=1"
+					url: urlString+"&source=1"
 				}
 		});
 
 		$(".jiathis_button_tieba").on('click',function(){
 			sharing(2);
 			jiathis_config = { 
-					url: urlString+"/system/register?source=2"
+					url: urlString+"&source=2"
 				}
 		});
 
 		$(".jiathis_button_qzone").on('click',function(){
 			sharing(3); 
 			jiathis_config = { 
-					url: urlString+"/system/register?source=3"
+					url: urlString+"&source=3"
 				}
 		});
 
 		$(".jiathis_button_cqq").on('click',function(){
 			sharing(4); 
 			jiathis_config = { 
-					url: urlString+"/system/register?source=4"
+					url: urlString+"&source=4"
 				}
 		});
 
 		$(".jiathis_button_douban").on('click',function(){
 			sharing(5); 
 			jiathis_config = { 
-					url: urlString+"/system/register?source=5"
+					url: urlString+"&source=5"
 				}
 		});
 
 		$(".jiathis_button_weixin").on('click',function(){
 			sharing(6);
 			jiathis_config = { 
-					url: urlString+"/system/register?source=6"
+					url: urlString+"&source=6"
 				} 
 		});
 		

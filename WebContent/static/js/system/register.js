@@ -79,8 +79,8 @@ function validcode() {
 		alert("请正确输入手机号！");
 		return;
 	}
-	
-	//$("#authCodeImg").attr("src", "/valid/getValidCode?randomString="+random);
+	//30秒后重新发送验证码
+	showtime(30);
 	$.ajax({
 		type : "GET",
 		url : "/valid/getvaildcode",
@@ -92,11 +92,31 @@ function validcode() {
 		success : function(data) {
 			if(data.resultCode == 0){   //获取验证码
 				alert(data.resultMessage);
+				//showtime(30);
 			}else{
 				alert(data.resultMessage);
 			}
 		}
 	});
+}
+
+function showtime(t){ 
+	$("#validcodeBtn").prop('disabled', true); 
+    for(var i=1;i<=t;i++) { 
+        window.setTimeout("update_p(" + i + ","+t+")", i * 1000); 
+    } 
+ 
+} 
+ 
+function update_p(num,t) { 
+    if(num == t) { 
+    	$("#validcodeBtn").text("重新发送手机验证码 "); 
+    	$("#validcodeBtn").prop('disabled', false); 
+    } 
+    else { 
+        var printnr = t-num; 
+        $("#validcodeBtn").text("(" + printnr + ")秒后重新发送"); 
+    } 
 }
 
 $.fn.serializeObject = function() {     
